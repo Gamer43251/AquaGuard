@@ -381,7 +381,7 @@
                   <Color blue="0" green="0" red="ff" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Error Message"/>
+                <Property name="text" type="java.lang.String" value="Error Message Goes Here"/>
               </Properties>
             </Component>
           </SubComponents>

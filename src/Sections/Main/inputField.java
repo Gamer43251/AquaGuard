@@ -63,7 +63,7 @@ public class inputField extends javax.swing.JPanel {
             }
         });
         Layer.setLayer(inputField, javax.swing.JLayeredPane.PALETTE_LAYER);
-        Layer.add(inputField, new org.netbeans.lib.awtextra.AbsoluteConstraints(372, 6, 730, 88));
+        Layer.add(inputField, new org.netbeans.lib.awtextra.AbsoluteConstraints(302, 6, 800, 88));
 
         add(Layer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 100));
     }// </editor-fold>//GEN-END:initComponents

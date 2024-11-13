@@ -4,6 +4,16 @@ import java.awt.CardLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.geom.RoundRectangle2D;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.FloatControl;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JFrame;
 
 /*
@@ -50,6 +60,36 @@ public class AquaGuardApp extends javax.swing.JFrame {
             }
         });
 
+    }
+    
+    public void bubblePop(){
+        String soundName = "src/Audio/bubblePop.wav";    
+        AudioInputStream audioInputStream = null;
+        
+        try {
+            audioInputStream = AudioSystem.getAudioInputStream(new File(soundName).getAbsoluteFile());
+        } catch (UnsupportedAudioFileException ex) {
+            Logger.getLogger(AquaGuardApp.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(AquaGuardApp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Clip clip = null;
+        try {
+            clip = AudioSystem.getClip();
+        } catch (LineUnavailableException ex) {
+            Logger.getLogger(AquaGuardApp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            clip.open(audioInputStream);
+        } catch (LineUnavailableException ex) {
+            Logger.getLogger(AquaGuardApp.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(AquaGuardApp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        FloatControl volume = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+        volume.setValue(-20);
+        System.out.println(volume.getMinimum());
+        clip.start();
     }
 
     /**
@@ -245,7 +285,7 @@ public class AquaGuardApp extends javax.swing.JFrame {
         loginErrorLabel.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         loginErrorLabel.setForeground(new java.awt.Color(255, 0, 0));
         loginErrorLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        loginErrorLabel.setText("Error Message");
+        loginErrorLabel.setText("Error Message Goes Here");
 
         javax.swing.GroupLayout loginCardLayout = new javax.swing.GroupLayout(loginCard);
         loginCard.setLayout(loginCardLayout);
@@ -432,11 +472,13 @@ public class AquaGuardApp extends javax.swing.JFrame {
     private void FishFallBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FishFallBTNMouseClicked
         cl.show(cards,"fishFall");
         nameLabel.setText("FishFall");
+        bubblePop();
     }//GEN-LAST:event_FishFallBTNMouseClicked
 
     private void homeBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeBTNMouseClicked
         cl.show(cards,"home");
         nameLabel.setText("Home");
+        bubblePop();
     }//GEN-LAST:event_homeBTNMouseClicked
 
     private void exitBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitBTNMouseClicked
