@@ -39,7 +39,7 @@ public class AquaGuardApp extends javax.swing.JFrame {
         this.setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 50, 50));
         
     }
-    
+    // method for moving app around the screen since it is undecorated
     public void dragWindow(JFrame frame){
         
         frame.addMouseListener(new MouseAdapter() {
@@ -61,34 +61,25 @@ public class AquaGuardApp extends javax.swing.JFrame {
         });
 
     }
-    
+    // method for bubble popping noise when buttons are clicked
     public void bubblePop(){
         String soundName = "src/Audio/bubblePop.wav";    
         AudioInputStream audioInputStream = null;
-        
+        Clip clip = null;
         try {
             audioInputStream = AudioSystem.getAudioInputStream(new File(soundName).getAbsoluteFile());
+            clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
         } catch (UnsupportedAudioFileException ex) {
             Logger.getLogger(AquaGuardApp.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(AquaGuardApp.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        Clip clip = null;
-        try {
-            clip = AudioSystem.getClip();
         } catch (LineUnavailableException ex) {
-            Logger.getLogger(AquaGuardApp.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            clip.open(audioInputStream);
-        } catch (LineUnavailableException ex) {
-            Logger.getLogger(AquaGuardApp.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
             Logger.getLogger(AquaGuardApp.class.getName()).log(Level.SEVERE, null, ex);
         }
         FloatControl volume = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
         volume.setValue(-20);
-        System.out.println(volume.getMinimum());
+        
         clip.start();
     }
 
@@ -141,7 +132,9 @@ public class AquaGuardApp extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(1500, 900));
 
         titleBar.setBackground(new java.awt.Color(1, 187, 187));
-        titleBar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(1, 187, 187), 5));
+        titleBar.setMaximumSize(new java.awt.Dimension(1500, 50));
+        titleBar.setMinimumSize(new java.awt.Dimension(1500, 50));
+        titleBar.setPreferredSize(new java.awt.Dimension(1500, 50));
 
         exitBTN.setBackground(new java.awt.Color(49, 122, 139));
         exitBTN.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
@@ -196,7 +189,7 @@ public class AquaGuardApp extends javax.swing.JFrame {
         );
         titleBarLayout.setVerticalGroup(
             titleBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
             .addGroup(titleBarLayout.createSequentialGroup()
                 .addGroup(titleBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(minimiseBTN, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -459,7 +452,7 @@ public class AquaGuardApp extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(topBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(cards, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(cards, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
