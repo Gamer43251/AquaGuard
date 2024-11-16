@@ -68,7 +68,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="Sections.FishFall.FishFallGame" name="Game">
+    <Container class="aquaguard.FishFallGame" name="Game">
 
       <Layout>
         <DimensionLayout dim="0">
@@ -173,7 +173,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="Sections.FishFall.Leaderboard" name="leaderboard1">
+    <Component class="aquaguard.Leaderboard" name="leaderboard1">
     </Component>
     <Component class="javax.swing.JLabel" name="instructions">
       <Properties>

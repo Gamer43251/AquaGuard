@@ -103,24 +103,24 @@ public class AquaGuardApp extends javax.swing.JFrame {
         logoutLabel = new javax.swing.JLabel();
         cards = new javax.swing.JPanel();
         loginCard = new javax.swing.JPanel();
-        usernameInputField = new Sections.Main.inputField();
-        passwordInputField = new Sections.Main.inputField();
+        usernameInputField = new aquaguard.inputField();
+        passwordInputField = new aquaguard.inputField();
         loginBTN = new javax.swing.JLabel();
         createAccountBTN = new javax.swing.JLabel();
         loginErrorLabel = new javax.swing.JLabel();
         signupCard = new javax.swing.JPanel();
-        signupUsernameInputField = new Sections.Main.inputField();
-        signupPasswordInputField = new Sections.Main.inputField();
+        signupUsernameInputField = new aquaguard.inputField();
+        signupPasswordInputField = new aquaguard.inputField();
         SignupBTN = new javax.swing.JLabel();
         signupLoginBTN = new javax.swing.JLabel();
         signupErrorLabel = new javax.swing.JLabel();
-        confirmPasswordInputField = new Sections.Main.inputField();
+        confirmPasswordInputField = new aquaguard.inputField();
         homeCard = new javax.swing.JPanel();
         descriptionText = new javax.swing.JLabel();
         shoppingBTN = new javax.swing.JLabel();
         FishFallBTN = new javax.swing.JLabel();
         AdoptionBTN = new javax.swing.JLabel();
-        fishFallSection1 = new Sections.FishFall.FishFallSection();
+        fishFallSection1 = new aquaguard.FishFallSection();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Aqua Guard");
@@ -550,11 +550,11 @@ public class AquaGuardApp extends javax.swing.JFrame {
     private javax.swing.JLabel FishFallBTN;
     private javax.swing.JLabel SignupBTN;
     private javax.swing.JPanel cards;
-    private Sections.Main.inputField confirmPasswordInputField;
+    private aquaguard.inputField confirmPasswordInputField;
     private javax.swing.JLabel createAccountBTN;
     private javax.swing.JLabel descriptionText;
     private javax.swing.JLabel exitBTN;
-    private Sections.FishFall.FishFallSection fishFallSection1;
+    private aquaguard.FishFallSection fishFallSection1;
     private javax.swing.JLabel homeBTN;
     private javax.swing.JPanel homeCard;
     private javax.swing.JLabel iconLabel;
@@ -564,16 +564,16 @@ public class AquaGuardApp extends javax.swing.JFrame {
     private javax.swing.JLabel logoutLabel;
     private javax.swing.JLabel minimiseBTN;
     private javax.swing.JLabel nameLabel;
-    private Sections.Main.inputField passwordInputField;
+    private aquaguard.inputField passwordInputField;
     private javax.swing.JLabel shoppingBTN;
     private javax.swing.JPanel signupCard;
     private javax.swing.JLabel signupErrorLabel;
     private javax.swing.JLabel signupLoginBTN;
-    private Sections.Main.inputField signupPasswordInputField;
-    private Sections.Main.inputField signupUsernameInputField;
+    private aquaguard.inputField signupPasswordInputField;
+    private aquaguard.inputField signupUsernameInputField;
     private javax.swing.JPanel titleBar;
     private javax.swing.JLabel titleLabel;
     private javax.swing.JPanel topBar;
-    private Sections.Main.inputField usernameInputField;
+    private aquaguard.inputField usernameInputField;
     // End of variables declaration//GEN-END:variables
 }

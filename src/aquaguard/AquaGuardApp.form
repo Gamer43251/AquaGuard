@@ -344,12 +344,12 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="Sections.Main.inputField" name="usernameInputField">
+            <Component class="aquaguard.inputField" name="usernameInputField">
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="usernameInputField.setTag(&quot;Username&quot;);"/>
               </AuxValues>
             </Component>
-            <Component class="Sections.Main.inputField" name="passwordInputField">
+            <Component class="aquaguard.inputField" name="passwordInputField">
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="passwordInputField.setTag(&quot;Password&quot;);"/>
               </AuxValues>
@@ -445,12 +445,12 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="Sections.Main.inputField" name="signupUsernameInputField">
+            <Component class="aquaguard.inputField" name="signupUsernameInputField">
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="signupUsernameInputField.setTag(&quot;Username&quot;);"/>
               </AuxValues>
             </Component>
-            <Component class="Sections.Main.inputField" name="signupPasswordInputField">
+            <Component class="aquaguard.inputField" name="signupPasswordInputField">
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="signupPasswordInputField.setTag(&quot;Password&quot;);"/>
               </AuxValues>
@@ -487,7 +487,7 @@
                 <Property name="text" type="java.lang.String" value="Error Message Goes Here"/>
               </Properties>
             </Component>
-            <Component class="Sections.Main.inputField" name="confirmPasswordInputField">
+            <Component class="aquaguard.inputField" name="confirmPasswordInputField">
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="confirmPasswordInputField.setTag(&quot;Confirm Password&quot;);"/>
               </AuxValues>
@@ -580,7 +580,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="Sections.FishFall.FishFallSection" name="fishFallSection1">
+        <Component class="aquaguard.FishFallSection" name="fishFallSection1">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
               <CardConstraints cardName="fishFall"/>

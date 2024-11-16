@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package Sections.FishFall;
+package aquaguard;
 
 /**
  *
@@ -68,60 +68,70 @@ public class Leaderboard extends javax.swing.JPanel {
 
         num1.setBackground(new java.awt.Color(1, 187, 187));
         num1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        num1.setForeground(new java.awt.Color(255, 255, 255));
         num1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         num1.setText("#1");
         num1.setOpaque(true);
 
         num2.setBackground(new java.awt.Color(0, 255, 255));
         num2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        num2.setForeground(new java.awt.Color(255, 255, 255));
         num2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         num2.setText("#2");
         num2.setOpaque(true);
 
         num3.setBackground(new java.awt.Color(1, 187, 187));
         num3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        num3.setForeground(new java.awt.Color(255, 255, 255));
         num3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         num3.setText("#3");
         num3.setOpaque(true);
 
         num4.setBackground(new java.awt.Color(0, 255, 255));
         num4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        num4.setForeground(new java.awt.Color(255, 255, 255));
         num4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         num4.setText("#4");
         num4.setOpaque(true);
 
         num5.setBackground(new java.awt.Color(1, 187, 187));
         num5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        num5.setForeground(new java.awt.Color(255, 255, 255));
         num5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         num5.setText("#5");
         num5.setOpaque(true);
 
         num6.setBackground(new java.awt.Color(0, 255, 255));
         num6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        num6.setForeground(new java.awt.Color(255, 255, 255));
         num6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         num6.setText("#6");
         num6.setOpaque(true);
 
         num7.setBackground(new java.awt.Color(1, 187, 187));
         num7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        num7.setForeground(new java.awt.Color(255, 255, 255));
         num7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         num7.setText("#7");
         num7.setOpaque(true);
 
         num8.setBackground(new java.awt.Color(0, 255, 255));
         num8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        num8.setForeground(new java.awt.Color(255, 255, 255));
         num8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         num8.setText("#8");
         num8.setOpaque(true);
 
         num9.setBackground(new java.awt.Color(1, 187, 187));
         num9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        num9.setForeground(new java.awt.Color(255, 255, 255));
         num9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         num9.setText("#9");
         num9.setOpaque(true);
 
         num10.setBackground(new java.awt.Color(0, 255, 255));
         num10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        num10.setForeground(new java.awt.Color(255, 255, 255));
         num10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         num10.setText("#10");
         num10.setOpaque(true);

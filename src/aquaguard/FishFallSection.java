@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package Sections.FishFall;
+package aquaguard;
 
 /**
  *
@@ -26,14 +26,14 @@ public class FishFallSection extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Game = new Sections.FishFall.FishFallGame();
+        Game = new aquaguard.FishFallGame();
         scoreLabelPane = new javax.swing.JLayeredPane();
         scoreLabel = new javax.swing.JLabel();
         scoreBackground = new javax.swing.JLabel();
         highscoreLabelPane = new javax.swing.JLayeredPane();
         highscoreLabel = new javax.swing.JLabel();
         highscoreBackground = new javax.swing.JLabel();
-        leaderboard1 = new Sections.FishFall.Leaderboard();
+        leaderboard1 = new aquaguard.Leaderboard();
         instructions = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(1500, 800));
@@ -144,12 +144,12 @@ public class FishFallSection extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private Sections.FishFall.FishFallGame Game;
+    private aquaguard.FishFallGame Game;
     private javax.swing.JLabel highscoreBackground;
     private javax.swing.JLabel highscoreLabel;
     private javax.swing.JLayeredPane highscoreLabelPane;
     private javax.swing.JLabel instructions;
-    private Sections.FishFall.Leaderboard leaderboard1;
+    private aquaguard.Leaderboard leaderboard1;
     private javax.swing.JLabel scoreBackground;
     private javax.swing.JLabel scoreLabel;
     private javax.swing.JLayeredPane scoreLabelPane;
