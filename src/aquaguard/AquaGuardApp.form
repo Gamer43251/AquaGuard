@@ -303,7 +303,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="loginErrorLabel" alignment="1" min="-2" pref="1150" max="-2" attributes="0"/>
                           <Component id="createAccountBTN" min="-2" pref="1150" max="-2" attributes="0"/>
@@ -1700,8 +1700,12 @@
         </Container>
         <Container class="javax.swing.JPanel" name="adoptionCard">
           <Properties>
+            <Property name="name" type="java.lang.String" value="adoption" noResource="true"/>
             <Property name="opaque" type="boolean" value="false"/>
           </Properties>
+          <AccessibilityProperties>
+            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+          </AccessibilityProperties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
               <CardConstraints cardName="adoption"/>
@@ -1711,15 +1715,335 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="1500" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace pref="552" max="32767" attributes="0"/>
+                              <Component id="updateBTN1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="mainmenuBTN1" min="-2" pref="120" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="548" max="-2" attributes="0"/>
+                              <Component id="addBTN1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="exitBTN2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="clearBTN1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="638" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="tonextjformBTN" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="504" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="nameLBL1" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="nameTF1" pref="384" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                  <Component id="sexLBL" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="ageLBL" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="sexTF" pref="384" max="32767" attributes="0"/>
+                                                  <Component id="ageTF" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="667" max="-2" attributes="0"/>
+                                      <Component id="animaladopteeLBL" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="donationamountLBL" min="-2" max="-2" attributes="0"/>
+                                          <Component id="frequencyLBL" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                      <Component id="frequencyTF" min="-2" pref="95" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="adopteremailLBL" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Component id="adopternameLBL" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="accountnumberLBL" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="adopternameTF" min="-2" pref="95" max="-2" attributes="0"/>
+                                          <Component id="accountnumberTF" min="-2" pref="95" max="-2" attributes="0"/>
+                                          <Component id="adopteremailTF" min="-2" pref="95" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Component id="donationamountTF" alignment="1" min="-2" pref="95" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="addBTN" min="-2" max="-2" attributes="0"/>
+                                          <Component id="exitBTN1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="updateBTN" min="-2" max="-2" attributes="0"/>
+                                          <Component id="clearBTN" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="mainmenuBTN" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="topreviousjformBTN" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="406" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="634" max="-2" attributes="0"/>
+                      <Component id="animaladopterregistrationLBL" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="800" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
+                      <Component id="animaladopteeLBL" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="nameTF1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="nameLBL1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="ageLBL" min="-2" max="-2" attributes="0"/>
+                          <Component id="ageTF" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="sexLBL" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="sexTF" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="addBTN1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="exitBTN2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="clearBTN1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="updateBTN1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="mainmenuBTN1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tonextjformBTN" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="120" max="32767" attributes="0"/>
+                      <Component id="animaladopterregistrationLBL" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="adopternameTF" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="adopternameLBL" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="addBTN" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="clearBTN" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="adopteremailLBL" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
+                          <Component id="adopteremailTF" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="exitBTN1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="updateBTN" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="accountnumberLBL" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="accountnumberTF" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="mainmenuBTN" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="topreviousjformBTN" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="donationamountTF" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="donationamountLBL" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="frequencyLBL" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="frequencyTF" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
           </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="adopternameLBL">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="ADOPTER NAME"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="adopternameTF">
+            </Component>
+            <Component class="javax.swing.JLabel" name="accountnumberLBL">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="ACCOUNT NUMBER"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="accountnumberTF">
+            </Component>
+            <Component class="javax.swing.JLabel" name="donationamountLBL">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="DONATION AMOUNT"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="donationamountTF">
+            </Component>
+            <Component class="javax.swing.JButton" name="addBTN">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="ADD"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="clearBTN">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="CLEAR"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="exitBTN1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="EXIT"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="frequencyLBL">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="FREQUENCY"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="frequencyTF">
+            </Component>
+            <Component class="javax.swing.JLabel" name="animaladopterregistrationLBL">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="ANIMAL ADOPTER REGISTRATION"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="adopteremailLBL">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="ADOPTER EMAIL"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="adopteremailTF">
+            </Component>
+            <Component class="javax.swing.JButton" name="updateBTN">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="UPDATE"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="mainmenuBTN">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="MAIN MENU"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="topreviousjformBTN">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="TO ANIMAL ADOPTEE"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="nameLBL1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="NAME:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="ageLBL">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="AGE:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="sexLBL">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="SEX:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="nameTF1">
+            </Component>
+            <Component class="javax.swing.JTextField" name="ageTF">
+            </Component>
+            <Component class="javax.swing.JTextField" name="sexTF">
+            </Component>
+            <Component class="javax.swing.JLabel" name="animaladopteeLBL">
+              <Properties>
+                <Property name="text" type="java.lang.String" value=" ANIMAL ADOPTEE "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="addBTN1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="ADD"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="clearBTN1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="CLEAR"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="updateBTN1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="UPDATE"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="exitBTN2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="EXIT"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="mainmenuBTN1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="MAIN MENU"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="tonextjformBTN">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="TO ANIMAL ADOPTER"/>
+              </Properties>
+            </Component>
+          </SubComponents>
         </Container>
       </SubComponents>
     </Container>

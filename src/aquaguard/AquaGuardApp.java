@@ -178,6 +178,36 @@ public class AquaGuardApp extends javax.swing.JFrame {
         remove6BTN = new javax.swing.JLabel();
         checkoutBTN = new javax.swing.JLabel();
         adoptionCard = new javax.swing.JPanel();
+        adopternameLBL = new javax.swing.JLabel();
+        adopternameTF = new javax.swing.JTextField();
+        accountnumberLBL = new javax.swing.JLabel();
+        accountnumberTF = new javax.swing.JTextField();
+        donationamountLBL = new javax.swing.JLabel();
+        donationamountTF = new javax.swing.JTextField();
+        addBTN = new javax.swing.JButton();
+        clearBTN = new javax.swing.JButton();
+        exitBTN1 = new javax.swing.JButton();
+        frequencyLBL = new javax.swing.JLabel();
+        frequencyTF = new javax.swing.JTextField();
+        animaladopterregistrationLBL = new javax.swing.JLabel();
+        adopteremailLBL = new javax.swing.JLabel();
+        adopteremailTF = new javax.swing.JTextField();
+        updateBTN = new javax.swing.JButton();
+        mainmenuBTN = new javax.swing.JButton();
+        topreviousjformBTN = new javax.swing.JButton();
+        nameLBL1 = new javax.swing.JLabel();
+        ageLBL = new javax.swing.JLabel();
+        sexLBL = new javax.swing.JLabel();
+        nameTF1 = new javax.swing.JTextField();
+        ageTF = new javax.swing.JTextField();
+        sexTF = new javax.swing.JTextField();
+        animaladopteeLBL = new javax.swing.JLabel();
+        addBTN1 = new javax.swing.JButton();
+        clearBTN1 = new javax.swing.JButton();
+        updateBTN1 = new javax.swing.JButton();
+        exitBTN2 = new javax.swing.JButton();
+        mainmenuBTN1 = new javax.swing.JButton();
+        tonextjformBTN = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Aqua Guard");
@@ -1060,20 +1090,211 @@ public class AquaGuardApp extends javax.swing.JFrame {
 
         cards.add(shop, "shop");
 
+        adoptionCard.setName("adoption"); // NOI18N
         adoptionCard.setOpaque(false);
+
+        adopternameLBL.setText("ADOPTER NAME");
+
+        accountnumberLBL.setText("ACCOUNT NUMBER");
+
+        donationamountLBL.setText("DONATION AMOUNT");
+
+        addBTN.setText("ADD");
+
+        clearBTN.setText("CLEAR");
+
+        exitBTN1.setText("EXIT");
+
+        frequencyLBL.setText("FREQUENCY");
+
+        animaladopterregistrationLBL.setText("ANIMAL ADOPTER REGISTRATION");
+
+        adopteremailLBL.setText("ADOPTER EMAIL");
+
+        updateBTN.setText("UPDATE");
+
+        mainmenuBTN.setText("MAIN MENU");
+
+        topreviousjformBTN.setText("TO ANIMAL ADOPTEE");
+
+        nameLBL1.setText("NAME:");
+
+        ageLBL.setText("AGE:");
+
+        sexLBL.setText("SEX:");
+
+        animaladopteeLBL.setText(" ANIMAL ADOPTEE ");
+
+        addBTN1.setText("ADD");
+
+        clearBTN1.setText("CLEAR");
+
+        updateBTN1.setText("UPDATE");
+
+        exitBTN2.setText("EXIT");
+
+        mainmenuBTN1.setText("MAIN MENU");
+
+        tonextjformBTN.setText("TO ANIMAL ADOPTER");
 
         javax.swing.GroupLayout adoptionCardLayout = new javax.swing.GroupLayout(adoptionCard);
         adoptionCard.setLayout(adoptionCardLayout);
         adoptionCardLayout.setHorizontalGroup(
             adoptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1500, Short.MAX_VALUE)
+            .addGroup(adoptionCardLayout.createSequentialGroup()
+                .addGroup(adoptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(adoptionCardLayout.createSequentialGroup()
+                        .addContainerGap(552, Short.MAX_VALUE)
+                        .addComponent(updateBTN1)
+                        .addGap(18, 18, 18)
+                        .addComponent(mainmenuBTN1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(adoptionCardLayout.createSequentialGroup()
+                        .addGap(548, 548, 548)
+                        .addComponent(addBTN1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(exitBTN2)
+                        .addGap(21, 21, 21)))
+                .addGap(27, 27, 27)
+                .addGroup(adoptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(adoptionCardLayout.createSequentialGroup()
+                        .addComponent(clearBTN1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 638, Short.MAX_VALUE))
+                    .addGroup(adoptionCardLayout.createSequentialGroup()
+                        .addComponent(tonextjformBTN)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(adoptionCardLayout.createSequentialGroup()
+                .addGroup(adoptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(adoptionCardLayout.createSequentialGroup()
+                        .addGroup(adoptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(adoptionCardLayout.createSequentialGroup()
+                                .addGap(504, 504, 504)
+                                .addGroup(adoptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(adoptionCardLayout.createSequentialGroup()
+                                        .addComponent(nameLBL1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(nameTF1, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE))
+                                    .addGroup(adoptionCardLayout.createSequentialGroup()
+                                        .addGroup(adoptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(sexLBL)
+                                            .addComponent(ageLBL))
+                                        .addGap(24, 24, 24)
+                                        .addGroup(adoptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(sexTF, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
+                                            .addComponent(ageTF)))))
+                            .addGroup(adoptionCardLayout.createSequentialGroup()
+                                .addGap(667, 667, 667)
+                                .addComponent(animaladopteeLBL)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, adoptionCardLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(adoptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(adoptionCardLayout.createSequentialGroup()
+                                .addGroup(adoptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(donationamountLBL)
+                                    .addComponent(frequencyLBL))
+                                .addGap(28, 28, 28)
+                                .addComponent(frequencyTF, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(adoptionCardLayout.createSequentialGroup()
+                                .addGroup(adoptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(adoptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(adoptionCardLayout.createSequentialGroup()
+                                            .addComponent(adopteremailLBL)
+                                            .addGap(25, 25, 25))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, adoptionCardLayout.createSequentialGroup()
+                                            .addComponent(adopternameLBL)
+                                            .addGap(25, 25, 25)))
+                                    .addGroup(adoptionCardLayout.createSequentialGroup()
+                                        .addComponent(accountnumberLBL)
+                                        .addGap(25, 25, 25)))
+                                .addGroup(adoptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(adopternameTF, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(accountnumberTF, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(adopteremailTF, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(donationamountTF, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(45, 45, 45)
+                        .addGroup(adoptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(adoptionCardLayout.createSequentialGroup()
+                                .addGroup(adoptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(addBTN)
+                                    .addComponent(exitBTN1))
+                                .addGap(18, 18, 18)
+                                .addGroup(adoptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(updateBTN)
+                                    .addComponent(clearBTN)))
+                            .addGroup(adoptionCardLayout.createSequentialGroup()
+                                .addComponent(mainmenuBTN)
+                                .addGap(18, 18, 18)
+                                .addComponent(topreviousjformBTN)))
+                        .addGap(406, 406, 406)))
+                .addContainerGap())
+            .addGroup(adoptionCardLayout.createSequentialGroup()
+                .addGap(634, 634, 634)
+                .addComponent(animaladopterregistrationLBL)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         adoptionCardLayout.setVerticalGroup(
             adoptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
+            .addGroup(adoptionCardLayout.createSequentialGroup()
+                .addGap(128, 128, 128)
+                .addComponent(animaladopteeLBL)
+                .addGap(18, 18, 18)
+                .addGroup(adoptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nameTF1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nameLBL1))
+                .addGap(18, 18, 18)
+                .addGroup(adoptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ageLBL)
+                    .addComponent(ageTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(adoptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(sexLBL)
+                    .addComponent(sexTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(adoptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addBTN1)
+                    .addComponent(exitBTN2)
+                    .addComponent(clearBTN1))
+                .addGap(18, 18, 18)
+                .addGroup(adoptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(updateBTN1)
+                    .addComponent(mainmenuBTN1)
+                    .addComponent(tonextjformBTN))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
+                .addComponent(animaladopterregistrationLBL)
+                .addGap(18, 18, 18)
+                .addGroup(adoptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(adopternameTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(adopternameLBL, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addBTN)
+                    .addComponent(clearBTN))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(adoptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(adopteremailLBL, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(adopteremailTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(exitBTN1)
+                    .addComponent(updateBTN))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(adoptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(accountnumberLBL)
+                    .addComponent(accountnumberTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(adoptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(mainmenuBTN)
+                    .addComponent(topreviousjformBTN))
+                .addGap(15, 15, 15)
+                .addGroup(adoptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(donationamountTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(donationamountLBL))
+                .addGap(18, 18, 18)
+                .addGroup(adoptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(frequencyLBL)
+                    .addComponent(frequencyTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(82, 82, 82))
         );
 
         cards.add(adoptionCard, "adoption");
+        adoptionCard.getAccessibleContext().setAccessibleName("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1196,9 +1417,21 @@ public class AquaGuardApp extends javax.swing.JFrame {
     private javax.swing.JLabel AdoptionBTN;
     private javax.swing.JLabel FishFallBTN;
     private javax.swing.JLabel SignupBTN;
+    private javax.swing.JLabel accountnumberLBL;
+    private javax.swing.JTextField accountnumberTF;
+    private javax.swing.JButton addBTN;
+    private javax.swing.JButton addBTN1;
     private javax.swing.JLabel addressLBL;
     private javax.swing.JTextArea addressTA;
+    private javax.swing.JLabel adopteremailLBL;
+    private javax.swing.JTextField adopteremailTF;
+    private javax.swing.JLabel adopternameLBL;
+    private javax.swing.JTextField adopternameTF;
     private javax.swing.JPanel adoptionCard;
+    private javax.swing.JLabel ageLBL;
+    private javax.swing.JTextField ageTF;
+    private javax.swing.JLabel animaladopteeLBL;
+    private javax.swing.JLabel animaladopterregistrationLBL;
     private javax.swing.JPanel basketJP;
     private javax.swing.JLabel basketLBL;
     private javax.swing.JPanel billingPanel;
@@ -1211,13 +1444,21 @@ public class AquaGuardApp extends javax.swing.JFrame {
     private javax.swing.JLabel buy6BTN;
     private javax.swing.JPanel cards;
     private javax.swing.JLabel checkoutBTN;
+    private javax.swing.JButton clearBTN;
+    private javax.swing.JButton clearBTN1;
     private aquaguard.inputField confirmPasswordInputField;
     private javax.swing.JLabel createAccountBTN;
     private javax.swing.JLabel descriptionText;
+    private javax.swing.JLabel donationamountLBL;
+    private javax.swing.JTextField donationamountTF;
     private javax.swing.JLabel emailLBL;
     private javax.swing.JTextField emailTF;
     private javax.swing.JLabel exitBTN;
+    private javax.swing.JButton exitBTN1;
+    private javax.swing.JButton exitBTN2;
     private aquaguard.FishFallSection fishFallSection1;
+    private javax.swing.JLabel frequencyLBL;
+    private javax.swing.JTextField frequencyTF;
     private javax.swing.JLabel homeBTN;
     private javax.swing.JPanel homeCard;
     private javax.swing.JLabel iconLabel;
@@ -1244,10 +1485,14 @@ public class AquaGuardApp extends javax.swing.JFrame {
     private javax.swing.JPanel loginCard;
     private javax.swing.JLabel loginErrorLabel;
     private javax.swing.JLabel logoutLabel;
+    private javax.swing.JButton mainmenuBTN;
+    private javax.swing.JButton mainmenuBTN1;
     private javax.swing.JLabel minimiseBTN;
     private javax.swing.JLabel nameLBL;
+    private javax.swing.JLabel nameLBL1;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JTextField nameTF;
+    private javax.swing.JTextField nameTF1;
     private aquaguard.inputField passwordInputField;
     private javax.swing.JLabel price1LBL;
     private javax.swing.JLabel price2LBL;
@@ -1261,6 +1506,8 @@ public class AquaGuardApp extends javax.swing.JFrame {
     private javax.swing.JLabel remove4BTN;
     private javax.swing.JLabel remove5BTN;
     private javax.swing.JLabel remove6BTN;
+    private javax.swing.JLabel sexLBL;
+    private javax.swing.JTextField sexTF;
     private javax.swing.JPanel shop;
     private javax.swing.JLabel shoppingBTN;
     private javax.swing.JPanel signupCard;
@@ -1276,8 +1523,12 @@ public class AquaGuardApp extends javax.swing.JFrame {
     private javax.swing.JLabel stock6LBL;
     private javax.swing.JPanel titleBar;
     private javax.swing.JLabel titleLabel;
+    private javax.swing.JButton tonextjformBTN;
     private javax.swing.JPanel topBar;
+    private javax.swing.JButton topreviousjformBTN;
     private javax.swing.JLabel totalLBL;
+    private javax.swing.JButton updateBTN;
+    private javax.swing.JButton updateBTN1;
     private aquaguard.inputField usernameInputField;
     // End of variables declaration//GEN-END:variables
 }
