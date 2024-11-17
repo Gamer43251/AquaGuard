@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package Sections.Main;
+package aquaguard;
 
 /**
  *
@@ -39,20 +39,15 @@ public class inputField extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(1150, 100));
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(1150, 100));
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Layer.setMaximumSize(new java.awt.Dimension(1150, 100));
         Layer.setMinimumSize(new java.awt.Dimension(1150, 100));
-        Layer.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/loginInput.png"))); // NOI18N
-        Layer.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 100));
 
         tagLabel.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         tagLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tagLabel.setText("Tag");
-        Layer.setLayer(tagLabel, javax.swing.JLayeredPane.PALETTE_LAYER);
-        Layer.add(tagLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 284, 88));
 
         inputField.setOpaque(false);
         inputField.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
@@ -62,10 +57,43 @@ public class inputField extends javax.swing.JPanel {
                 inputFieldActionPerformed(evt);
             }
         });
-        Layer.setLayer(inputField, javax.swing.JLayeredPane.PALETTE_LAYER);
-        Layer.add(inputField, new org.netbeans.lib.awtextra.AbsoluteConstraints(372, 6, 730, 88));
 
-        add(Layer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 100));
+        Layer.setLayer(background, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Layer.setLayer(tagLabel, javax.swing.JLayeredPane.PALETTE_LAYER);
+        Layer.setLayer(inputField, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        javax.swing.GroupLayout LayerLayout = new javax.swing.GroupLayout(Layer);
+        Layer.setLayout(LayerLayout);
+        LayerLayout.setHorizontalGroup(
+            LayerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(LayerLayout.createSequentialGroup()
+                .addGap(302, 302, 302)
+                .addComponent(inputField, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(background)
+            .addGroup(LayerLayout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(tagLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        LayerLayout.setVerticalGroup(
+            LayerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(background)
+            .addGroup(LayerLayout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addGroup(LayerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(inputField, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tagLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Layer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Layer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     private void inputFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputFieldActionPerformed
