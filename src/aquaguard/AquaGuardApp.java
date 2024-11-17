@@ -177,6 +177,7 @@ public class AquaGuardApp extends javax.swing.JFrame {
         buy6BTN = new javax.swing.JLabel();
         remove6BTN = new javax.swing.JLabel();
         checkoutBTN = new javax.swing.JLabel();
+        adoptionCard = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Aqua Guard");
@@ -461,6 +462,11 @@ public class AquaGuardApp extends javax.swing.JFrame {
         });
 
         AdoptionBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/buttons/Adoption.png"))); // NOI18N
+        AdoptionBTN.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AdoptionBTNMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout homeCardLayout = new javax.swing.GroupLayout(homeCard);
         homeCard.setLayout(homeCardLayout);
@@ -767,7 +773,6 @@ public class AquaGuardApp extends javax.swing.JFrame {
         price5LBL.setText("Price: €20.99");
 
         image5LBL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Products/poster.png"))); // NOI18N
-        image5LBL.setPreferredSize(new java.awt.Dimension(250, 250));
 
         stock5LBL.setText("Stock : 10");
 
@@ -810,7 +815,7 @@ public class AquaGuardApp extends javax.swing.JFrame {
             itembg5JPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, itembg5JPLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(image5LBL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(image5LBL)
                 .addGap(18, 18, 18)
                 .addComponent(item5LBL)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1055,6 +1060,21 @@ public class AquaGuardApp extends javax.swing.JFrame {
 
         cards.add(shop, "shop");
 
+        adoptionCard.setOpaque(false);
+
+        javax.swing.GroupLayout adoptionCardLayout = new javax.swing.GroupLayout(adoptionCard);
+        adoptionCard.setLayout(adoptionCardLayout);
+        adoptionCardLayout.setHorizontalGroup(
+            adoptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1500, Short.MAX_VALUE)
+        );
+        adoptionCardLayout.setVerticalGroup(
+            adoptionCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 800, Short.MAX_VALUE)
+        );
+
+        cards.add(adoptionCard, "adoption");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1130,6 +1150,13 @@ public class AquaGuardApp extends javax.swing.JFrame {
         nameLabel.setText("Login");
     }//GEN-LAST:event_signupLoginBTNMouseClicked
 
+    private void AdoptionBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AdoptionBTNMouseClicked
+        // TODO add your handling code here:
+         cl.show(cards,"adoption");
+        nameLabel.setText("Adoption");
+        bubblePop();
+    }//GEN-LAST:event_AdoptionBTNMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1171,6 +1198,7 @@ public class AquaGuardApp extends javax.swing.JFrame {
     private javax.swing.JLabel SignupBTN;
     private javax.swing.JLabel addressLBL;
     private javax.swing.JTextArea addressTA;
+    private javax.swing.JPanel adoptionCard;
     private javax.swing.JPanel basketJP;
     private javax.swing.JLabel basketLBL;
     private javax.swing.JPanel billingPanel;
@@ -1178,10 +1206,6 @@ public class AquaGuardApp extends javax.swing.JFrame {
     private javax.swing.JLabel buy1BTN;
     private javax.swing.JLabel buy2BTN;
     private javax.swing.JLabel buy3BTN;
-    private javax.swing.JButton buy3BTN1;
-    private javax.swing.JButton buy3BTN2;
-    private javax.swing.JButton buy3BTN3;
-    private javax.swing.JButton buy3BTN4;
     private javax.swing.JLabel buy4BTN;
     private javax.swing.JLabel buy5BTN;
     private javax.swing.JLabel buy6BTN;
@@ -1200,30 +1224,18 @@ public class AquaGuardApp extends javax.swing.JFrame {
     private javax.swing.JLabel image1LBL;
     private javax.swing.JLabel image2LBL;
     private javax.swing.JLabel image3LBL;
-    private javax.swing.JLabel image3LBL1;
-    private javax.swing.JLabel image3LBL2;
-    private javax.swing.JLabel image3LBL3;
-    private javax.swing.JLabel image3LBL4;
     private javax.swing.JLabel image4LBL;
     private javax.swing.JLabel image5LBL;
     private javax.swing.JLabel image6LBL;
     private javax.swing.JLabel item1LBL;
     private javax.swing.JLabel item2LBL;
     private javax.swing.JLabel item3LBL;
-    private javax.swing.JLabel item3LBL1;
-    private javax.swing.JLabel item3LBL2;
-    private javax.swing.JLabel item3LBL3;
-    private javax.swing.JLabel item3LBL4;
     private javax.swing.JLabel item4LBL;
     private javax.swing.JLabel item5LBL;
     private javax.swing.JLabel item6LBL;
     private javax.swing.JPanel itembg1JP;
     private javax.swing.JPanel itembg2JP;
     private javax.swing.JPanel itembg3JP;
-    private javax.swing.JPanel itembg3JP1;
-    private javax.swing.JPanel itembg3JP2;
-    private javax.swing.JPanel itembg3JP3;
-    private javax.swing.JPanel itembg3JP4;
     private javax.swing.JPanel itembg4JP;
     private javax.swing.JPanel itembg5JP;
     private javax.swing.JPanel itembg6JP;
@@ -1240,20 +1252,12 @@ public class AquaGuardApp extends javax.swing.JFrame {
     private javax.swing.JLabel price1LBL;
     private javax.swing.JLabel price2LBL;
     private javax.swing.JLabel price3LBL;
-    private javax.swing.JLabel price3LBL1;
-    private javax.swing.JLabel price3LBL2;
-    private javax.swing.JLabel price3LBL3;
-    private javax.swing.JLabel price3LBL4;
     private javax.swing.JLabel price4LBL;
     private javax.swing.JLabel price5LBL;
     private javax.swing.JLabel price6LBL;
     private javax.swing.JLabel remove1BTN;
     private javax.swing.JLabel remove2BTN;
     private javax.swing.JLabel remove3BTN;
-    private javax.swing.JButton remove3BTN1;
-    private javax.swing.JButton remove3BTN2;
-    private javax.swing.JButton remove3BTN3;
-    private javax.swing.JButton remove3BTN4;
     private javax.swing.JLabel remove4BTN;
     private javax.swing.JLabel remove5BTN;
     private javax.swing.JLabel remove6BTN;
@@ -1267,10 +1271,6 @@ public class AquaGuardApp extends javax.swing.JFrame {
     private javax.swing.JLabel stock1LBL;
     private javax.swing.JLabel stock2LBL;
     private javax.swing.JLabel stock3LBL;
-    private javax.swing.JLabel stock3LBL1;
-    private javax.swing.JLabel stock3LBL2;
-    private javax.swing.JLabel stock3LBL3;
-    private javax.swing.JLabel stock3LBL4;
     private javax.swing.JLabel stock4LBL;
     private javax.swing.JLabel stock5LBL;
     private javax.swing.JLabel stock6LBL;
