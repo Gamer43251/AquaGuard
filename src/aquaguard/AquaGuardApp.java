@@ -127,40 +127,40 @@ public class AquaGuardApp extends javax.swing.JFrame {
         price1LBL = new javax.swing.JLabel();
         image1LBL = new javax.swing.JLabel();
         stock1LBL = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        buy1BTN = new javax.swing.JLabel();
+        remove1BTN = new javax.swing.JLabel();
         itembg2JP = new javax.swing.JPanel();
         item2LBL = new javax.swing.JLabel();
         price2LBL = new javax.swing.JLabel();
         image2LBL = new javax.swing.JLabel();
         stock2LBL = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        buy2BTN = new javax.swing.JLabel();
+        remove2BTN = new javax.swing.JLabel();
         itembg3JP = new javax.swing.JPanel();
         item3LBL = new javax.swing.JLabel();
         price3LBL = new javax.swing.JLabel();
         image3LBL = new javax.swing.JLabel();
         stock3LBL = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        buy3BTN = new javax.swing.JLabel();
+        remove3BTN = new javax.swing.JLabel();
         itembg4JP = new javax.swing.JPanel();
         item4LBL = new javax.swing.JLabel();
         price4LBL = new javax.swing.JLabel();
         image4LBL = new javax.swing.JLabel();
         stock4LBL = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        buy4BTN = new javax.swing.JLabel();
+        remove4BTN = new javax.swing.JLabel();
         itembg5JP = new javax.swing.JPanel();
         item5LBL = new javax.swing.JLabel();
         price5LBL = new javax.swing.JLabel();
         image5LBL = new javax.swing.JLabel();
         stock5LBL = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        buy5BTN = new javax.swing.JLabel();
+        remove5BTN = new javax.swing.JLabel();
         basketJP = new javax.swing.JPanel();
         basketLBL = new javax.swing.JLabel();
         totalLBL = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        billingPanel = new javax.swing.JPanel();
         nameLBL = new javax.swing.JLabel();
         emailLBL = new javax.swing.JLabel();
         addressLBL = new javax.swing.JLabel();
@@ -174,9 +174,9 @@ public class AquaGuardApp extends javax.swing.JFrame {
         price6LBL = new javax.swing.JLabel();
         image6LBL = new javax.swing.JLabel();
         stock6LBL = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
+        buy6BTN = new javax.swing.JLabel();
+        remove6BTN = new javax.swing.JLabel();
+        checkoutBTN = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Aqua Guard");
@@ -504,23 +504,23 @@ public class AquaGuardApp extends javax.swing.JFrame {
 
         price1LBL.setText("Price: €20.99");
 
-        image1LBL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aquaguard/tshirt.png"))); // NOI18N
+        image1LBL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Products/tshirt.png"))); // NOI18N
 
         stock1LBL.setText("Stock : 10");
 
-        jLabel3.setBackground(new java.awt.Color(1, 187, 187));
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Buy");
-        jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
-        jLabel3.setOpaque(true);
+        buy1BTN.setBackground(new java.awt.Color(1, 187, 187));
+        buy1BTN.setForeground(new java.awt.Color(255, 255, 255));
+        buy1BTN.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        buy1BTN.setText("Buy");
+        buy1BTN.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        buy1BTN.setOpaque(true);
 
-        jLabel4.setBackground(new java.awt.Color(1, 187, 187));
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Remove");
-        jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
-        jLabel4.setOpaque(true);
+        remove1BTN.setBackground(new java.awt.Color(1, 187, 187));
+        remove1BTN.setForeground(new java.awt.Color(255, 255, 255));
+        remove1BTN.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        remove1BTN.setText("Remove");
+        remove1BTN.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        remove1BTN.setOpaque(true);
 
         javax.swing.GroupLayout itembg1JPLayout = new javax.swing.GroupLayout(itembg1JP);
         itembg1JP.setLayout(itembg1JPLayout);
@@ -532,9 +532,9 @@ public class AquaGuardApp extends javax.swing.JFrame {
                     .addGroup(itembg1JPLayout.createSequentialGroup()
                         .addComponent(price1LBL)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buy1BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(remove1BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(stock1LBL)
                     .addComponent(item1LBL)
                     .addComponent(image1LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -554,8 +554,8 @@ public class AquaGuardApp extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(price1LBL))
                     .addGroup(itembg1JPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel3)
-                        .addComponent(jLabel4)))
+                        .addComponent(buy1BTN)
+                        .addComponent(remove1BTN)))
                 .addContainerGap())
         );
 
@@ -572,19 +572,19 @@ public class AquaGuardApp extends javax.swing.JFrame {
 
         stock2LBL.setText("Stock : 10");
 
-        jLabel1.setBackground(new java.awt.Color(1, 187, 187));
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Buy");
-        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
-        jLabel1.setOpaque(true);
+        buy2BTN.setBackground(new java.awt.Color(1, 187, 187));
+        buy2BTN.setForeground(new java.awt.Color(255, 255, 255));
+        buy2BTN.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        buy2BTN.setText("Buy");
+        buy2BTN.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        buy2BTN.setOpaque(true);
 
-        jLabel2.setBackground(new java.awt.Color(1, 187, 187));
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Remove");
-        jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
-        jLabel2.setOpaque(true);
+        remove2BTN.setBackground(new java.awt.Color(1, 187, 187));
+        remove2BTN.setForeground(new java.awt.Color(255, 255, 255));
+        remove2BTN.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        remove2BTN.setText("Remove");
+        remove2BTN.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        remove2BTN.setOpaque(true);
 
         javax.swing.GroupLayout itembg2JPLayout = new javax.swing.GroupLayout(itembg2JP);
         itembg2JP.setLayout(itembg2JPLayout);
@@ -601,9 +601,9 @@ public class AquaGuardApp extends javax.swing.JFrame {
                                     .addComponent(price2LBL)
                                     .addComponent(stock2LBL))
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(buy2BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(remove2BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(image2LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(10, Short.MAX_VALUE))
         );
@@ -621,8 +621,8 @@ public class AquaGuardApp extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(price2LBL))
                     .addGroup(itembg2JPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1)
-                        .addComponent(jLabel2)))
+                        .addComponent(buy2BTN)
+                        .addComponent(remove2BTN)))
                 .addContainerGap())
         );
 
@@ -639,19 +639,19 @@ public class AquaGuardApp extends javax.swing.JFrame {
 
         stock3LBL.setText("Stock : 10");
 
-        jLabel5.setBackground(new java.awt.Color(1, 187, 187));
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Buy");
-        jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
-        jLabel5.setOpaque(true);
+        buy3BTN.setBackground(new java.awt.Color(1, 187, 187));
+        buy3BTN.setForeground(new java.awt.Color(255, 255, 255));
+        buy3BTN.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        buy3BTN.setText("Buy");
+        buy3BTN.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        buy3BTN.setOpaque(true);
 
-        jLabel6.setBackground(new java.awt.Color(1, 187, 187));
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Remove");
-        jLabel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
-        jLabel6.setOpaque(true);
+        remove3BTN.setBackground(new java.awt.Color(1, 187, 187));
+        remove3BTN.setForeground(new java.awt.Color(255, 255, 255));
+        remove3BTN.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        remove3BTN.setText("Remove");
+        remove3BTN.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        remove3BTN.setOpaque(true);
 
         javax.swing.GroupLayout itembg3JPLayout = new javax.swing.GroupLayout(itembg3JP);
         itembg3JP.setLayout(itembg3JPLayout);
@@ -663,9 +663,9 @@ public class AquaGuardApp extends javax.swing.JFrame {
                     .addGroup(itembg3JPLayout.createSequentialGroup()
                         .addComponent(price3LBL)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buy3BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(remove3BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(stock3LBL)
                     .addComponent(item3LBL)
                     .addComponent(image3LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -685,8 +685,8 @@ public class AquaGuardApp extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(price3LBL))
                     .addGroup(itembg3JPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel5)
-                        .addComponent(jLabel6)))
+                        .addComponent(buy3BTN)
+                        .addComponent(remove3BTN)))
                 .addContainerGap())
         );
 
@@ -703,19 +703,19 @@ public class AquaGuardApp extends javax.swing.JFrame {
 
         stock4LBL.setText("Stock : 10");
 
-        jLabel11.setBackground(new java.awt.Color(1, 187, 187));
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("Buy");
-        jLabel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
-        jLabel11.setOpaque(true);
+        buy4BTN.setBackground(new java.awt.Color(1, 187, 187));
+        buy4BTN.setForeground(new java.awt.Color(255, 255, 255));
+        buy4BTN.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        buy4BTN.setText("Buy");
+        buy4BTN.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        buy4BTN.setOpaque(true);
 
-        jLabel12.setBackground(new java.awt.Color(1, 187, 187));
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("Remove");
-        jLabel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
-        jLabel12.setOpaque(true);
+        remove4BTN.setBackground(new java.awt.Color(1, 187, 187));
+        remove4BTN.setForeground(new java.awt.Color(255, 255, 255));
+        remove4BTN.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        remove4BTN.setText("Remove");
+        remove4BTN.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        remove4BTN.setOpaque(true);
 
         javax.swing.GroupLayout itembg4JPLayout = new javax.swing.GroupLayout(itembg4JP);
         itembg4JP.setLayout(itembg4JPLayout);
@@ -727,9 +727,9 @@ public class AquaGuardApp extends javax.swing.JFrame {
                     .addGroup(itembg4JPLayout.createSequentialGroup()
                         .addComponent(price4LBL)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buy4BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(remove4BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(itembg4JPLayout.createSequentialGroup()
                         .addGroup(itembg4JPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(stock4LBL)
@@ -752,8 +752,8 @@ public class AquaGuardApp extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(price4LBL))
                     .addGroup(itembg4JPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel11)
-                        .addComponent(jLabel12)))
+                        .addComponent(buy4BTN)
+                        .addComponent(remove4BTN)))
                 .addContainerGap())
         );
 
@@ -771,19 +771,19 @@ public class AquaGuardApp extends javax.swing.JFrame {
 
         stock5LBL.setText("Stock : 10");
 
-        jLabel9.setBackground(new java.awt.Color(1, 187, 187));
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("Buy");
-        jLabel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
-        jLabel9.setOpaque(true);
+        buy5BTN.setBackground(new java.awt.Color(1, 187, 187));
+        buy5BTN.setForeground(new java.awt.Color(255, 255, 255));
+        buy5BTN.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        buy5BTN.setText("Buy");
+        buy5BTN.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        buy5BTN.setOpaque(true);
 
-        jLabel10.setBackground(new java.awt.Color(1, 187, 187));
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("Remove");
-        jLabel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
-        jLabel10.setOpaque(true);
+        remove5BTN.setBackground(new java.awt.Color(1, 187, 187));
+        remove5BTN.setForeground(new java.awt.Color(255, 255, 255));
+        remove5BTN.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        remove5BTN.setText("Remove");
+        remove5BTN.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        remove5BTN.setOpaque(true);
 
         javax.swing.GroupLayout itembg5JPLayout = new javax.swing.GroupLayout(itembg5JP);
         itembg5JP.setLayout(itembg5JPLayout);
@@ -795,9 +795,9 @@ public class AquaGuardApp extends javax.swing.JFrame {
                     .addGroup(itembg5JPLayout.createSequentialGroup()
                         .addComponent(price5LBL)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buy5BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(remove5BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(itembg5JPLayout.createSequentialGroup()
                         .addGroup(itembg5JPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(item5LBL)
@@ -820,8 +820,8 @@ public class AquaGuardApp extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(price5LBL))
                     .addGroup(itembg5JPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel9)
-                        .addComponent(jLabel10)))
+                        .addComponent(buy5BTN)
+                        .addComponent(remove5BTN)))
                 .addContainerGap())
         );
 
@@ -860,8 +860,8 @@ public class AquaGuardApp extends javax.swing.JFrame {
                 .addGap(14, 14, 14))
         );
 
-        jPanel1.setBackground(new java.awt.Color(33, 86, 138));
-        jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 5, true));
+        billingPanel.setBackground(new java.awt.Color(33, 86, 138));
+        billingPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 5, true));
 
         nameLBL.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         nameLBL.setForeground(new java.awt.Color(255, 255, 255));
@@ -884,46 +884,46 @@ public class AquaGuardApp extends javax.swing.JFrame {
         addressTA.setRows(5);
         jScrollPane1.setViewportView(addressTA);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout billingPanelLayout = new javax.swing.GroupLayout(billingPanel);
+        billingPanel.setLayout(billingPanelLayout);
+        billingPanelLayout.setHorizontalGroup(
+            billingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, billingPanelLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(billingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(addressLBL)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(billingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(emailLBL, javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(nameLBL)))
                 .addGap(35, 35, 35)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(billingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(nameTF)
                     .addComponent(emailTF)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE))
                 .addGap(38, 38, 38))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, billingPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(billinginfoLBL)
                 .addGap(64, 64, 64))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        billingPanelLayout.setVerticalGroup(
+            billingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(billingPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(billinginfoLBL)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(billingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameLBL)
                     .addComponent(nameTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(billingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(emailTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(emailLBL))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(billingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(billingPanelLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(addressLBL))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(billingPanelLayout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(30, Short.MAX_VALUE))
@@ -942,19 +942,19 @@ public class AquaGuardApp extends javax.swing.JFrame {
 
         stock6LBL.setText("Stock : 10");
 
-        jLabel7.setBackground(new java.awt.Color(1, 187, 187));
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Buy");
-        jLabel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
-        jLabel7.setOpaque(true);
+        buy6BTN.setBackground(new java.awt.Color(1, 187, 187));
+        buy6BTN.setForeground(new java.awt.Color(255, 255, 255));
+        buy6BTN.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        buy6BTN.setText("Buy");
+        buy6BTN.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        buy6BTN.setOpaque(true);
 
-        jLabel8.setBackground(new java.awt.Color(1, 187, 187));
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Remove");
-        jLabel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
-        jLabel8.setOpaque(true);
+        remove6BTN.setBackground(new java.awt.Color(1, 187, 187));
+        remove6BTN.setForeground(new java.awt.Color(255, 255, 255));
+        remove6BTN.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        remove6BTN.setText("Remove");
+        remove6BTN.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        remove6BTN.setOpaque(true);
 
         javax.swing.GroupLayout itembg6JPLayout = new javax.swing.GroupLayout(itembg6JP);
         itembg6JP.setLayout(itembg6JPLayout);
@@ -966,9 +966,9 @@ public class AquaGuardApp extends javax.swing.JFrame {
                     .addGroup(itembg6JPLayout.createSequentialGroup()
                         .addComponent(price6LBL)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buy6BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(remove6BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(itembg6JPLayout.createSequentialGroup()
                         .addGroup(itembg6JPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(stock6LBL)
@@ -991,18 +991,18 @@ public class AquaGuardApp extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(price6LBL))
                     .addGroup(itembg6JPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel7)
-                        .addComponent(jLabel8)))
+                        .addComponent(buy6BTN)
+                        .addComponent(remove6BTN)))
                 .addContainerGap())
         );
 
-        jLabel13.setBackground(new java.awt.Color(1, 187, 187));
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setText("Checkout");
-        jLabel13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 5));
-        jLabel13.setOpaque(true);
+        checkoutBTN.setBackground(new java.awt.Color(1, 187, 187));
+        checkoutBTN.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        checkoutBTN.setForeground(new java.awt.Color(255, 255, 255));
+        checkoutBTN.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        checkoutBTN.setText("Checkout");
+        checkoutBTN.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 5));
+        checkoutBTN.setOpaque(true);
 
         javax.swing.GroupLayout shopLayout = new javax.swing.GroupLayout(shop);
         shop.setLayout(shopLayout);
@@ -1024,8 +1024,8 @@ public class AquaGuardApp extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addGroup(shopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(basketJP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(billingPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(checkoutBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         shopLayout.setVerticalGroup(
@@ -1044,9 +1044,9 @@ public class AquaGuardApp extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(shopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(shopLayout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(billingPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(checkoutBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(itembg5JP, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
                     .addComponent(itembg4JP, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
                     .addComponent(itembg6JP, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE))
@@ -1173,12 +1173,20 @@ public class AquaGuardApp extends javax.swing.JFrame {
     private javax.swing.JTextArea addressTA;
     private javax.swing.JPanel basketJP;
     private javax.swing.JLabel basketLBL;
+    private javax.swing.JPanel billingPanel;
     private javax.swing.JLabel billinginfoLBL;
+    private javax.swing.JLabel buy1BTN;
+    private javax.swing.JLabel buy2BTN;
+    private javax.swing.JLabel buy3BTN;
     private javax.swing.JButton buy3BTN1;
     private javax.swing.JButton buy3BTN2;
     private javax.swing.JButton buy3BTN3;
     private javax.swing.JButton buy3BTN4;
+    private javax.swing.JLabel buy4BTN;
+    private javax.swing.JLabel buy5BTN;
+    private javax.swing.JLabel buy6BTN;
     private javax.swing.JPanel cards;
+    private javax.swing.JLabel checkoutBTN;
     private aquaguard.inputField confirmPasswordInputField;
     private javax.swing.JLabel createAccountBTN;
     private javax.swing.JLabel descriptionText;
@@ -1219,20 +1227,6 @@ public class AquaGuardApp extends javax.swing.JFrame {
     private javax.swing.JPanel itembg4JP;
     private javax.swing.JPanel itembg5JP;
     private javax.swing.JPanel itembg6JP;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel loginBTN;
     private javax.swing.JPanel loginCard;
@@ -1253,10 +1247,16 @@ public class AquaGuardApp extends javax.swing.JFrame {
     private javax.swing.JLabel price4LBL;
     private javax.swing.JLabel price5LBL;
     private javax.swing.JLabel price6LBL;
+    private javax.swing.JLabel remove1BTN;
+    private javax.swing.JLabel remove2BTN;
+    private javax.swing.JLabel remove3BTN;
     private javax.swing.JButton remove3BTN1;
     private javax.swing.JButton remove3BTN2;
     private javax.swing.JButton remove3BTN3;
     private javax.swing.JButton remove3BTN4;
+    private javax.swing.JLabel remove4BTN;
+    private javax.swing.JLabel remove5BTN;
+    private javax.swing.JLabel remove6BTN;
     private javax.swing.JPanel shop;
     private javax.swing.JLabel shoppingBTN;
     private javax.swing.JPanel signupCard;
