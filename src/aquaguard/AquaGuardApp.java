@@ -550,6 +550,11 @@ public class AquaGuardApp extends javax.swing.JFrame {
         buy1BTN.setText("Buy");
         buy1BTN.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
         buy1BTN.setOpaque(true);
+        buy1BTN.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buy1BTNMouseClicked(evt);
+            }
+        });
 
         remove1BTN.setBackground(new java.awt.Color(1, 187, 187));
         remove1BTN.setForeground(new java.awt.Color(255, 255, 255));
@@ -1369,6 +1374,13 @@ public class AquaGuardApp extends javax.swing.JFrame {
         nameLabel.setText("Adoption");
         bubblePop();
     }//GEN-LAST:event_AdoptionBTNMouseClicked
+
+    private void buy1BTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buy1BTNMouseClicked
+        // TODO add your handling code here:
+         cl.show(cards,"adoption");
+        nameLabel.setText("Adoption");
+        bubblePop();
+    }//GEN-LAST:event_buy1BTNMouseClicked
 
     /**
      * @param args the command line arguments
