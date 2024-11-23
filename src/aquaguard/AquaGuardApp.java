@@ -6,6 +6,7 @@ import java.awt.event.MouseEvent;
 import java.awt.geom.RoundRectangle2D;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.sound.sampled.AudioInputStream;
@@ -28,10 +29,15 @@ import javax.swing.JFrame;
 public class AquaGuardApp extends javax.swing.JFrame {
     int mouseX, mouseY;
     CardLayout cl;
+    
+    ArrayList<User> Users = new ArrayList<User>();
+    User Admin = new User("Admin", "Password");
+    
     /**
      * Creates new form AquaGuardApp
      */
     public AquaGuardApp() {
+        Users.add(Admin);
         initComponents();
         this.setLocationRelativeTo(null);
         dragWindow(this);
@@ -82,6 +88,61 @@ public class AquaGuardApp extends javax.swing.JFrame {
         
         clip.start();
     }
+    
+    public void Signup(){
+        if(verifySignupCredentials()){
+            Users.add(new User(signupUsernameInputField.getText(),signupPasswordInputField.getText()));
+            nameLabel.setText("Login");
+            cl.show(cards,"login");
+        }
+    }
+    
+    public boolean verifySignupCredentials(){
+        if(signupUsernameInputField.getText().isEmpty()){
+            signupErrorLabel.setText("Please Enter A Username");
+            return false;
+        }else if(signupPasswordInputField.getText().isEmpty()){
+            signupErrorLabel.setText("Please Enter A Password");
+            return false;
+        }else if(confirmPasswordInputField.getText().isEmpty()){
+            signupErrorLabel.setText("Please Confirm Password");
+            return false;
+        }else if(!confirmPasswordInputField.getText().equals(signupPasswordInputField.getText())){
+            System.out.println(confirmPasswordInputField.getText() + " : " + signupPasswordInputField.getText());
+            signupErrorLabel.setText("Passwords Do Not Match");
+            return false;
+        }
+        loginErrorLabel.setText("");
+        return true;
+    }
+    
+    public void login(){
+        if(verifyLoginCredentials()){
+            cl.show(cards,"home");
+            nameLabel.setText("Home");
+            homeBTN.setVisible(true);
+            logoutLabel.setVisible(true);
+        }
+    }
+    
+    public boolean verifyLoginCredentials(){
+        for(User u : Users){
+            if(u.checkUsername(usernameInputField.getText()) && u.checkPassword(passwordInputField.getText())){
+               return true;
+            }
+        }
+        loginErrorLabel.setText("No Account Matching Those Credentials Found");
+        return false;
+    }
+    
+    public void clearCredentials(){
+        usernameInputField.clearText();
+        passwordInputField.clearText();
+        signupUsernameInputField.clearText();
+        signupPasswordInputField.clearText();
+        confirmPasswordInputField.clearText();
+        loginErrorLabel.setText("");
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -108,6 +169,9 @@ public class AquaGuardApp extends javax.swing.JFrame {
         loginBTN = new javax.swing.JLabel();
         createAccountBTN = new javax.swing.JLabel();
         loginErrorLabel = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         signupCard = new javax.swing.JPanel();
         signupUsernameInputField = new aquaguard.inputField();
         signupPasswordInputField = new aquaguard.inputField();
@@ -365,25 +429,41 @@ public class AquaGuardApp extends javax.swing.JFrame {
         loginErrorLabel.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         loginErrorLabel.setForeground(new java.awt.Color(255, 0, 0));
         loginErrorLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        loginErrorLabel.setText("Error Message Goes Here");
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel1.setText("Password : Password");
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel2.setText("Username : Admin");
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel3.setText("Login Credentials");
 
         javax.swing.GroupLayout loginCardLayout = new javax.swing.GroupLayout(loginCard);
         loginCard.setLayout(loginCardLayout);
         loginCardLayout.setHorizontalGroup(
             loginCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(loginCardLayout.createSequentialGroup()
-                .addGroup(loginCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(loginErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 1150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(createAccountBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 1150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(loginCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(loginCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(loginCardLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(loginBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 1150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, loginCardLayout.createSequentialGroup()
-                            .addGap(175, 175, 175)
-                            .addGroup(loginCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(passwordInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(usernameInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addComponent(loginErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 1150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(createAccountBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 1150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(loginCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(loginCardLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(loginBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 1150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, loginCardLayout.createSequentialGroup()
+                                .addGap(175, 175, 175)
+                                .addGroup(loginCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(passwordInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(usernameInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(loginCardLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(loginCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(loginCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(175, Short.MAX_VALUE))
         );
         loginCardLayout.setVerticalGroup(
@@ -399,7 +479,13 @@ public class AquaGuardApp extends javax.swing.JFrame {
                 .addComponent(loginBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(createAccountBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(198, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel1)
+                .addContainerGap())
         );
 
         cards.add(loginCard, "login");
@@ -427,7 +513,6 @@ public class AquaGuardApp extends javax.swing.JFrame {
         signupErrorLabel.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         signupErrorLabel.setForeground(new java.awt.Color(255, 0, 0));
         signupErrorLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        signupErrorLabel.setText("Error Message Goes Here");
 
         confirmPasswordInputField.setTag("Confirm Password");
 
@@ -1341,10 +1426,7 @@ public class AquaGuardApp extends javax.swing.JFrame {
     }//GEN-LAST:event_minimiseBTNMouseClicked
 
     private void loginBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBTNMouseClicked
-        cl.show(cards,"home");
-        nameLabel.setText("Home");
-        homeBTN.setVisible(true);
-        logoutLabel.setVisible(true);
+        login();
     }//GEN-LAST:event_loginBTNMouseClicked
 
     private void logoutLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutLabelMouseClicked
@@ -1352,10 +1434,11 @@ public class AquaGuardApp extends javax.swing.JFrame {
         nameLabel.setText("Login");
         homeBTN.setVisible(false);
         logoutLabel.setVisible(false);
+        clearCredentials();
     }//GEN-LAST:event_logoutLabelMouseClicked
 
     private void SignupBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SignupBTNMouseClicked
-        // TODO add your handling code here:
+        Signup();
     }//GEN-LAST:event_SignupBTNMouseClicked
 
     private void createAccountBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createAccountBTNMouseClicked
@@ -1484,6 +1567,9 @@ public class AquaGuardApp extends javax.swing.JFrame {
     private javax.swing.JPanel itembg4JP;
     private javax.swing.JPanel itembg5JP;
     private javax.swing.JPanel itembg6JP;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel loginBTN;
     private javax.swing.JPanel loginCard;

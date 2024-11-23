@@ -20,6 +20,14 @@ public class inputField extends javax.swing.JPanel {
     public void setTag(String tag){
         tagLabel.setText(tag);
     }
+    
+    public String getText(){
+        return inputField.getText();
+    }
+    
+    public void clearText(){
+        inputField.setText("");
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
