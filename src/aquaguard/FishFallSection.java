@@ -16,6 +16,10 @@ public class FishFallSection extends javax.swing.JPanel {
     public FishFallSection() {
         initComponents();
     }
+    
+    public void setFocus(){
+        Game.requestFocus();
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -103,9 +107,6 @@ public class FishFallSection extends javax.swing.JPanel {
         );
 
         instructions.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Fishfall Instructions.png"))); // NOI18N
-        instructions.setMaximumSize(new java.awt.Dimension(400, 600));
-        instructions.setMinimumSize(new java.awt.Dimension(400, 600));
-        instructions.setPreferredSize(new java.awt.Dimension(400, 600));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -132,7 +133,7 @@ public class FishFallSection extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(scoreLabelPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(instructions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(instructions))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(highscoreLabelPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)

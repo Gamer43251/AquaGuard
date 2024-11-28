@@ -4,18 +4,106 @@
  */
 package aquaguard;
 
+import aquaguard.AquaGuard;
+import aquaguard.User;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import javax.swing.Timer;
+
 /**
  *
  * @author Dreel
  */
 public class FishFallGame extends javax.swing.JPanel {
-
+    int screenWidth = 600;
+    int screenHeight = 750;
+    int tileSize = 50;
+    User pl;;
+    protected char direction;
+    
+    Timer timer;
+    int dropSpeed = 500;
+    int score = 0;
     /**
      * Creates new form FishFallGame
      */
     public FishFallGame() {
+        this.pl = AquaGuardApp.currentUser;
         initComponents();
+        setFocusable(true);
+        addKeyListener(new MyKeyAdapter());
     }
+    
+    @Override
+    public void paintComponent(Graphics g){
+        super.paintComponent(g);
+        draw(g);
+    }
+    
+    public void draw(Graphics g){
+   
+        // draw Background
+        g.setColor(new Color(0, 74, 173));
+        g.fillRect(0,0,600,750);
+        
+        // draw vertical lines
+        for(int i = tileSize; i < screenHeight; i+= tileSize){
+            g.setColor(new Color(255, 255, 255));
+            g.drawRect(0, i, screenWidth, 0);
+        }
+        
+        //draw horizontal lines
+        for(int i = tileSize; i < screenHeight; i+= tileSize){
+            g.setColor(new Color(255, 255, 255));
+            g.drawRect(i, 0, 0, screenHeight);
+        }
+        
+        //draw basket
+        g.setColor(new Color(255, 0,255));
+        g.fillRect(pl.getX(), pl.getY(), tileSize, tileSize);
+    }
+    
+    public void move(){
+        if (direction == 'L' && pl.getX() > 0){
+            pl.setX(pl.getX() - tileSize);
+        }
+        else if(direction == 'R' && pl.getX() < (screenWidth - tileSize)){
+            pl.setX(pl.getX() + tileSize);
+        }
+    }
+    
+    public class MyKeyAdapter extends KeyAdapter {
+    @Override
+    public void keyPressed(KeyEvent e) {
+        switch (e.getKeyCode()) {
+            case KeyEvent.VK_LEFT:
+                direction = 'L'; // set direction to L
+                move();
+                repaint();
+                break;
+            case KeyEvent.VK_RIGHT:
+                direction = 'R'; // set direction to L 
+                move();
+                repaint();
+                break;
+            case KeyEvent.VK_A:
+                direction = 'L'; // set direction to L 
+                move();
+                repaint();
+                break;
+            case KeyEvent.VK_D:
+                direction = 'R'; // set direction to L 
+                move();
+                repaint();
+                break;
+        }
+     
+    }
+    }
+    
+    
     
     
 

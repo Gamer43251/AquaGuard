@@ -9,12 +9,16 @@ package aquaguard;
  * @author Jordan Dreelan x23150076
  */
 public class AquaGuard {
+    static AquaGuardApp Display = new AquaGuardApp(); // Initialize immediately
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Display.setVisible(true);
     }
-    
+
+    public static AquaGuardApp getDisplay() {
+        return Display;
+    }
 }
+
+    
+

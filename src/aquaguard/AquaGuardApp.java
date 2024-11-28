@@ -31,7 +31,8 @@ public class AquaGuardApp extends javax.swing.JFrame {
     CardLayout cl;
     
     ArrayList<User> Users = new ArrayList<User>();
-    User Admin = new User("Admin", "Password");
+    static User Admin = new User("Admin", "Password");
+    static User currentUser = Admin;
     
     /**
      * Creates new form AquaGuardApp
@@ -44,6 +45,14 @@ public class AquaGuardApp extends javax.swing.JFrame {
         cl = (CardLayout)(cards.getLayout());
         this.setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 50, 50));
         
+    }
+    
+    public void setCurrentUser(User user){
+        this.currentUser = user;
+    }
+    
+    public User getCurrentUser(){
+        return this.currentUser;
     }
     // method for moving app around the screen since it is undecorated
     public void dragWindow(JFrame frame){
@@ -143,6 +152,7 @@ public class AquaGuardApp extends javax.swing.JFrame {
         confirmPasswordInputField.clearText();
         loginErrorLabel.setText("");
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -1409,6 +1419,7 @@ public class AquaGuardApp extends javax.swing.JFrame {
         cl.show(cards,"fishFall");
         nameLabel.setText("FishFall");
         bubblePop();
+        fishFallSection1.setFocus();
     }//GEN-LAST:event_FishFallBTNMouseClicked
 
     private void homeBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeBTNMouseClicked
@@ -1621,4 +1632,5 @@ public class AquaGuardApp extends javax.swing.JFrame {
     private javax.swing.JButton updateBTN1;
     private aquaguard.inputField usernameInputField;
     // End of variables declaration//GEN-END:variables
+
 }
