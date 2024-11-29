@@ -13,6 +13,7 @@ public class AquaGuard {
 
     public static void main(String[] args) {
         Display.setVisible(true);
+        Display.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
     }
 
     public static AquaGuardApp getDisplay() {

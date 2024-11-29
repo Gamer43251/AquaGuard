@@ -15,7 +15,7 @@ public class User {
     public User(String username, String password){
         this.username = username;
         this.password = password;
-        this.xPos = 250;
+        this.xPos = 225;
         this.yPos = 600;
         
     }
@@ -56,5 +56,10 @@ public class User {
     
     public int getY(){
         return this.yPos;
+    }
+    
+    public void resetPos(){
+        this.xPos = 225;
+        this.yPos = 600;
     }
 }

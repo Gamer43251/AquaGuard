@@ -4,6 +4,8 @@
  */
 package aquaguard;
 
+import javax.swing.SwingUtilities;
+
 /**
  *
  * @author Dreel
@@ -20,6 +22,27 @@ public class FishFallSection extends javax.swing.JPanel {
     public void setFocus(){
         Game.requestFocus();
     }
+    
+    public void increaseScore(int score){
+        if (scoreLabel == null) {
+            System.out.println("scoreLabel is null!");
+        } else {
+            System.out.println("scoreLabel initialized: " + scoreLabel.getText());
+        }
+
+        System.out.println(score);
+        SwingUtilities.invokeLater(() -> scoreLabel.setText("S"));
+        scoreLabel.revalidate();
+        scoreLabel.repaint();
+
+    }
+    
+    public void updateScoreLabel(int score) {
+        scoreLabel.setText("Score: " + score);
+        scoreLabel.revalidate();
+        scoreLabel.repaint();
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -30,7 +53,7 @@ public class FishFallSection extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Game = new aquaguard.FishFallGame();
+        Game = new aquaguard.FishFallGame(this);
         scoreLabelPane = new javax.swing.JLayeredPane();
         scoreLabel = new javax.swing.JLabel();
         scoreBackground = new javax.swing.JLabel();

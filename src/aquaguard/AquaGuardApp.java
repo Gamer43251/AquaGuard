@@ -54,6 +54,7 @@ public class AquaGuardApp extends javax.swing.JFrame {
     public User getCurrentUser(){
         return this.currentUser;
     }
+    
     // method for moving app around the screen since it is undecorated
     public void dragWindow(JFrame frame){
         
@@ -1429,7 +1430,7 @@ public class AquaGuardApp extends javax.swing.JFrame {
     }//GEN-LAST:event_homeBTNMouseClicked
 
     private void exitBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitBTNMouseClicked
-        this.dispose();
+        System.exit(0);
     }//GEN-LAST:event_exitBTNMouseClicked
 
     private void minimiseBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimiseBTNMouseClicked
@@ -1554,7 +1555,7 @@ public class AquaGuardApp extends javax.swing.JFrame {
     private javax.swing.JLabel exitBTN;
     private javax.swing.JButton exitBTN1;
     private javax.swing.JButton exitBTN2;
-    private aquaguard.FishFallSection fishFallSection1;
+    public aquaguard.FishFallSection fishFallSection1;
     private javax.swing.JLabel frequencyLBL;
     private javax.swing.JTextField frequencyTF;
     private javax.swing.JLabel homeBTN;
