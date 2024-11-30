@@ -18,23 +18,29 @@ public class Fish extends Droppable {
     private Image image;
     private ArrayList<Image> icons = new ArrayList<Image>();
     
-    private Image crispWrapper = new ImageIcon(getClass().getResource("/Images/Fishfall/Game/Waste/Crisp Wrapper.png")).getImage();
-    private Image plasticBag = new ImageIcon(getClass().getResource("/Images/Fishfall/Game/Waste/Plastic Bag.png")).getImage();
-    private Image sodaCup = new ImageIcon(getClass().getResource("/Images/Fishfall/Game/Waste/Soda Cup.png")).getImage();
-    private Image straw = new ImageIcon(getClass().getResource("/Images/Fishfall/Game/Waste/Straw.png")).getImage();
-    private Image waterBottle = new ImageIcon(getClass().getResource("/Images/Fishfall/Game/Waste/Water Bottle.png")).getImage();
+    private Image blueFish = super.loadImage("Images/Fishfall/Game/Fish/Blue Fish.png");
+    private Image hammerhead = super.loadImage("Images/Fishfall/Game/Fish/Hammerhead.png");
+    private Image seahorse = super.loadImage("Images/Fishfall/Game/Fish/Seahorse.png");
+    private Image starfish = super.loadImage("Images/Fishfall/Game/Fish/Starfish.png");
+    private Image turtle = super.loadImage("Images/Fishfall/Game/Fish/Turtle.png");
     
     public Fish() {
         x = random.nextInt(8) * 75;
         y = -75;
-        icons.add(crispWrapper);
-        icons.add(plasticBag);
-        icons.add(sodaCup);
-        icons.add(straw);
-        icons.add(waterBottle);
+        icons.add(blueFish);
+        icons.add(hammerhead);
+        icons.add(seahorse);
+        icons.add(starfish);
+        icons.add(turtle);
         
         int r = random.nextInt(icons.size());
         this.image = icons.get(r);
     }
+    
+    public Image getImage(){
+        return this.image;
+    }
+    
+    
     
 }

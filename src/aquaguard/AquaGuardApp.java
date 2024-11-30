@@ -78,7 +78,7 @@ public class AquaGuardApp extends javax.swing.JFrame {
 
     }
     // method for bubble popping noise when buttons are clicked
-    public void bubblePop(){
+    public static void bubblePop(){
         String soundName = "src/Audio/bubblePop.wav";    
         AudioInputStream audioInputStream = null;
         Clip clip = null;

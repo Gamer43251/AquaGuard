@@ -4,7 +4,10 @@
  */
 package aquaguard;
 
+import java.awt.Image;
+import java.net.URL;
 import java.util.Random;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -13,16 +16,19 @@ import java.util.Random;
 public class Droppable {
     private int x,y;
     Random random = new Random();
+    Image image;
     
     public Droppable(){
         x = random.nextInt(8) * 75;
-        y = -75;
+        y = -70;
     }
     
-    public void lower(){
-        System.out.println("X: " + x + " Y: " + y);
-        y += 75;
+    public void lower() {
+        System.out.println("Droppable at y = " + y + " before lowering");
+        y += 10;  // Move down by 75 pixels
+        System.out.println("Droppable at y = " + y + " after lowering");
     }
+
     
     public int getX(){
         return this.x;
@@ -30,5 +36,19 @@ public class Droppable {
     
     public int getY(){
         return this.y;
+    }
+    
+    public Image getImage(){
+        return this.image;
+    }
+    
+    // Helper method to load image
+    public Image loadImage(String path) {
+        URL url = getClass().getClassLoader().getResource(path);
+        if (url == null) {
+            System.out.println("Image not found: " + path);
+            return null;  // Return null or use a default image
+        }
+        return new ImageIcon(url).getImage();
     }
 }

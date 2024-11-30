@@ -15,6 +15,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
@@ -30,15 +33,21 @@ public class FishFallGame extends javax.swing.JPanel {
     private int screenHeight = 750;
     private int tileSize = 75;
     private User pl;;
-    private Droppable dr = new Droppable();
     private char direction;
     private Timer timer;
-    private int dropSpeed = 400;
-    private int score = 0;
+    private Timer dropTime;
+    private int dropSpeed = 50;
+    private int score;
     private int state = 0;  // (0 = Not Started) (1 = Playing) (2= Gameover)
+    private int lives;
+    
+    //Initialise Array of Droppable Objects
+    ArrayList<Droppable> drops = new ArrayList<Droppable>();
     
     //Images Created
     private Image basket_image = new ImageIcon(getClass().getResource("/Images/Fishfall/Game/Net.png")).getImage();
+    private Image bubble = new ImageIcon(getClass().getResource("/Images/Fishfall/Game/Bubble.png")).getImage();
+    private Image bubblePopped = new ImageIcon(getClass().getResource("/Images/Fishfall/Game/BubblePopped.png")).getImage();
     /**
      * Creates new form FishFallGame
      */
@@ -87,45 +96,143 @@ public class FishFallGame extends javax.swing.JPanel {
                 g.setColor(new Color(0, 74, 173));
                 g.fillRect(0,0,600,750);
         
-                // draw vertical lines
-                for(int i = tileSize; i < screenHeight; i+= tileSize){
-                    g.setColor(new Color(255, 255, 255));
-                    g.drawRect(0, i, screenWidth, 0);
+                //draw droppables
+                for (int i = 0; i < drops.size(); i++) {
+                    Droppable drop = drops.get(i);
+                    g.drawImage(drop.getImage(), drop.getX(), drop.getY(), tileSize, tileSize, null);
                 }
 
-                //draw horizontal lines
-                for(int i = tileSize; i < screenHeight; i+= tileSize){
-                    g.setColor(new Color(255, 255, 255));
-                    g.drawRect(i, 0, 0, screenHeight);
-                }
-                //draw droppable
-                g.setColor(new Color(255,0,0));
-                g.fillRect(dr.getX(),dr.getY(), tileSize, tileSize);
-                
 
                 //draw basket
-                g.setColor(new Color(255, 0,255));
                 g.drawImage(basket_image, pl.getX(), pl.getY(), tileSize, tileSize, null);
+                
+                //Overlay Game with semi-Transparent Aqua color
+                g.setColor(new Color(0,100,100, 75));
+                g.fillRect(0,0, screenWidth, screenHeight);
+                
+                //draw Lives
+                g.setColor(new Color(255,255,255));
+                g.setFont(new Font("Arial MS", 1, 40));
+                metrics = getFontMetrics(g.getFont());
+                g.drawString("Lives: ", 10 , screenHeight - 15);
+                if(lives == 5){
+                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 10), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 60), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 110), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 160), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 210), (screenHeight - 50), 40, 40, null);
+                }else if(lives == 4){
+                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 10), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 60), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 110), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 160), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(bubblePopped, (metrics.stringWidth("Lives: ") + 210), (screenHeight - 50), 40, 40, null);
+                }else if(lives == 3){
+                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 10), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 60), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 110), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(bubblePopped, (metrics.stringWidth("Lives: ") + 160), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(bubblePopped, (metrics.stringWidth("Lives: ") + 210), (screenHeight - 50), 40, 40, null);
+                }else if(lives == 2){
+                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 10), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 60), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(bubblePopped, (metrics.stringWidth("Lives: ") + 110), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(bubblePopped, (metrics.stringWidth("Lives: ") + 160), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(bubblePopped, (metrics.stringWidth("Lives: ") + 210), (screenHeight - 50), 40, 40, null);
+                }else if(lives == 1){
+                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 10), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(bubblePopped, (metrics.stringWidth("Lives: ") + 60), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(bubblePopped, (metrics.stringWidth("Lives: ") + 110), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(bubblePopped, (metrics.stringWidth("Lives: ") + 160), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(bubblePopped, (metrics.stringWidth("Lives: ") + 210), (screenHeight - 50), 40, 40, null);
+                }else if(lives == 1){
+                    g.drawImage(bubblePopped, (metrics.stringWidth("Lives: ") + 10), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(bubblePopped, (metrics.stringWidth("Lives: ") + 60), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(bubblePopped, (metrics.stringWidth("Lives: ") + 110), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(bubblePopped, (metrics.stringWidth("Lives: ") + 160), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(bubblePopped, (metrics.stringWidth("Lives: ") + 210), (screenHeight - 50), 40, 40, null);
+                }
+                
                 break;
             case 2:
+                //draw Background
+                g.setColor(new Color(0, 0, 0));
+                g.fillRect(0,0,600,750);
+                
+                //draw Play Again Message
+                g.setColor(Color.white);
+                g.setFont(new Font("Comic Sans MS", 1, 48));
+                metrics = getFontMetrics(g.getFont());
+                g.drawString("Game Over", (screenWidth - metrics.stringWidth("Game Over")) / 2 , screenHeight / 2);
+                g.setFont(new Font("Comic Sans MS", 1, 24));
+                metrics = getFontMetrics(g.getFont());
+                g.drawString("Press Space To Play Again", (screenWidth - metrics.stringWidth("Press Space To Play Again")) / 2 , screenHeight / 3);
                 
                 break;
         }
     }
     
+    public void initDroppables(){
+        drops.clear();
+        Waste dr1 = new Waste();
+        drops.add(dr1);
+    }
+    
+    public void sortDroppables(){
+        Random rand = new Random();
+        int randomInt = rand.nextInt(10);
+        Droppable dr;
+        if(randomInt <= 6){
+            dr = new Waste();
+            drops.add(dr);
+        }else if(randomInt > 6){
+            dr = new Fish();
+            drops.add(dr);
+        }
+        
+        
+        /*if(score >= 10 && drops.size() < 2){
+            Fish dr2 = new Fish();
+            drops.add(dr2);
+        }else if(score >= 20 && drops.size() < 4){
+            Waste dr3 = new Waste();
+            drops.add(dr3);
+        }*/
+    }
+    
     public void startGame(){
+        score = 0;
+        increaseScore(score);
+        lives = 5;
         state = 1;
+        repaint();
+        initDroppables();
         timer = new Timer(dropSpeed, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Move the droppable object down every second
+                checkState();
                 checkCollisions();
-                dr.lower();
-                //System.out.println("Droppable: " + (dr.x * tileSize) +" : " + (dr.y) + " Player: " + pl.x +" : " + pl.y);
-                repaint();  // Repaint the panel to reflect the new position
+                for(int i = 0; i < drops.size(); i++){
+                    Droppable drop = drops.get(i);
+                    drop.lower();
+                }
+                repaint();
+                System.out.println("Drops: " + drops.size());
+                System.out.println("Speed: " + dropSpeed);
+                
             }
         });
         timer.start();
+        
+        dropTime = new Timer(1000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                sortDroppables();
+            }
+        });
+        dropTime.start();
+        
+        
     }
                 
         
@@ -141,16 +248,55 @@ public class FishFallGame extends javax.swing.JPanel {
         }
     }
     
-    public void checkCollisions(){
-        if(dr.getX() == pl.getX()  && dr.getY() == pl.getY()){
-            score++;
-            increaseScore(score);
-            dr = new Droppable();
+    public void checkCollisions() {
+        // A separate list to track new items to be added
+        ArrayList<Droppable> newDrops = new ArrayList<>();
+
+        // Use iterator to iterate through the droppables
+        for (Iterator<Droppable> iterator = drops.iterator(); iterator.hasNext();) {
+            Droppable dr = iterator.next();
+
+            // Check collision with player
+            if (dr.getX() == pl.getX() && dr.getY() == pl.getY()) {
+                if (dr instanceof Waste) {
+                    score++;
+                    increaseScore(score);
+                    System.out.println("Waste Collected");
+                } else if (dr instanceof Fish) {
+                    lives--;
+                    AquaGuardApp.bubblePop();
+                }
+                // Remove the collided object and queue a new one
+                iterator.remove(); // Safe removal
+                newDrops.add(dr instanceof Waste ? new Waste() : new Fish());
+                continue; // Skip further checks for this object
+            }
+
+            // Check if the object is out of bounds
+            if (dr.getY() >= screenHeight) {
+                if (dr instanceof Waste) {
+                    lives--;
+                    AquaGuardApp.bubblePop();
+                }
+                iterator.remove(); // Safe removal
+                //newDrops.add(dr instanceof Waste ? new Waste() : new Fish());
+            }
         }
-        if(dr.getY() == screenHeight){
-            dr = new Droppable();
+
+        // Add all new items after iteration is complete
+        //drops.addAll(newDrops);
+    }
+
+
+    
+    public void checkState(){
+        if(lives == 0){
+            state = 2;
+            drops.removeAll(drops);
+            repaint();
         }
     }
+    
     
     public void increaseScore(int score) {
         System.out.println("Updating score to: " + score);
@@ -165,43 +311,42 @@ public class FishFallGame extends javax.swing.JPanel {
         });
     }
     
+    
     public class MyKeyAdapter extends KeyAdapter {
-    @Override
-    public void keyPressed(KeyEvent e) {
-        switch (e.getKeyCode()) {
-            case KeyEvent.VK_LEFT:
-                direction = 'L'; // set direction to L
-                move();
-                repaint();
-                break;
-            case KeyEvent.VK_RIGHT:
-                direction = 'R'; // set direction to L 
-                move();
-                repaint();
-                break;
-            case KeyEvent.VK_A:
-                direction = 'L'; // set direction to L 
-                move();
-                repaint();
-                break;
-            case KeyEvent.VK_D:
-                direction = 'R'; // set direction to L 
-                move();
-                repaint();
-                break;
-            case KeyEvent.VK_SPACE:
-                System.out.println("Test");
-                if(state == 0){
-                    System.out.println("0");
-                    startGame(); // call startGame method
-                }else if(state == 2){
-                    System.out.println("2");
-                    //playAgain(); // call playAgain method
-                }
-                break;
+        @Override
+        public void keyPressed(KeyEvent e) {
+            switch (e.getKeyCode()) {
+                case KeyEvent.VK_LEFT:
+                    direction = 'L'; // set direction to L
+                    move();
+                    repaint();
+                    break;
+                case KeyEvent.VK_RIGHT:
+                    direction = 'R'; // set direction to L 
+                    move();
+                    repaint();
+                    break;
+                case KeyEvent.VK_A:
+                    direction = 'L'; // set direction to L 
+                    move();
+                    repaint();
+                    break;
+                case KeyEvent.VK_D:
+                    direction = 'R'; // set direction to L 
+                    move();
+                    repaint();
+                    break;
+                case KeyEvent.VK_SPACE:
+                    if(state == 0){
+                        startGame(); // call startGame method
+                    }else if(state == 2){
+                        startGame();
+                        //playAgain(); // call playAgain method
+                    }
+                    break;
+            }
+
         }
-     
-    }
     }
     
     
