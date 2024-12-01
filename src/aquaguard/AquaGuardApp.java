@@ -4,7 +4,9 @@ import java.awt.CardLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.geom.RoundRectangle2D;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,6 +17,7 @@ import javax.sound.sampled.FloatControl;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -23,9 +26,11 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author Dreel
+ * @author Jordan Dreelan
+ * @author Joy Cannon
  */
 public class AquaGuardApp extends javax.swing.JFrame {
+   
     int mouseX, mouseY;
     CardLayout cl;
     /**
@@ -39,7 +44,7 @@ public class AquaGuardApp extends javax.swing.JFrame {
         this.setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 50, 50));
         
     }
-    // method for moving app around the screen since it is undecorated
+    // method for moving app around the screen since it is undecorated -Jordan Dreelan
     public void dragWindow(JFrame frame){
         
         frame.addMouseListener(new MouseAdapter() {
@@ -61,7 +66,7 @@ public class AquaGuardApp extends javax.swing.JFrame {
         });
 
     }
-    // method for bubble popping noise when buttons are clicked
+    // method for bubble popping noise when buttons are clicked -Jordan Dreelan
     public void bubblePop(){
         String soundName = "src/Audio/bubblePop.wav";    
         AudioInputStream audioInputStream = null;
@@ -82,6 +87,12 @@ public class AquaGuardApp extends javax.swing.JFrame {
         
         clip.start();
     }
+    
+    //Joy Cannon Code
+    public static Basket basket = new Basket(); // Example static instance
+    public static Customer cust = new Customer();
+
+    //Joy Cannon code end
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -103,24 +114,18 @@ public class AquaGuardApp extends javax.swing.JFrame {
         logoutLabel = new javax.swing.JLabel();
         cards = new javax.swing.JPanel();
         loginCard = new javax.swing.JPanel();
-        usernameInputField = new aquaguard.inputField();
-        passwordInputField = new aquaguard.inputField();
         loginBTN = new javax.swing.JLabel();
         createAccountBTN = new javax.swing.JLabel();
         loginErrorLabel = new javax.swing.JLabel();
         signupCard = new javax.swing.JPanel();
-        signupUsernameInputField = new aquaguard.inputField();
-        signupPasswordInputField = new aquaguard.inputField();
         SignupBTN = new javax.swing.JLabel();
         signupLoginBTN = new javax.swing.JLabel();
         signupErrorLabel = new javax.swing.JLabel();
-        confirmPasswordInputField = new aquaguard.inputField();
         homeCard = new javax.swing.JPanel();
         descriptionText = new javax.swing.JLabel();
         shoppingBTN = new javax.swing.JLabel();
         FishFallBTN = new javax.swing.JLabel();
         AdoptionBTN = new javax.swing.JLabel();
-        fishFallSection1 = new aquaguard.FishFallSection();
         shop = new javax.swing.JPanel();
         itembg1JP = new javax.swing.JPanel();
         item1LBL = new javax.swing.JLabel();
@@ -159,16 +164,19 @@ public class AquaGuardApp extends javax.swing.JFrame {
         remove5BTN = new javax.swing.JLabel();
         basketJP = new javax.swing.JPanel();
         basketLBL = new javax.swing.JLabel();
-        totalLBL = new javax.swing.JLabel();
+        totalPriceLBL = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        basketItemsTA = new javax.swing.JTextArea();
+        clearBasketBTN = new javax.swing.JLabel();
         billingPanel = new javax.swing.JPanel();
         nameLBL = new javax.swing.JLabel();
         emailLBL = new javax.swing.JLabel();
         addressLBL = new javax.swing.JLabel();
         billinginfoLBL = new javax.swing.JLabel();
-        nameTF = new javax.swing.JTextField();
-        emailTF = new javax.swing.JTextField();
+        customerNameTF = new javax.swing.JTextField();
+        customerEmailTF = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        addressTA = new javax.swing.JTextArea();
+        customerAddressTA = new javax.swing.JTextArea();
         itembg6JP = new javax.swing.JPanel();
         item6LBL = new javax.swing.JLabel();
         price6LBL = new javax.swing.JLabel();
@@ -212,7 +220,6 @@ public class AquaGuardApp extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Aqua Guard");
         setBounds(new java.awt.Rectangle(0, 0, 0, 0));
-        setMaximumSize(new java.awt.Dimension(1500, 950));
         setMinimumSize(new java.awt.Dimension(1500, 950));
         setUndecorated(true);
         setResizable(false);
@@ -344,10 +351,6 @@ public class AquaGuardApp extends javax.swing.JFrame {
 
         loginCard.setOpaque(false);
 
-        usernameInputField.setTag("Username");
-
-        passwordInputField.setTag("Password");
-
         loginBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/buttons/loginBTN.png"))); // NOI18N
         loginBTN.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -372,43 +375,28 @@ public class AquaGuardApp extends javax.swing.JFrame {
         loginCardLayout.setHorizontalGroup(
             loginCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(loginCardLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(loginCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(loginErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 1150, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(createAccountBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 1150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(loginCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(loginCardLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(loginBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 1150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, loginCardLayout.createSequentialGroup()
-                            .addGap(175, 175, 175)
-                            .addGroup(loginCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(passwordInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(usernameInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(175, Short.MAX_VALUE))
+                    .addComponent(loginBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 1150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(344, Short.MAX_VALUE))
         );
         loginCardLayout.setVerticalGroup(
             loginCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(loginCardLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(loginErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(usernameInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(passwordInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(90, 90, 90)
                 .addComponent(loginBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(createAccountBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(198, Short.MAX_VALUE))
+                .addContainerGap(362, Short.MAX_VALUE))
         );
 
         cards.add(loginCard, "login");
 
         signupCard.setOpaque(false);
-
-        signupUsernameInputField.setTag("Username");
-
-        signupPasswordInputField.setTag("Password");
 
         SignupBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/buttons/SignupButton.png"))); // NOI18N
         SignupBTN.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -429,44 +417,28 @@ public class AquaGuardApp extends javax.swing.JFrame {
         signupErrorLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         signupErrorLabel.setText("Error Message Goes Here");
 
-        confirmPasswordInputField.setTag("Confirm Password");
-
         javax.swing.GroupLayout signupCardLayout = new javax.swing.GroupLayout(signupCard);
         signupCard.setLayout(signupCardLayout);
         signupCardLayout.setHorizontalGroup(
             signupCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(signupCardLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(signupCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(confirmPasswordInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(signupErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 1150, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(signupLoginBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 1150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(signupCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(signupCardLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(SignupBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 1150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, signupCardLayout.createSequentialGroup()
-                            .addGap(175, 175, 175)
-                            .addGroup(signupCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(signupPasswordInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(signupUsernameInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(175, Short.MAX_VALUE))
+                    .addComponent(SignupBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 1150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(344, Short.MAX_VALUE))
         );
         signupCardLayout.setVerticalGroup(
             signupCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(signupCardLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(signupErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(signupUsernameInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(signupPasswordInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(confirmPasswordInputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(126, 126, 126)
                 .addComponent(SignupBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(signupLoginBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addContainerGap(326, Short.MAX_VALUE))
         );
 
         cards.add(signupCard, "signup");
@@ -527,7 +499,6 @@ public class AquaGuardApp extends javax.swing.JFrame {
         );
 
         cards.add(homeCard, "home");
-        cards.add(fishFallSection1, "fishFall");
 
         shop.setOpaque(false);
 
@@ -542,7 +513,7 @@ public class AquaGuardApp extends javax.swing.JFrame {
 
         image1LBL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Products/tshirt.png"))); // NOI18N
 
-        stock1LBL.setText("Stock : 10");
+        stock1LBL.setText("Stock : 25");
 
         buy1BTN.setBackground(new java.awt.Color(1, 187, 187));
         buy1BTN.setForeground(new java.awt.Color(255, 255, 255));
@@ -550,6 +521,11 @@ public class AquaGuardApp extends javax.swing.JFrame {
         buy1BTN.setText("Buy");
         buy1BTN.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
         buy1BTN.setOpaque(true);
+        buy1BTN.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buy1BTNMouseClicked(evt);
+            }
+        });
 
         remove1BTN.setBackground(new java.awt.Color(1, 187, 187));
         remove1BTN.setForeground(new java.awt.Color(255, 255, 255));
@@ -557,6 +533,11 @@ public class AquaGuardApp extends javax.swing.JFrame {
         remove1BTN.setText("Remove");
         remove1BTN.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
         remove1BTN.setOpaque(true);
+        remove1BTN.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                remove1BTNMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout itembg1JPLayout = new javax.swing.GroupLayout(itembg1JP);
         itembg1JP.setLayout(itembg1JPLayout);
@@ -602,11 +583,11 @@ public class AquaGuardApp extends javax.swing.JFrame {
         item2LBL.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         item2LBL.setText("AquaGuard Cap");
 
-        price2LBL.setText("Price: €20.99");
+        price2LBL.setText("Price: €15.99");
 
         image2LBL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Products/cap.png"))); // NOI18N
 
-        stock2LBL.setText("Stock : 10");
+        stock2LBL.setText("Stock : 15");
 
         buy2BTN.setBackground(new java.awt.Color(1, 187, 187));
         buy2BTN.setForeground(new java.awt.Color(255, 255, 255));
@@ -614,6 +595,11 @@ public class AquaGuardApp extends javax.swing.JFrame {
         buy2BTN.setText("Buy");
         buy2BTN.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
         buy2BTN.setOpaque(true);
+        buy2BTN.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buy2BTNMouseClicked(evt);
+            }
+        });
 
         remove2BTN.setBackground(new java.awt.Color(1, 187, 187));
         remove2BTN.setForeground(new java.awt.Color(255, 255, 255));
@@ -621,6 +607,11 @@ public class AquaGuardApp extends javax.swing.JFrame {
         remove2BTN.setText("Remove");
         remove2BTN.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
         remove2BTN.setOpaque(true);
+        remove2BTN.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                remove2BTNMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout itembg2JPLayout = new javax.swing.GroupLayout(itembg2JP);
         itembg2JP.setLayout(itembg2JPLayout);
@@ -669,11 +660,11 @@ public class AquaGuardApp extends javax.swing.JFrame {
         item3LBL.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         item3LBL.setText("AquaGuard Bottle");
 
-        price3LBL.setText("Price: €20.99");
+        price3LBL.setText("Price: €18.50");
 
         image3LBL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Products/bottle.png"))); // NOI18N
 
-        stock3LBL.setText("Stock : 10");
+        stock3LBL.setText("Stock : 12");
 
         buy3BTN.setBackground(new java.awt.Color(1, 187, 187));
         buy3BTN.setForeground(new java.awt.Color(255, 255, 255));
@@ -681,6 +672,11 @@ public class AquaGuardApp extends javax.swing.JFrame {
         buy3BTN.setText("Buy");
         buy3BTN.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
         buy3BTN.setOpaque(true);
+        buy3BTN.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buy3BTNMouseClicked(evt);
+            }
+        });
 
         remove3BTN.setBackground(new java.awt.Color(1, 187, 187));
         remove3BTN.setForeground(new java.awt.Color(255, 255, 255));
@@ -688,6 +684,11 @@ public class AquaGuardApp extends javax.swing.JFrame {
         remove3BTN.setText("Remove");
         remove3BTN.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
         remove3BTN.setOpaque(true);
+        remove3BTN.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                remove3BTNMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout itembg3JPLayout = new javax.swing.GroupLayout(itembg3JP);
         itembg3JP.setLayout(itembg3JPLayout);
@@ -733,11 +734,11 @@ public class AquaGuardApp extends javax.swing.JFrame {
         item4LBL.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         item4LBL.setText("AquaGuard Bracelet");
 
-        price4LBL.setText("Price: €20.99");
+        price4LBL.setText("Price: €10.55");
 
         image4LBL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Products/bracelet.png"))); // NOI18N
 
-        stock4LBL.setText("Stock : 10");
+        stock4LBL.setText("Stock : 12");
 
         buy4BTN.setBackground(new java.awt.Color(1, 187, 187));
         buy4BTN.setForeground(new java.awt.Color(255, 255, 255));
@@ -745,6 +746,11 @@ public class AquaGuardApp extends javax.swing.JFrame {
         buy4BTN.setText("Buy");
         buy4BTN.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
         buy4BTN.setOpaque(true);
+        buy4BTN.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buy4BTNMouseClicked(evt);
+            }
+        });
 
         remove4BTN.setBackground(new java.awt.Color(1, 187, 187));
         remove4BTN.setForeground(new java.awt.Color(255, 255, 255));
@@ -752,6 +758,11 @@ public class AquaGuardApp extends javax.swing.JFrame {
         remove4BTN.setText("Remove");
         remove4BTN.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
         remove4BTN.setOpaque(true);
+        remove4BTN.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                remove4BTNMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout itembg4JPLayout = new javax.swing.GroupLayout(itembg4JP);
         itembg4JP.setLayout(itembg4JPLayout);
@@ -796,15 +807,20 @@ public class AquaGuardApp extends javax.swing.JFrame {
         itembg5JP.setBackground(new java.awt.Color(0, 255, 255));
         itembg5JP.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 5));
         itembg5JP.setPreferredSize(new java.awt.Dimension(287, 354));
+        itembg5JP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                itembg5JPMouseClicked(evt);
+            }
+        });
 
         item5LBL.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         item5LBL.setText("AquaGuard Poster");
 
-        price5LBL.setText("Price: €20.99");
+        price5LBL.setText("Price: €10.20");
 
         image5LBL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Products/poster.png"))); // NOI18N
 
-        stock5LBL.setText("Stock : 10");
+        stock5LBL.setText("Stock : 15");
 
         buy5BTN.setBackground(new java.awt.Color(1, 187, 187));
         buy5BTN.setForeground(new java.awt.Color(255, 255, 255));
@@ -812,6 +828,11 @@ public class AquaGuardApp extends javax.swing.JFrame {
         buy5BTN.setText("Buy");
         buy5BTN.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
         buy5BTN.setOpaque(true);
+        buy5BTN.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buy5BTNMouseClicked(evt);
+            }
+        });
 
         remove5BTN.setBackground(new java.awt.Color(1, 187, 187));
         remove5BTN.setForeground(new java.awt.Color(255, 255, 255));
@@ -867,32 +888,64 @@ public class AquaGuardApp extends javax.swing.JFrame {
         basketLBL.setForeground(new java.awt.Color(255, 255, 255));
         basketLBL.setText("Basket");
 
-        totalLBL.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        totalLBL.setForeground(new java.awt.Color(255, 255, 255));
-        totalLBL.setText("Total:");
+        totalPriceLBL.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        totalPriceLBL.setForeground(new java.awt.Color(255, 255, 255));
+        totalPriceLBL.setText("Total:");
+
+        basketItemsTA.setEditable(false);
+        basketItemsTA.setBackground(new java.awt.Color(33, 86, 138));
+        basketItemsTA.setColumns(20);
+        basketItemsTA.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        basketItemsTA.setForeground(new java.awt.Color(255, 255, 255));
+        basketItemsTA.setRows(5);
+        basketItemsTA.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 3, true));
+        jScrollPane2.setViewportView(basketItemsTA);
+
+        clearBasketBTN.setBackground(new java.awt.Color(1, 187, 187));
+        clearBasketBTN.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        clearBasketBTN.setForeground(new java.awt.Color(255, 255, 255));
+        clearBasketBTN.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        clearBasketBTN.setText("Clear");
+        clearBasketBTN.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 4, true));
+        clearBasketBTN.setOpaque(true);
+        clearBasketBTN.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clearBasketBTNMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout basketJPLayout = new javax.swing.GroupLayout(basketJP);
         basketJP.setLayout(basketJPLayout);
         basketJPLayout.setHorizontalGroup(
             basketJPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(basketJPLayout.createSequentialGroup()
-                .addGroup(basketJPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(basketJPLayout.createSequentialGroup()
-                        .addGap(169, 169, 169)
-                        .addComponent(basketLBL))
+                .addGroup(basketJPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(basketJPLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(totalLBL)))
+                        .addComponent(totalPriceLBL)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(clearBasketBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(basketJPLayout.createSequentialGroup()
+                        .addGap(62, 62, 62)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, basketJPLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(basketLBL)
+                .addGap(174, 174, 174))
         );
         basketJPLayout.setVerticalGroup(
             basketJPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(basketJPLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, basketJPLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
                 .addComponent(basketLBL)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 274, Short.MAX_VALUE)
-                .addComponent(totalLBL)
-                .addGap(14, 14, 14))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(basketJPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(totalPriceLBL)
+                    .addComponent(clearBasketBTN))
+                .addGap(11, 11, 11))
         );
 
         billingPanel.setBackground(new java.awt.Color(33, 86, 138));
@@ -915,9 +968,9 @@ public class AquaGuardApp extends javax.swing.JFrame {
         billinginfoLBL.setForeground(new java.awt.Color(255, 255, 255));
         billinginfoLBL.setText("Billing Information");
 
-        addressTA.setColumns(20);
-        addressTA.setRows(5);
-        jScrollPane1.setViewportView(addressTA);
+        customerAddressTA.setColumns(20);
+        customerAddressTA.setRows(5);
+        jScrollPane1.setViewportView(customerAddressTA);
 
         javax.swing.GroupLayout billingPanelLayout = new javax.swing.GroupLayout(billingPanel);
         billingPanel.setLayout(billingPanelLayout);
@@ -932,9 +985,9 @@ public class AquaGuardApp extends javax.swing.JFrame {
                         .addComponent(nameLBL)))
                 .addGap(35, 35, 35)
                 .addGroup(billingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nameTF)
-                    .addComponent(emailTF)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE))
+                    .addComponent(customerNameTF)
+                    .addComponent(customerEmailTF)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE))
                 .addGap(38, 38, 38))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, billingPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -949,10 +1002,10 @@ public class AquaGuardApp extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(billingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameLBL)
-                    .addComponent(nameTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(customerNameTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(billingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(emailTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(customerEmailTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(emailLBL))
                 .addGroup(billingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(billingPanelLayout.createSequentialGroup()
@@ -971,11 +1024,11 @@ public class AquaGuardApp extends javax.swing.JFrame {
         item6LBL.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         item6LBL.setText("AquaGuard Plush");
 
-        price6LBL.setText("Price: €20.99");
+        price6LBL.setText("Price: €25.99");
 
         image6LBL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Products/plush.png"))); // NOI18N
 
-        stock6LBL.setText("Stock : 10");
+        stock6LBL.setText("Stock : 13");
 
         buy6BTN.setBackground(new java.awt.Color(1, 187, 187));
         buy6BTN.setForeground(new java.awt.Color(255, 255, 255));
@@ -983,6 +1036,11 @@ public class AquaGuardApp extends javax.swing.JFrame {
         buy6BTN.setText("Buy");
         buy6BTN.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
         buy6BTN.setOpaque(true);
+        buy6BTN.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buy6BTNMouseClicked(evt);
+            }
+        });
 
         remove6BTN.setBackground(new java.awt.Color(1, 187, 187));
         remove6BTN.setForeground(new java.awt.Color(255, 255, 255));
@@ -990,6 +1048,11 @@ public class AquaGuardApp extends javax.swing.JFrame {
         remove6BTN.setText("Remove");
         remove6BTN.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
         remove6BTN.setOpaque(true);
+        remove6BTN.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                remove6BTNMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout itembg6JPLayout = new javax.swing.GroupLayout(itembg6JP);
         itembg6JP.setLayout(itembg6JPLayout);
@@ -1038,6 +1101,11 @@ public class AquaGuardApp extends javax.swing.JFrame {
         checkoutBTN.setText("Checkout");
         checkoutBTN.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 5));
         checkoutBTN.setOpaque(true);
+        checkoutBTN.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                checkoutBTNMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout shopLayout = new javax.swing.GroupLayout(shop);
         shop.setLayout(shopLayout);
@@ -1067,16 +1135,12 @@ public class AquaGuardApp extends javax.swing.JFrame {
             shopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(shopLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addGroup(shopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(shopLayout.createSequentialGroup()
-                        .addComponent(basketJP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(shopLayout.createSequentialGroup()
-                        .addGroup(shopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(itembg3JP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
-                            .addComponent(itembg2JP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
-                            .addComponent(itembg1JP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(shopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(itembg3JP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
+                    .addComponent(itembg2JP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
+                    .addComponent(itembg1JP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
+                    .addComponent(basketJP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addGroup(shopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(shopLayout.createSequentialGroup()
                         .addComponent(billingPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1369,7 +1433,156 @@ public class AquaGuardApp extends javax.swing.JFrame {
         nameLabel.setText("Adoption");
         bubblePop();
     }//GEN-LAST:event_AdoptionBTNMouseClicked
+//Joy Cannon Code
+    private void buy1BTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buy1BTNMouseClicked
+        // TODO add your handling code here:
+        basket.addItem(0); //Add item at index 0 Tshirt
+        stock1LBL.setText("Stock: "+basket.getItemStock()[0]);//Update stock label
+    }//GEN-LAST:event_buy1BTNMouseClicked
 
+    private void buy2BTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buy2BTNMouseClicked
+        // TODO add your handling code here:
+        basket.addItem(1);
+        stock2LBL.setText("Stock: "+basket.getItemStock()[1]);
+    }//GEN-LAST:event_buy2BTNMouseClicked
+
+    private void buy3BTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buy3BTNMouseClicked
+        // TODO add your handling code here:
+        basket.addItem(2);
+        stock3LBL.setText("Stock: "+basket.getItemStock()[2]);
+    }//GEN-LAST:event_buy3BTNMouseClicked
+
+    private void buy4BTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buy4BTNMouseClicked
+        // TODO add your handling code here:
+        basket.addItem(3);
+        stock4LBL.setText("Stock: "+basket.getItemStock()[3]);
+    }//GEN-LAST:event_buy4BTNMouseClicked
+
+    private void buy5BTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buy5BTNMouseClicked
+        // TODO add your handling code here:
+        basket.addItem(4);
+        stock5LBL.setText("Stock: "+basket.getItemStock()[4]);
+    }//GEN-LAST:event_buy5BTNMouseClicked
+
+    private void buy6BTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buy6BTNMouseClicked
+        // TODO add your handling code here:
+        basket.addItem(5);
+        stock6LBL.setText("Stock: "+basket.getItemStock()[5]);
+    }//GEN-LAST:event_buy6BTNMouseClicked
+
+    private void remove1BTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_remove1BTNMouseClicked
+        // TODO add your handling code here:
+        basket.removeItem(0);
+        stock1LBL.setText("Stock: "+basket.getItemStock()[0]);
+    }//GEN-LAST:event_remove1BTNMouseClicked
+
+    private void remove2BTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_remove2BTNMouseClicked
+        // TODO add your handling code here:
+        basket.removeItem(1);
+        stock2LBL.setText("Stock: "+basket.getItemStock()[1]);
+    }//GEN-LAST:event_remove2BTNMouseClicked
+
+    private void remove3BTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_remove3BTNMouseClicked
+        // TODO add your handling code here:
+        basket.removeItem(2);
+        stock3LBL.setText("Stock: "+basket.getItemStock()[2]);
+    }//GEN-LAST:event_remove3BTNMouseClicked
+
+    private void remove4BTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_remove4BTNMouseClicked
+        // TODO add your handling code here:
+        basket.removeItem(3);
+        stock4LBL.setText("Stock: "+basket.getItemStock()[3]);
+    }//GEN-LAST:event_remove4BTNMouseClicked
+
+    private void itembg5JPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itembg5JPMouseClicked
+        // TODO add your handling code here:
+        basket.removeItem(4);
+        stock5LBL.setText("Stock: "+basket.getItemStock()[4]);
+    }//GEN-LAST:event_itembg5JPMouseClicked
+
+    private void remove6BTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_remove6BTNMouseClicked
+        // TODO add your handling code here:
+        basket.removeItem(5);
+        stock6LBL.setText("Stock: "+basket.getItemStock()[5]);
+    }//GEN-LAST:event_remove6BTNMouseClicked
+
+    private void checkoutBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkoutBTNMouseClicked
+        // TODO add your handling code here:
+        //Error check if basket has items in it
+        if (basket.getBasketItems().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Your basket is empty. Please add items before proceeding.", "Input Error", JOptionPane.ERROR_MESSAGE);
+            return;//Exit the method if the basket is empty
+        }
+        
+        //Error check if input fields are empt
+        if (customerNameTF.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Customer Name cannot be empty!", "Input Error", JOptionPane.ERROR_MESSAGE);
+            return;//Exit if error check fails
+        }
+
+        if (customerEmailTF.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Customer Email cannot be empty!", "Input Error", JOptionPane.ERROR_MESSAGE);
+            return;//Exit if error check fails
+        }
+
+        if (customerAddressTA.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Customer Address cannot be empty!", "Input Error", JOptionPane.ERROR_MESSAGE);
+            return;//Exit if error check fails
+        }
+        
+        //Declare file, filewrietr and buffedwriter
+        File customerFile;
+        FileWriter fw;
+        BufferedWriter bw;
+       
+        //Set customer info from text fields
+        cust.setCustomerName(customerNameTF.getText());
+        cust.setCustomerEmail(customerEmailTF.getText());
+        cust.setCustomerAddress(customerAddressTA.getText());
+        
+         // Call the method in Customer class to confirm details
+        if (!cust.displayCustomerDetails()) {
+            // If the user cancels, stop the process
+            JOptionPane.showMessageDialog(null, "Please correct the information and try again.");
+            return; // Exit the method
+        }
+
+        try {    
+            customerFile = new File("customerData.txt");//Create or open the customerData.txt file
+
+            //make new filewriter and bufferdwriter
+            fw = new FileWriter(customerFile, true);  
+            bw = new BufferedWriter(fw);
+            
+            bw.write(cust.getCustomerName() + ", " + cust.getCustomerEmail() + ", " + cust.getCustomerAddress());//Write customer data to the file 
+            bw.newLine(); //Add a new line after writing customer's data      
+            bw.close();//Close the BufferedWriter
+            
+            JOptionPane.showMessageDialog(null, "Order successfully placed!");// Display to the user about the order       
+            basket.charityCalc();// Call charity donation method      
+            JOptionPane.showMessageDialog(null, "Charity Donated: €" + String.format("%.2f", basket.getCharityProfit()));//Display the charity donation amount
+
+        } catch (IOException e) {
+            System.out.println("IOException: " + e.getMessage());
+        }   
+        basket.getBasketItems().clear();//Clear the basketItems list     
+        basket.setTotalPrice(0.0);//Reset the totalPrice to 0
+        basket.updateBasket();//Update the basket display and total price labels
+        
+        //Empty Customer Info 
+        customerNameTF.setText("");
+        customerEmailTF.setText("");
+        customerAddressTA.setText("");
+        
+    }//GEN-LAST:event_checkoutBTNMouseClicked
+
+    private void clearBasketBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearBasketBTNMouseClicked
+        // TODO add your handling code here:                               
+        basket.getBasketItems().clear();//Clear the basketItems list     
+        basket.setTotalPrice(0.0);//Reset the totalPrice to 0
+        basket.updateBasket();//Update the basket display and total price labels
+    }//GEN-LAST:event_clearBasketBTNMouseClicked
+//Joy Cannon Code end
     /**
      * @param args the command line arguments
      */
@@ -1414,7 +1627,6 @@ public class AquaGuardApp extends javax.swing.JFrame {
     private javax.swing.JButton addBTN;
     private javax.swing.JButton addBTN1;
     private javax.swing.JLabel addressLBL;
-    private javax.swing.JTextArea addressTA;
     private javax.swing.JLabel adopteremailLBL;
     private javax.swing.JTextField adopteremailTF;
     private javax.swing.JLabel adopternameLBL;
@@ -1424,11 +1636,12 @@ public class AquaGuardApp extends javax.swing.JFrame {
     private javax.swing.JTextField ageTF;
     private javax.swing.JLabel animaladopteeLBL;
     private javax.swing.JLabel animaladopterregistrationLBL;
-    private javax.swing.JPanel basketJP;
-    private javax.swing.JLabel basketLBL;
+    public static javax.swing.JTextArea basketItemsTA;
+    public static javax.swing.JPanel basketJP;
+    public static javax.swing.JLabel basketLBL;
     private javax.swing.JPanel billingPanel;
     private javax.swing.JLabel billinginfoLBL;
-    private javax.swing.JLabel buy1BTN;
+    public static javax.swing.JLabel buy1BTN;
     private javax.swing.JLabel buy2BTN;
     private javax.swing.JLabel buy3BTN;
     private javax.swing.JLabel buy4BTN;
@@ -1438,17 +1651,18 @@ public class AquaGuardApp extends javax.swing.JFrame {
     private javax.swing.JLabel checkoutBTN;
     private javax.swing.JButton clearBTN;
     private javax.swing.JButton clearBTN1;
-    private aquaguard.inputField confirmPasswordInputField;
+    private javax.swing.JLabel clearBasketBTN;
     private javax.swing.JLabel createAccountBTN;
+    public static javax.swing.JTextArea customerAddressTA;
+    public static javax.swing.JTextField customerEmailTF;
+    public static javax.swing.JTextField customerNameTF;
     private javax.swing.JLabel descriptionText;
     private javax.swing.JLabel donationamountLBL;
     private javax.swing.JTextField donationamountTF;
     private javax.swing.JLabel emailLBL;
-    private javax.swing.JTextField emailTF;
     private javax.swing.JLabel exitBTN;
     private javax.swing.JButton exitBTN1;
     private javax.swing.JButton exitBTN2;
-    private aquaguard.FishFallSection fishFallSection1;
     private javax.swing.JLabel frequencyLBL;
     private javax.swing.JTextField frequencyTF;
     private javax.swing.JLabel homeBTN;
@@ -1473,6 +1687,7 @@ public class AquaGuardApp extends javax.swing.JFrame {
     private javax.swing.JPanel itembg5JP;
     private javax.swing.JPanel itembg6JP;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel loginBTN;
     private javax.swing.JPanel loginCard;
     private javax.swing.JLabel loginErrorLabel;
@@ -1483,9 +1698,7 @@ public class AquaGuardApp extends javax.swing.JFrame {
     private javax.swing.JLabel nameLBL;
     private javax.swing.JLabel nameLBL1;
     private javax.swing.JLabel nameLabel;
-    private javax.swing.JTextField nameTF;
     private javax.swing.JTextField nameTF1;
-    private aquaguard.inputField passwordInputField;
     private javax.swing.JLabel price1LBL;
     private javax.swing.JLabel price2LBL;
     private javax.swing.JLabel price3LBL;
@@ -1505,8 +1718,6 @@ public class AquaGuardApp extends javax.swing.JFrame {
     private javax.swing.JPanel signupCard;
     private javax.swing.JLabel signupErrorLabel;
     private javax.swing.JLabel signupLoginBTN;
-    private aquaguard.inputField signupPasswordInputField;
-    private aquaguard.inputField signupUsernameInputField;
     private javax.swing.JLabel stock1LBL;
     private javax.swing.JLabel stock2LBL;
     private javax.swing.JLabel stock3LBL;
@@ -1518,9 +1729,8 @@ public class AquaGuardApp extends javax.swing.JFrame {
     private javax.swing.JButton tonextjformBTN;
     private javax.swing.JPanel topBar;
     private javax.swing.JButton topreviousjformBTN;
-    private javax.swing.JLabel totalLBL;
+    public static javax.swing.JLabel totalPriceLBL;
     private javax.swing.JButton updateBTN;
     private javax.swing.JButton updateBTN1;
-    private aquaguard.inputField usernameInputField;
     // End of variables declaration//GEN-END:variables
 }
