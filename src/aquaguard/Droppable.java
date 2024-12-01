@@ -15,8 +15,8 @@ import javax.swing.ImageIcon;
  */
 public class Droppable {
     private int x,y;
-    Random random = new Random();
-    Image image;
+    protected Random random = new Random();
+    private Image image;
     
     public Droppable(){
         x = random.nextInt(8) * 75;

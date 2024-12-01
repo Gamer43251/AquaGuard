@@ -27,12 +27,12 @@ import javax.swing.JFrame;
  * @author Dreel
  */
 public class AquaGuardApp extends javax.swing.JFrame {
-    int mouseX, mouseY;
-    CardLayout cl;
+    private int mouseX, mouseY;
+    private CardLayout cl;
     
-    ArrayList<User> Users = new ArrayList<User>();
-    static User Admin = new User("Admin", "Password");
-    static User currentUser = Admin;
+    private ArrayList<User> Users = new ArrayList<User>();
+    private static User Admin = new User("Admin", "Password");
+    private static User currentUser = Admin;
     
     /**
      * Creates new form AquaGuardApp
@@ -51,8 +51,8 @@ public class AquaGuardApp extends javax.swing.JFrame {
         this.currentUser = user;
     }
     
-    public User getCurrentUser(){
-        return this.currentUser;
+    public static User getCurrentUser(){
+        return currentUser;
     }
     
     // method for moving app around the screen since it is undecorated

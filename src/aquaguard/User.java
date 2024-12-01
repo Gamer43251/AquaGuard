@@ -9,7 +9,7 @@ package aquaguard;
  * @author Dreel
  */
 public class User {
-    protected String username, password;
+    private String username, password;
     private int xPos,yPos;
     
     public User(String username, String password){

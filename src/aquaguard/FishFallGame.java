@@ -27,8 +27,8 @@ import javax.swing.Timer;
  * @author Dreel
  */
 public class FishFallGame extends javax.swing.JPanel {
-    FishFallSection parentSection;
-    AquaGuardApp Display = AquaGuard.getDisplay();
+    private FishFallSection parentSection;
+    private AquaGuardApp Display = AquaGuard.getDisplay();
     private int screenWidth = 600;
     private int screenHeight = 750;
     private int tileSize = 75;
@@ -42,7 +42,7 @@ public class FishFallGame extends javax.swing.JPanel {
     private int lives;
     
     //Initialise Array of Droppable Objects
-    ArrayList<Droppable> drops = new ArrayList<Droppable>();
+    private ArrayList<Droppable> drops = new ArrayList<Droppable>();
     
     //Images Created
     private Image basket_image = new ImageIcon(getClass().getResource("/Images/Fishfall/Game/Net.png")).getImage();
@@ -52,14 +52,14 @@ public class FishFallGame extends javax.swing.JPanel {
      * Creates new form FishFallGame
      */
     public FishFallGame() {
-        this.pl = AquaGuardApp.currentUser;
+        this.pl = AquaGuardApp.getCurrentUser();
         initComponents();
         setFocusable(true);
         addKeyListener(new MyKeyAdapter());
     }
     
     public FishFallGame(FishFallSection parent) {
-        this.pl = AquaGuardApp.currentUser;
+        this.pl = AquaGuardApp.getCurrentUser();
         this.parentSection = parent;
         initComponents();
         setFocusable(true);
