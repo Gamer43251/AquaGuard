@@ -12,11 +12,12 @@ import java.util.List;
  * @author Joy Cannon
  */
 public class Basket extends Stock{
+    //Declare Variables
     private List<String> basketItems = new ArrayList<>();
     private double totalPrice;
     private double charityProfit;
     
-
+    //Setters
     public void setBasketItems(List<String> basketItems) {
         this.basketItems = basketItems;
     }
@@ -28,7 +29,8 @@ public class Basket extends Stock{
     public void setCharityProfit(double charityProfit) {
         this.charityProfit = charityProfit;
     }
-
+    
+    //Getters
     public List<String> getBasketItems() {
         return basketItems;
     }
@@ -41,16 +43,16 @@ public class Basket extends Stock{
         return charityProfit;
     }
     
-    public void addItem(int index) {
+    public void addItem(int index) {//add items to basket method
         String[] itemName = getItemNames();
         double[] itemPrices = getItemPrices();
         int[] itemStock = getItemStock();
 
-        if (index >= 0 && index < itemName.length) { // Check for valid index
-            if (itemStock[index] > 0) { // Check stock availability
-                basketItems.add(itemName[index]); // Add item to basket
-                totalPrice = totalPrice + itemPrices[index]; // Add price to total
-                itemStock[index]--; // Reduce stock quantity
+        if (index >= 0 && index < itemName.length) {//Check for valid index
+            if (itemStock[index] > 0) {//Check stock availability
+                basketItems.add(itemName[index]);//Add item to basket
+                totalPrice = totalPrice + itemPrices[index];//Add price to total
+                itemStock[index]--;//Reduce stock quantity
                 System.out.println(itemName[index] + " added to the basket.");
             } else {
                 System.out.println(itemName[index] + " is out of stock.");
@@ -60,16 +62,16 @@ public class Basket extends Stock{
     }
 
     
-    public void removeItem(int index) {
+    public void removeItem(int index) {//Remove items to basket method
         String[] itemName = getItemNames();
         double[] itemPrices = getItemPrices();
         int[] itemStock = getItemStock();
 
-        if (index >= 0 && index < itemName.length) { // Check for valid index
-            if (basketItems.contains(itemName[index])) { // Check if item is in basket
-                basketItems.remove(itemName[index]); // Remove item from basket
-                totalPrice = totalPrice - itemPrices[index]; // Subtract price from total
-                itemStock[index]++; // Restore stock quantity
+        if (index >= 0 && index < itemName.length) {//Check for valid index
+            if (basketItems.contains(itemName[index])) {//Check if item is in basket
+                basketItems.remove(itemName[index]);//Remove item from basket
+                totalPrice = totalPrice - itemPrices[index];//Subtract price from total
+                itemStock[index]++;//Restore stock quantity
                 System.out.println(itemName[index] + " removed from the basket.");
             } else {
                 System.out.println(itemName[index] + " is not in the basket.");
@@ -82,17 +84,17 @@ public class Basket extends Stock{
 
     
     public void updateBasket() {
-        String basketContents = "";// Start with an empty basket
+        String basketContents = "";//Start with an empty basket
     
-        if (basketItems.isEmpty()) {// If basketItems is empty, display that the basket is empty
+        if (basketItems.isEmpty()) {//If basketItems is empty, display that the basket is empty
             basketContents = "The basket is empty.";
         } else {
-            for (String item : basketItems) { // Loop through each item in basketItems
-                basketContents += item + "\n";// Add each item followed by a newline
+            for (String item : basketItems) {//Loop through each item in basketItems
+                basketContents += item + "\n";//Add each item followed by a newline
             }
         }
 
-        // Update and Display the basketItems textArea and totalPrice label 
+        //Update and Display the basketItems textArea and totalPrice label 
         AquaGuardApp.basketItemsTA.setText(basketContents);
         AquaGuardApp.totalPriceLBL.setText("Total Price: €" + String.format("%.2f", totalPrice));
     }

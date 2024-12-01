@@ -1540,11 +1540,10 @@ public class AquaGuardApp extends javax.swing.JFrame {
         cust.setCustomerEmail(customerEmailTF.getText());
         cust.setCustomerAddress(customerAddressTA.getText());
         
-         // Call the method in Customer class to confirm details
-        if (!cust.displayCustomerDetails()) {
-            // If the user cancels, stop the process
+         //Call the method in Customer class to confirm details
+        if (!cust.displayCustomerDetails()) {//If the user cancels
             JOptionPane.showMessageDialog(null, "Please correct the information and try again.");
-            return; // Exit the method
+            return;//Exit the method
         }
 
         try {    

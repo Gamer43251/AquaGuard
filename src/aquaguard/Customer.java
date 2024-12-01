@@ -11,14 +11,12 @@ import javax.swing.JOptionPane;
  * @author Joy Cannon
  */
 public class Customer {
+    //Declare Variables
     private String customerName;
     private String customerEmail;
-    private String customerAddress;
-
-    public Customer() {
-        
-    }   
-
+    private String customerAddress;   
+    
+    //Setters
     public void setCustomerName(String customerName) {
         this.customerName = customerName;
     }
@@ -31,6 +29,7 @@ public class Customer {
         this.customerAddress = customerAddress;
     }
 
+    //Getter
     public String getCustomerName() {
         return customerName;
     }
@@ -43,15 +42,13 @@ public class Customer {
         return customerAddress;
     }
     
-    public boolean displayCustomerDetails() {
+    public boolean displayCustomerDetails() {//Confirm details method
         int option = JOptionPane.showConfirmDialog(null,
-            "Customer Name: " + this.customerName + "\n" +
-            "Customer Email: " + this.customerEmail + "\n" +
-            "Customer Address: " + this.customerAddress,
-            "Confirm Customer Details",
-            JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+            "Customer Name: " + this.customerName + "\n" + "Customer Email: " + this.customerEmail + "\n" + "Customer Address: " + this.customerAddress, "Confirm Customer Details",
+            JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);//Confirm yes or no if current info is correct 
 
-        return option == JOptionPane.YES_OPTION; // Returns true if confirmed, false if cancelled
+        return option == JOptionPane.YES_OPTION;//Returns true if data confirmed and false if data is uncorrect and cancelled
     }
     
 }
+    
