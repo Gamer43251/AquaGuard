@@ -46,6 +46,7 @@ public class FishFallGame extends javax.swing.JPanel {
     
     //Images Created
     private Image basket_image = new ImageIcon(getClass().getResource("/Images/Fishfall/Game/Net.png")).getImage();
+    private Image goldenBubble = new ImageIcon(getClass().getResource("/Images/Fishfall/Game/Golden Bubble.png")).getImage();
     private Image bubble = new ImageIcon(getClass().getResource("/Images/Fishfall/Game/Bubble.png")).getImage();
     private Image bubblePopped = new ImageIcon(getClass().getResource("/Images/Fishfall/Game/BubblePopped.png")).getImage();
     /**
@@ -59,6 +60,7 @@ public class FishFallGame extends javax.swing.JPanel {
     }
     
     public FishFallGame(FishFallSection parent) {
+        state = 0;
         this.pl = AquaGuardApp.getCurrentUser();
         this.parentSection = parent;
         initComponents();
@@ -115,7 +117,37 @@ public class FishFallGame extends javax.swing.JPanel {
                 g.setFont(new Font("Arial MS", 1, 40));
                 metrics = getFontMetrics(g.getFont());
                 g.drawString("Lives: ", 10 , screenHeight - 15);
-                if(lives == 5){
+                /*if(lives == 10){
+                    g.drawImage(goldenBubble, (metrics.stringWidth("Lives: ") + 10), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(goldenBubble, (metrics.stringWidth("Lives: ") + 60), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(goldenBubble, (metrics.stringWidth("Lives: ") + 110), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(goldenBubble, (metrics.stringWidth("Lives: ") + 160), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(goldenBubble, (metrics.stringWidth("Lives: ") + 210), (screenHeight - 50), 40, 40, null);
+                }else if(lives == 9){
+                    g.drawImage(goldenBubble, (metrics.stringWidth("Lives: ") + 10), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(goldenBubble, (metrics.stringWidth("Lives: ") + 60), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(goldenBubble, (metrics.stringWidth("Lives: ") + 110), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(goldenBubble, (metrics.stringWidth("Lives: ") + 160), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(goldenBubble, (metrics.stringWidth("Lives: ") + 210), (screenHeight - 50), 40, 40, null);
+                }else if(lives == 8){
+                    g.drawImage(goldenBubble, (metrics.stringWidth("Lives: ") + 10), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(goldenBubble, (metrics.stringWidth("Lives: ") + 60), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(goldenBubble, (metrics.stringWidth("Lives: ") + 110), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 160), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 210), (screenHeight - 50), 40, 40, null);
+                }else if(lives == 7){
+                    g.drawImage(goldenBubble, (metrics.stringWidth("Lives: ") + 10), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(goldenBubble, (metrics.stringWidth("Lives: ") + 60), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 110), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 160), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 210), (screenHeight - 50), 40, 40, null);
+                }else if(lives == 6){
+                    g.drawImage(goldenBubble, (metrics.stringWidth("Lives: ") + 10), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 60), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 110), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 160), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 210), (screenHeight - 50), 40, 40, null);
+                }else if(lives == 5){
                     g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 10), (screenHeight - 50), 40, 40, null);
                     g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 60), (screenHeight - 50), 40, 40, null);
                     g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 110), (screenHeight - 50), 40, 40, null);
@@ -145,13 +177,45 @@ public class FishFallGame extends javax.swing.JPanel {
                     g.drawImage(bubblePopped, (metrics.stringWidth("Lives: ") + 110), (screenHeight - 50), 40, 40, null);
                     g.drawImage(bubblePopped, (metrics.stringWidth("Lives: ") + 160), (screenHeight - 50), 40, 40, null);
                     g.drawImage(bubblePopped, (metrics.stringWidth("Lives: ") + 210), (screenHeight - 50), 40, 40, null);
-                }else if(lives == 1){
+                }*/
                     g.drawImage(bubblePopped, (metrics.stringWidth("Lives: ") + 10), (screenHeight - 50), 40, 40, null);
                     g.drawImage(bubblePopped, (metrics.stringWidth("Lives: ") + 60), (screenHeight - 50), 40, 40, null);
                     g.drawImage(bubblePopped, (metrics.stringWidth("Lives: ") + 110), (screenHeight - 50), 40, 40, null);
                     g.drawImage(bubblePopped, (metrics.stringWidth("Lives: ") + 160), (screenHeight - 50), 40, 40, null);
                     g.drawImage(bubblePopped, (metrics.stringWidth("Lives: ") + 210), (screenHeight - 50), 40, 40, null);
-                }
+                    
+                    if(lives >= 1){
+                        g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 10), (screenHeight - 50), 40, 40, null);
+                    }
+                    if(lives >= 2){
+                        g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 60), (screenHeight - 50), 40, 40, null);
+                    }
+                    if(lives >= 3){
+                        g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 110), (screenHeight - 50), 40, 40, null);
+                    }
+                    if(lives >= 4){
+                        g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 160), (screenHeight - 50), 40, 40, null);
+                    }
+                    if(lives >= 5){
+                        g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 210), (screenHeight - 50), 40, 40, null);
+                    }
+                    
+                    if(lives >= 6){
+                        g.drawImage(goldenBubble, (metrics.stringWidth("Lives: ") + 10), (screenHeight - 50), 40, 40, null);
+                    }
+                    if(lives >= 7){
+                        g.drawImage(goldenBubble, (metrics.stringWidth("Lives: ") + 60), (screenHeight - 50), 40, 40, null);
+                    }
+                    if(lives >= 8){
+                        g.drawImage(goldenBubble, (metrics.stringWidth("Lives: ") + 110), (screenHeight - 50), 40, 40, null);
+                    }
+                    if(lives >= 9){
+                        g.drawImage(goldenBubble, (metrics.stringWidth("Lives: ") + 160), (screenHeight - 50), 40, 40, null);
+                    }
+                    if(lives >= 10){
+                        g.drawImage(goldenBubble, (metrics.stringWidth("Lives: ") + 210), (screenHeight - 50), 40, 40, null);
+                    }
+                
                 
                 break;
             case 2:
@@ -180,13 +244,17 @@ public class FishFallGame extends javax.swing.JPanel {
     
     public void sortDroppables(){
         Random rand = new Random();
-        int randomInt = rand.nextInt(10);
+        int randomInt = rand.nextInt(100);
+        System.out.println("Random: " + randomInt);
         Droppable dr;
-        if(randomInt <= 6){
+        if(randomInt <= 60){
             dr = new Waste();
             drops.add(dr);
-        }else if(randomInt > 6){
+        }else if(randomInt > 60 && randomInt <= 95 ){
             dr = new Fish();
+            drops.add(dr);
+        }else if(randomInt > 95 && !drops.stream().anyMatch(obj -> obj instanceof Life)){
+            dr = new Life();
             drops.add(dr);
         }
         
@@ -217,8 +285,6 @@ public class FishFallGame extends javax.swing.JPanel {
                     drop.lower();
                 }
                 repaint();
-                System.out.println("Drops: " + drops.size());
-                System.out.println("Speed: " + dropSpeed);
                 
             }
         });
@@ -265,6 +331,10 @@ public class FishFallGame extends javax.swing.JPanel {
                 } else if (dr instanceof Fish) {
                     lives--;
                     AquaGuardApp.bubblePop();
+                } else if (dr instanceof Life) {
+                    if (lives < 6){
+                        lives++;
+                    }
                 }
                 // Remove the collided object and queue a new one
                 iterator.remove(); // Safe removal

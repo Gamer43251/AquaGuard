@@ -1427,6 +1427,7 @@ public class AquaGuardApp extends javax.swing.JFrame {
         cl.show(cards,"home");
         nameLabel.setText("Home");
         bubblePop();
+        fishFallSection1.resetGame();
     }//GEN-LAST:event_homeBTNMouseClicked
 
     private void exitBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitBTNMouseClicked

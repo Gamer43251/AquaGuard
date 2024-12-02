@@ -24,9 +24,8 @@ public class Droppable {
     }
     
     public void lower() {
-        System.out.println("Droppable at y = " + y + " before lowering");
-        y += 10;  // Move down by 75 pixels
-        System.out.println("Droppable at y = " + y + " after lowering");
+        
+        y += 10;  // Move down by 10 pixels
     }
 
     

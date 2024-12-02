@@ -17,12 +17,17 @@ public class FishFallSection extends javax.swing.JPanel {
      */
     public FishFallSection() {
         initComponents();
+        
     }
     
     public void setFocus(){
         Game.requestFocus();
     }
     
+    public void resetGame(){
+        Game = new FishFallGame();
+        System.out.println("Test");
+    }    
     public void increaseScore(int score){
         if (scoreLabel == null) {
             System.out.println("scoreLabel is null!");
