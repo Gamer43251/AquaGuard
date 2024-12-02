@@ -10,14 +10,22 @@ package aquaguard;
  */
 public class User {
     private String username, password;
-    private int xPos,yPos;
+    private int xPos,yPos, highScore;
     
     public User(String username, String password){
         this.username = username;
         this.password = password;
         this.xPos = 225;
         this.yPos = 600;
-        
+        this.highScore = 0;
+    }
+    
+    public User(String username, String password, int highS){
+        this.username = username;
+        this.password = password;
+        this.xPos = 225;
+        this.yPos = 600;
+        this.highScore = highS;  
     }
     
     public void setUsername(String username){
@@ -61,5 +69,17 @@ public class User {
     public void resetPos(){
         this.xPos = 225;
         this.yPos = 600;
+    }
+    
+    public String getUsername(){
+        return this.username;
+    }
+    
+    public String getPassword(){
+        return this.password;
+    }
+    
+    public int getHighScore(){
+        return this.highScore;
     }
 }

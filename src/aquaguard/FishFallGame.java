@@ -61,11 +61,15 @@ public class FishFallGame extends javax.swing.JPanel {
     
     public FishFallGame(FishFallSection parent) {
         state = 0;
-        this.pl = AquaGuardApp.getCurrentUser();
+        
         this.parentSection = parent;
         initComponents();
         setFocusable(true);
         addKeyListener(new MyKeyAdapter());
+    }
+    
+    public void setPlayer(){
+        this.pl = AquaGuardApp.getCurrentUser();
     }
     
     public int getTileSize(){

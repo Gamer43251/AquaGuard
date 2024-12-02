@@ -20,6 +20,10 @@ public class FishFallSection extends javax.swing.JPanel {
         
     }
     
+    public void setPlayer(){
+        Game.setPlayer();
+    }
+    
     public void setFocus(){
         Game.requestFocus();
     }

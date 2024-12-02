@@ -30,9 +30,9 @@ public class AquaGuardApp extends javax.swing.JFrame {
     private int mouseX, mouseY;
     private CardLayout cl;
     
-    private ArrayList<User> Users = new ArrayList<User>();
+    private static ArrayList<User> Users = new ArrayList<User>();
     private static User Admin = new User("Admin", "Password");
-    private static User currentUser = Admin;
+    private static User currentUser;
     
     /**
      * Creates new form AquaGuardApp
@@ -45,6 +45,10 @@ public class AquaGuardApp extends javax.swing.JFrame {
         cl = (CardLayout)(cards.getLayout());
         this.setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 50, 50));
         
+    }
+    
+    public static void addUser(User u){
+        Users.add(u);
     }
     
     public void setCurrentUser(User user){
@@ -101,9 +105,12 @@ public class AquaGuardApp extends javax.swing.JFrame {
     
     public void Signup(){
         if(verifySignupCredentials()){
-            Users.add(new User(signupUsernameInputField.getText(),signupPasswordInputField.getText()));
+            User u = new User(signupUsernameInputField.getText(),signupPasswordInputField.getText());
+            Users.add(u);
+            AquaGuard.saveUser(u);
             nameLabel.setText("Login");
             cl.show(cards,"login");
+            
         }
     }
     
@@ -132,12 +139,14 @@ public class AquaGuardApp extends javax.swing.JFrame {
             nameLabel.setText("Home");
             homeBTN.setVisible(true);
             logoutLabel.setVisible(true);
+            System.out.println(currentUser.getUsername());
         }
     }
     
     public boolean verifyLoginCredentials(){
         for(User u : Users){
             if(u.checkUsername(usernameInputField.getText()) && u.checkPassword(passwordInputField.getText())){
+                currentUser = u;
                return true;
             }
         }
@@ -1439,6 +1448,7 @@ public class AquaGuardApp extends javax.swing.JFrame {
 
     private void loginBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBTNMouseClicked
         login();
+        fishFallSection1.setPlayer();
     }//GEN-LAST:event_loginBTNMouseClicked
 
     private void logoutLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutLabelMouseClicked
