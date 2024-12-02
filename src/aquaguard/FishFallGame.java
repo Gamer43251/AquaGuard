@@ -38,7 +38,7 @@ public class FishFallGame extends javax.swing.JPanel {
     private Timer dropTime;
     private int dropSpeed = 50;
     private int score;
-    private int state = 0;  // (0 = Not Started) (1 = Playing) (2= Gameover)
+    private int state = 0;  // (0 = Not Started) (1 = Playing) (2= Gameover) (3 = Paused)
     private int lives;
     
     //Initialise Array of Droppable Objects
@@ -117,67 +117,7 @@ public class FishFallGame extends javax.swing.JPanel {
                 g.setFont(new Font("Arial MS", 1, 40));
                 metrics = getFontMetrics(g.getFont());
                 g.drawString("Lives: ", 10 , screenHeight - 15);
-                /*if(lives == 10){
-                    g.drawImage(goldenBubble, (metrics.stringWidth("Lives: ") + 10), (screenHeight - 50), 40, 40, null);
-                    g.drawImage(goldenBubble, (metrics.stringWidth("Lives: ") + 60), (screenHeight - 50), 40, 40, null);
-                    g.drawImage(goldenBubble, (metrics.stringWidth("Lives: ") + 110), (screenHeight - 50), 40, 40, null);
-                    g.drawImage(goldenBubble, (metrics.stringWidth("Lives: ") + 160), (screenHeight - 50), 40, 40, null);
-                    g.drawImage(goldenBubble, (metrics.stringWidth("Lives: ") + 210), (screenHeight - 50), 40, 40, null);
-                }else if(lives == 9){
-                    g.drawImage(goldenBubble, (metrics.stringWidth("Lives: ") + 10), (screenHeight - 50), 40, 40, null);
-                    g.drawImage(goldenBubble, (metrics.stringWidth("Lives: ") + 60), (screenHeight - 50), 40, 40, null);
-                    g.drawImage(goldenBubble, (metrics.stringWidth("Lives: ") + 110), (screenHeight - 50), 40, 40, null);
-                    g.drawImage(goldenBubble, (metrics.stringWidth("Lives: ") + 160), (screenHeight - 50), 40, 40, null);
-                    g.drawImage(goldenBubble, (metrics.stringWidth("Lives: ") + 210), (screenHeight - 50), 40, 40, null);
-                }else if(lives == 8){
-                    g.drawImage(goldenBubble, (metrics.stringWidth("Lives: ") + 10), (screenHeight - 50), 40, 40, null);
-                    g.drawImage(goldenBubble, (metrics.stringWidth("Lives: ") + 60), (screenHeight - 50), 40, 40, null);
-                    g.drawImage(goldenBubble, (metrics.stringWidth("Lives: ") + 110), (screenHeight - 50), 40, 40, null);
-                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 160), (screenHeight - 50), 40, 40, null);
-                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 210), (screenHeight - 50), 40, 40, null);
-                }else if(lives == 7){
-                    g.drawImage(goldenBubble, (metrics.stringWidth("Lives: ") + 10), (screenHeight - 50), 40, 40, null);
-                    g.drawImage(goldenBubble, (metrics.stringWidth("Lives: ") + 60), (screenHeight - 50), 40, 40, null);
-                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 110), (screenHeight - 50), 40, 40, null);
-                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 160), (screenHeight - 50), 40, 40, null);
-                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 210), (screenHeight - 50), 40, 40, null);
-                }else if(lives == 6){
-                    g.drawImage(goldenBubble, (metrics.stringWidth("Lives: ") + 10), (screenHeight - 50), 40, 40, null);
-                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 60), (screenHeight - 50), 40, 40, null);
-                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 110), (screenHeight - 50), 40, 40, null);
-                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 160), (screenHeight - 50), 40, 40, null);
-                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 210), (screenHeight - 50), 40, 40, null);
-                }else if(lives == 5){
-                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 10), (screenHeight - 50), 40, 40, null);
-                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 60), (screenHeight - 50), 40, 40, null);
-                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 110), (screenHeight - 50), 40, 40, null);
-                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 160), (screenHeight - 50), 40, 40, null);
-                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 210), (screenHeight - 50), 40, 40, null);
-                }else if(lives == 4){
-                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 10), (screenHeight - 50), 40, 40, null);
-                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 60), (screenHeight - 50), 40, 40, null);
-                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 110), (screenHeight - 50), 40, 40, null);
-                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 160), (screenHeight - 50), 40, 40, null);
-                    g.drawImage(bubblePopped, (metrics.stringWidth("Lives: ") + 210), (screenHeight - 50), 40, 40, null);
-                }else if(lives == 3){
-                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 10), (screenHeight - 50), 40, 40, null);
-                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 60), (screenHeight - 50), 40, 40, null);
-                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 110), (screenHeight - 50), 40, 40, null);
-                    g.drawImage(bubblePopped, (metrics.stringWidth("Lives: ") + 160), (screenHeight - 50), 40, 40, null);
-                    g.drawImage(bubblePopped, (metrics.stringWidth("Lives: ") + 210), (screenHeight - 50), 40, 40, null);
-                }else if(lives == 2){
-                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 10), (screenHeight - 50), 40, 40, null);
-                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 60), (screenHeight - 50), 40, 40, null);
-                    g.drawImage(bubblePopped, (metrics.stringWidth("Lives: ") + 110), (screenHeight - 50), 40, 40, null);
-                    g.drawImage(bubblePopped, (metrics.stringWidth("Lives: ") + 160), (screenHeight - 50), 40, 40, null);
-                    g.drawImage(bubblePopped, (metrics.stringWidth("Lives: ") + 210), (screenHeight - 50), 40, 40, null);
-                }else if(lives == 1){
-                    g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 10), (screenHeight - 50), 40, 40, null);
-                    g.drawImage(bubblePopped, (metrics.stringWidth("Lives: ") + 60), (screenHeight - 50), 40, 40, null);
-                    g.drawImage(bubblePopped, (metrics.stringWidth("Lives: ") + 110), (screenHeight - 50), 40, 40, null);
-                    g.drawImage(bubblePopped, (metrics.stringWidth("Lives: ") + 160), (screenHeight - 50), 40, 40, null);
-                    g.drawImage(bubblePopped, (metrics.stringWidth("Lives: ") + 210), (screenHeight - 50), 40, 40, null);
-                }*/
+                
                     g.drawImage(bubblePopped, (metrics.stringWidth("Lives: ") + 10), (screenHeight - 50), 40, 40, null);
                     g.drawImage(bubblePopped, (metrics.stringWidth("Lives: ") + 60), (screenHeight - 50), 40, 40, null);
                     g.drawImage(bubblePopped, (metrics.stringWidth("Lives: ") + 110), (screenHeight - 50), 40, 40, null);
@@ -215,8 +155,6 @@ public class FishFallGame extends javax.swing.JPanel {
                     if(lives >= 10){
                         g.drawImage(goldenBubble, (metrics.stringWidth("Lives: ") + 210), (screenHeight - 50), 40, 40, null);
                     }
-                
-                
                 break;
             case 2:
                 //draw Background
@@ -231,8 +169,79 @@ public class FishFallGame extends javax.swing.JPanel {
                 g.setFont(new Font("Comic Sans MS", 1, 24));
                 metrics = getFontMetrics(g.getFont());
                 g.drawString("Press Space To Play Again", (screenWidth - metrics.stringWidth("Press Space To Play Again")) / 2 , screenHeight / 3);
-                
                 break;
+            case 3:
+                // draw Background
+                g.setColor(new Color(0, 74, 173));
+                g.fillRect(0,0,600,750);
+        
+                //draw droppables
+                for (int i = 0; i < drops.size(); i++) {
+                    Droppable drop = drops.get(i);
+                    g.drawImage(drop.getImage(), drop.getX(), drop.getY(), tileSize, tileSize, null);
+                }
+
+
+                //draw basket
+                g.drawImage(basket_image, pl.getX(), pl.getY(), tileSize, tileSize, null);
+                
+                //Overlay Game with semi-Transparent Aqua color
+                g.setColor(new Color(0,100,100, 75));
+                g.fillRect(0,0, screenWidth, screenHeight);
+                
+                //draw Lives
+                g.setColor(new Color(255,255,255));
+                g.setFont(new Font("Arial MS", 1, 40));
+                metrics = getFontMetrics(g.getFont());
+                g.drawString("Lives: ", 10 , screenHeight - 15);
+                
+                    g.drawImage(bubblePopped, (metrics.stringWidth("Lives: ") + 10), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(bubblePopped, (metrics.stringWidth("Lives: ") + 60), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(bubblePopped, (metrics.stringWidth("Lives: ") + 110), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(bubblePopped, (metrics.stringWidth("Lives: ") + 160), (screenHeight - 50), 40, 40, null);
+                    g.drawImage(bubblePopped, (metrics.stringWidth("Lives: ") + 210), (screenHeight - 50), 40, 40, null);
+                    
+                    if(lives >= 1){
+                        g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 10), (screenHeight - 50), 40, 40, null);
+                    }
+                    if(lives >= 2){
+                        g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 60), (screenHeight - 50), 40, 40, null);
+                    }
+                    if(lives >= 3){
+                        g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 110), (screenHeight - 50), 40, 40, null);
+                    }
+                    if(lives >= 4){
+                        g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 160), (screenHeight - 50), 40, 40, null);
+                    }
+                    if(lives >= 5){
+                        g.drawImage(bubble, (metrics.stringWidth("Lives: ") + 210), (screenHeight - 50), 40, 40, null);
+                    }
+                    
+                    if(lives >= 6){
+                        g.drawImage(goldenBubble, (metrics.stringWidth("Lives: ") + 10), (screenHeight - 50), 40, 40, null);
+                    }
+                    if(lives >= 7){
+                        g.drawImage(goldenBubble, (metrics.stringWidth("Lives: ") + 60), (screenHeight - 50), 40, 40, null);
+                    }
+                    if(lives >= 8){
+                        g.drawImage(goldenBubble, (metrics.stringWidth("Lives: ") + 110), (screenHeight - 50), 40, 40, null);
+                    }
+                    if(lives >= 9){
+                        g.drawImage(goldenBubble, (metrics.stringWidth("Lives: ") + 160), (screenHeight - 50), 40, 40, null);
+                    }
+                    if(lives >= 10){
+                        g.drawImage(goldenBubble, (metrics.stringWidth("Lives: ") + 210), (screenHeight - 50), 40, 40, null);
+                    }
+                    
+                    g.setColor(Color.white);
+                    g.setFont(new Font("Comic Sans MS", 1, 48));
+                    metrics = getFontMetrics(g.getFont());
+                    g.drawString("Paused", (screenWidth - metrics.stringWidth("Paused")) / 2 , screenHeight / 2);
+                    g.setFont(new Font("Comic Sans MS", 1, 24));
+                    metrics = getFontMetrics(g.getFont());
+                    g.drawString("Press 'P' To Resume", (screenWidth - metrics.stringWidth("Press 'P' To Resume")) / 2 , screenHeight / 3);
+                    
+                    break;
         }
     }
     
@@ -243,19 +252,20 @@ public class FishFallGame extends javax.swing.JPanel {
     }
     
     public void sortDroppables(){
-        Random rand = new Random();
-        int randomInt = rand.nextInt(100);
-        System.out.println("Random: " + randomInt);
-        Droppable dr;
-        if(randomInt <= 60){
-            dr = new Waste();
-            drops.add(dr);
-        }else if(randomInt > 60 && randomInt <= 95 ){
-            dr = new Fish();
-            drops.add(dr);
-        }else if(randomInt > 95 && !drops.stream().anyMatch(obj -> obj instanceof Life)){
-            dr = new Life();
-            drops.add(dr);
+        if(state == 1){
+            Random rand = new Random();
+            int randomInt = rand.nextInt(100);
+            Droppable dr;
+            if(randomInt <= 60){
+                dr = new Waste();
+                drops.add(dr);
+            }else if(randomInt > 60 && randomInt <= 95 ){
+                dr = new Fish();
+                drops.add(dr);
+            }else if(randomInt > 95 && !drops.stream().anyMatch(obj -> obj instanceof Life)){
+                dr = new Life();
+                drops.add(dr);
+            }
         }
         
         
@@ -275,20 +285,21 @@ public class FishFallGame extends javax.swing.JPanel {
         state = 1;
         repaint();
         initDroppables();
-        timer = new Timer(dropSpeed, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                checkState();
-                checkCollisions();
-                for(int i = 0; i < drops.size(); i++){
-                    Droppable drop = drops.get(i);
-                    drop.lower();
+            timer = new Timer(dropSpeed, new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    checkState();
+                    checkCollisions();
+                    for(int i = 0; i < drops.size(); i++){
+                        Droppable drop = drops.get(i);
+                        drop.lower();
+                    }
+                    repaint();
+
                 }
-                repaint();
-                
-            }
-        });
-        timer.start();
+            });
+            timer.start();
+        
         
         dropTime = new Timer(1000, new ActionListener() {
             @Override
@@ -299,6 +310,16 @@ public class FishFallGame extends javax.swing.JPanel {
         dropTime.start();
         
         
+    }
+    
+    public void pauseGame(){
+        timer.stop();
+        state = 3;
+    }
+    
+    public void resumeGame(){
+        timer.start();
+        state = 1;
     }
                 
         
@@ -327,18 +348,16 @@ public class FishFallGame extends javax.swing.JPanel {
                 if (dr instanceof Waste) {
                     score++;
                     increaseScore(score);
-                    System.out.println("Waste Collected");
                 } else if (dr instanceof Fish) {
                     lives--;
                     AquaGuardApp.bubblePop();
                 } else if (dr instanceof Life) {
-                    if (lives < 6){
+                    if (lives < 10){
                         lives++;
                     }
                 }
                 // Remove the collided object and queue a new one
                 iterator.remove(); // Safe removal
-                newDrops.add(dr instanceof Waste ? new Waste() : new Fish());
                 continue; // Skip further checks for this object
             }
 
@@ -369,8 +388,6 @@ public class FishFallGame extends javax.swing.JPanel {
     
     
     public void increaseScore(int score) {
-        System.out.println("Updating score to: " + score);
-
         // Use the parent reference to update scoreLabel
         SwingUtilities.invokeLater(() -> {
             if (parentSection != null) {
@@ -387,25 +404,40 @@ public class FishFallGame extends javax.swing.JPanel {
         public void keyPressed(KeyEvent e) {
             switch (e.getKeyCode()) {
                 case KeyEvent.VK_LEFT:
-                    direction = 'L'; // set direction to L
-                    move();
-                    repaint();
+                    if(state == 1){
+                        direction = 'L'; // set direction to L
+                        move();
+                        repaint();
+                    }
                     break;
                 case KeyEvent.VK_RIGHT:
-                    direction = 'R'; // set direction to L 
-                    move();
-                    repaint();
+                    if(state == 1){
+                        direction = 'R'; // set direction to L 
+                        move();
+                        repaint();
+                    }
                     break;
                 case KeyEvent.VK_A:
-                    direction = 'L'; // set direction to L 
-                    move();
-                    repaint();
+                    if(state == 1){
+                        direction = 'L'; // set direction to L 
+                        move();
+                        repaint();
+                    }
                     break;
                 case KeyEvent.VK_D:
-                    direction = 'R'; // set direction to L 
-                    move();
-                    repaint();
+                    if(state == 1){
+                        direction = 'R'; // set direction to L 
+                        move();
+                        repaint();
+                    }
                     break;
+                case KeyEvent.VK_P:
+                    if (state == 1){
+                        pauseGame();
+                    }else if (state == 3){
+                        resumeGame();
+                    }
+                    repaint();
                 case KeyEvent.VK_SPACE:
                     if(state == 0){
                         startGame(); // call startGame method
