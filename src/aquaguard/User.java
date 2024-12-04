@@ -82,4 +82,8 @@ public class User {
     public int getHighScore(){
         return this.highScore;
     }
+    
+    public void setHighScore(int score){
+        this.highScore = score;
+    }
 }

@@ -13,6 +13,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.io.FileWriter;
+import java.util.ArrayList;
 /**
  *
  * @author Jordan Dreelan x23150076
@@ -53,6 +54,7 @@ public class AquaGuard {
         try{
             if(!Files.exists(userFile)){
                 Files.createFile(userFile);
+                saveUser(new User("Admin", "Password"));
             }
         }catch (IOException e){
             e.printStackTrace();
@@ -61,9 +63,10 @@ public class AquaGuard {
     
     public static void saveUser(User u){
         System.out.println("Saving?");
-        try(BufferedWriter br = new BufferedWriter( new FileWriter(userFile.toString()))){
-            br.write(u.getUsername() + "|" + u.getPassword() + "|" + u.getHighScore());
+        try(BufferedWriter br = new BufferedWriter( new FileWriter(userFile.toString(), true))){
             br.newLine();
+            br.write(u.getUsername() + "|" + u.getPassword() + "|" + u.getHighScore());
+            
         }catch(IOException e){
             e.printStackTrace();
         }
@@ -86,7 +89,39 @@ public class AquaGuard {
             System.out.println("Not Saving");
             e.printStackTrace();
         }
+        
             
+    }
+    
+    public static void updateHighscore(User u, int newScore){
+        System.out.println("Test");
+        ArrayList<String> lines = new ArrayList<String>();
+        try(BufferedReader br = new BufferedReader(new FileReader(userFile.toString()))){
+           String line;
+           while((line = br.readLine()) != null){
+               if(line.equals(u.getUsername() + "|" + u.getPassword() + "|" + u.getHighScore())){
+                   String[] parts = line.split("\\|");
+                   if(parts.length == 3){
+                       parts[2] = String.valueOf(newScore);
+                       line = String.join("|", parts);
+                   }
+               }
+               lines.add(line);
+               
+        }
+        }catch(IOException e){
+            System.out.println("Not Saving");
+            e.printStackTrace();
+        }
+        
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(userFile.toString()))) {
+            for (String updatedLine : lines) {
+                writer.write(updatedLine);
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 

@@ -91,17 +91,22 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="Title" pref="400" max="32767" attributes="0"/>
-                  <Component id="num1" alignment="0" max="32767" attributes="0"/>
-                  <Component id="num3" alignment="0" max="32767" attributes="0"/>
-                  <Component id="num4" alignment="0" max="32767" attributes="0"/>
-                  <Component id="num2" max="32767" attributes="0"/>
-                  <Component id="num5" alignment="0" max="32767" attributes="0"/>
-                  <Component id="num6" alignment="0" max="32767" attributes="0"/>
-                  <Component id="num7" alignment="0" max="32767" attributes="0"/>
-                  <Component id="num8" alignment="0" max="32767" attributes="0"/>
-                  <Component id="num9" alignment="0" max="32767" attributes="0"/>
-                  <Component id="num10" alignment="0" max="32767" attributes="0"/>
+                  <Component id="Title" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="leaderboardPlayer1" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="leaderboardPlayer2" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="leaderboardPlayer3" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="leaderboardPlayer4" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="leaderboardPlayer5" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="leaderboardPlayer6" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="leaderboardPlayer7" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="leaderboardPlayer8" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="leaderboardPlayer9" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="leaderboardPlayer10" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -109,25 +114,26 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="Title" min="-2" pref="100" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="num1" min="-2" pref="50" max="-2" attributes="0"/>
+                      <Component id="leaderboardPlayer1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="num2" min="-2" pref="50" max="-2" attributes="0"/>
+                      <Component id="leaderboardPlayer2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="num3" min="-2" pref="50" max="-2" attributes="0"/>
+                      <Component id="leaderboardPlayer3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="num4" min="-2" pref="50" max="-2" attributes="0"/>
+                      <Component id="leaderboardPlayer4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="num5" min="-2" pref="50" max="-2" attributes="0"/>
+                      <Component id="leaderboardPlayer5" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="num6" min="-2" pref="50" max="-2" attributes="0"/>
+                      <Component id="leaderboardPlayer6" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                      <Component id="leaderboardPlayer7" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                      <Component id="leaderboardPlayer8" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                      <Component id="leaderboardPlayer9" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                      <Component id="leaderboardPlayer10" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="num7" min="-2" pref="50" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="num8" min="-2" pref="50" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="num9" min="-2" pref="50" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="num10" min="-2" pref="50" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -149,165 +155,40 @@
                 <Property name="opaque" type="boolean" value="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="num1">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="bb" green="bb" red="1" type="rgb"/>
-                </Property>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="18" style="1"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="#1"/>
-                <Property name="opaque" type="boolean" value="true"/>
-              </Properties>
+            <Component class="aquaguard.LeaderboardPlayer" name="leaderboardPlayer1">
             </Component>
-            <Component class="javax.swing.JLabel" name="num2">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="0" type="rgb"/>
-                </Property>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="18" style="1"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="#2"/>
-                <Property name="opaque" type="boolean" value="true"/>
-              </Properties>
+            <Component class="aquaguard.LeaderboardPlayer" name="leaderboardPlayer2">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="leaderboardPlayer2.invertColor();"/>
+              </AuxValues>
             </Component>
-            <Component class="javax.swing.JLabel" name="num3">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="bb" green="bb" red="1" type="rgb"/>
-                </Property>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="18" style="1"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="#3"/>
-                <Property name="opaque" type="boolean" value="true"/>
-              </Properties>
+            <Component class="aquaguard.LeaderboardPlayer" name="leaderboardPlayer3">
             </Component>
-            <Component class="javax.swing.JLabel" name="num4">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="0" type="rgb"/>
-                </Property>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="18" style="1"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="#4"/>
-                <Property name="opaque" type="boolean" value="true"/>
-              </Properties>
+            <Component class="aquaguard.LeaderboardPlayer" name="leaderboardPlayer4">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="leaderboardPlayer4.invertColor();"/>
+              </AuxValues>
             </Component>
-            <Component class="javax.swing.JLabel" name="num5">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="bb" green="bb" red="1" type="rgb"/>
-                </Property>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="18" style="1"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="#5"/>
-                <Property name="opaque" type="boolean" value="true"/>
-              </Properties>
+            <Component class="aquaguard.LeaderboardPlayer" name="leaderboardPlayer5">
             </Component>
-            <Component class="javax.swing.JLabel" name="num6">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="0" type="rgb"/>
-                </Property>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="18" style="1"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="#6"/>
-                <Property name="opaque" type="boolean" value="true"/>
-              </Properties>
+            <Component class="aquaguard.LeaderboardPlayer" name="leaderboardPlayer6">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="leaderboardPlayer6.invertColor();"/>
+              </AuxValues>
             </Component>
-            <Component class="javax.swing.JLabel" name="num7">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="bb" green="bb" red="1" type="rgb"/>
-                </Property>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="18" style="1"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="#7"/>
-                <Property name="opaque" type="boolean" value="true"/>
-              </Properties>
+            <Component class="aquaguard.LeaderboardPlayer" name="leaderboardPlayer7">
             </Component>
-            <Component class="javax.swing.JLabel" name="num8">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="0" type="rgb"/>
-                </Property>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="18" style="1"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="#8"/>
-                <Property name="opaque" type="boolean" value="true"/>
-              </Properties>
+            <Component class="aquaguard.LeaderboardPlayer" name="leaderboardPlayer8">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="leaderboardPlayer8.invertColor();"/>
+              </AuxValues>
             </Component>
-            <Component class="javax.swing.JLabel" name="num9">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="bb" green="bb" red="1" type="rgb"/>
-                </Property>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="18" style="1"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="#9"/>
-                <Property name="opaque" type="boolean" value="true"/>
-              </Properties>
+            <Component class="aquaguard.LeaderboardPlayer" name="leaderboardPlayer9">
             </Component>
-            <Component class="javax.swing.JLabel" name="num10">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="0" type="rgb"/>
-                </Property>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="18" style="1"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="#10"/>
-                <Property name="opaque" type="boolean" value="true"/>
-              </Properties>
+            <Component class="aquaguard.LeaderboardPlayer" name="leaderboardPlayer10">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="leaderboardPlayer10.invertColor();"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>

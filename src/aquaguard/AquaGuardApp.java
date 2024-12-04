@@ -31,20 +31,23 @@ public class AquaGuardApp extends javax.swing.JFrame {
     private CardLayout cl;
     
     private static ArrayList<User> Users = new ArrayList<User>();
-    private static User Admin = new User("Admin", "Password");
     private static User currentUser;
     
     /**
      * Creates new form AquaGuardApp
      */
     public AquaGuardApp() {
-        Users.add(Admin);
+        //Users.add(Admin);
         initComponents();
         this.setLocationRelativeTo(null);
         dragWindow(this);
         cl = (CardLayout)(cards.getLayout());
         this.setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 50, 50));
         
+    }
+    
+    public static ArrayList<User> getUsers(){
+        return Users;
     }
     
     public static void addUser(User u){
@@ -125,7 +128,7 @@ public class AquaGuardApp extends javax.swing.JFrame {
             signupErrorLabel.setText("Please Confirm Password");
             return false;
         }else if(!confirmPasswordInputField.getText().equals(signupPasswordInputField.getText())){
-            System.out.println(confirmPasswordInputField.getText() + " : " + signupPasswordInputField.getText());
+            
             signupErrorLabel.setText("Passwords Do Not Match");
             return false;
         }
@@ -139,7 +142,7 @@ public class AquaGuardApp extends javax.swing.JFrame {
             nameLabel.setText("Home");
             homeBTN.setVisible(true);
             logoutLabel.setVisible(true);
-            System.out.println(currentUser.getUsername());
+           
         }
     }
     
@@ -1430,6 +1433,7 @@ public class AquaGuardApp extends javax.swing.JFrame {
         nameLabel.setText("FishFall");
         bubblePop();
         fishFallSection1.setFocus();
+        fishFallSection1.displayLeaderBoard();
     }//GEN-LAST:event_FishFallBTNMouseClicked
 
     private void homeBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeBTNMouseClicked

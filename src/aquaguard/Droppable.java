@@ -18,13 +18,13 @@ public class Droppable {
     protected Random random = new Random();
     private Image image;
     
+    
     public Droppable(){
         x = random.nextInt(8) * 75;
         y = -70;
     }
     
     public void lower() {
-        
         y += 10;  // Move down by 10 pixels
     }
 

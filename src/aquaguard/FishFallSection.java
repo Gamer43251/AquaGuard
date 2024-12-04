@@ -11,7 +11,7 @@ import javax.swing.SwingUtilities;
  * @author Dreel
  */
 public class FishFallSection extends javax.swing.JPanel {
-
+    User Curr;
     /**
      * Creates new form FishFallSection
      */
@@ -26,6 +26,8 @@ public class FishFallSection extends javax.swing.JPanel {
     
     public void setFocus(){
         Game.requestFocus();
+        Curr = AquaGuardApp.getCurrentUser();
+        displayHighScore();
     }
     
     public void resetGame(){
@@ -50,6 +52,14 @@ public class FishFallSection extends javax.swing.JPanel {
         scoreLabel.setText("Score: " + score);
         scoreLabel.revalidate();
         scoreLabel.repaint();
+    }
+    
+    public void displayHighScore(){
+        highscoreLabel.setText("Highscore: " + Curr.getHighScore());
+    }
+    
+    public void displayLeaderBoard(){
+        leaderboard1.displayPlayers();
     }
 
 

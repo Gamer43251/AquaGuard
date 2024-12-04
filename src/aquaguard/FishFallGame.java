@@ -283,6 +283,15 @@ public class FishFallGame extends javax.swing.JPanel {
     }
     
     public void startGame(){
+        if(timer != null){
+            timer.stop();
+            timer = null;
+        }
+        if(dropTime != null){
+            dropTime.stop();
+            dropTime = null;
+        }
+        
         score = 0;
         increaseScore(score);
         lives = 5;
@@ -387,6 +396,9 @@ public class FishFallGame extends javax.swing.JPanel {
             state = 2;
             drops.removeAll(drops);
             repaint();
+            handleHighScore();
+            parentSection.displayLeaderBoard();
+            score = 0;
         }
     }
     
@@ -400,6 +412,15 @@ public class FishFallGame extends javax.swing.JPanel {
                 System.err.println("Parent section is null!");
             }
         });
+    }
+    
+    public void handleHighScore(){
+        System.out.println("Score: " + score + " Highscore: " + pl.getHighScore());
+        if(score > pl.getHighScore()){
+            AquaGuard.updateHighscore(pl, score);
+            pl.setHighScore(score);
+            parentSection.displayHighScore();
+        }
     }
     
     

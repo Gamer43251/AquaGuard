@@ -4,18 +4,44 @@
  */
 package aquaguard;
 
-/**
- *
- * @author Dreel
- */
-public class Leaderboard extends javax.swing.JPanel {
+import java.util.ArrayList;
+import java.util.Comparator;
 
-    /**
-     * Creates new form Leaderboard
-     */
+public class Leaderboard extends javax.swing.JPanel {
+    User[] topPlayers = new User[10];
+
     public Leaderboard() {
         initComponents();
     }
+
+    public void getTopPlayers() {
+        ArrayList<User> users = AquaGuardApp.getUsers();
+        
+        // Sort the users by high score in descending order
+        users.sort(Comparator.comparingInt(User::getHighScore).reversed());
+        
+        // Copy the top 10 users into the topPlayers array
+        for (int i = 0; i < topPlayers.length && i < users.size(); i++) {
+            topPlayers[i] = users.get(i);
+        }
+    }
+
+    public void displayPlayers() {
+        getTopPlayers();
+
+        // Display top players in the leaderboard
+        leaderboardPlayer1.displayUser(1, topPlayers[0]);
+        leaderboardPlayer2.displayUser(2, topPlayers[1]);
+        leaderboardPlayer3.displayUser(3, topPlayers[2]);
+        leaderboardPlayer4.displayUser(4, topPlayers[3]);
+        leaderboardPlayer5.displayUser(5, topPlayers[4]);
+        leaderboardPlayer6.displayUser(6, topPlayers[5]);
+        leaderboardPlayer7.displayUser(7, topPlayers[6]);
+        leaderboardPlayer8.displayUser(8, topPlayers[7]);
+        leaderboardPlayer9.displayUser(9, topPlayers[8]);
+        leaderboardPlayer10.displayUser(10, topPlayers[9]);
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -30,16 +56,16 @@ public class Leaderboard extends javax.swing.JPanel {
         Border = new javax.swing.JPanel();
         Ranks = new javax.swing.JPanel();
         Title = new javax.swing.JLabel();
-        num1 = new javax.swing.JLabel();
-        num2 = new javax.swing.JLabel();
-        num3 = new javax.swing.JLabel();
-        num4 = new javax.swing.JLabel();
-        num5 = new javax.swing.JLabel();
-        num6 = new javax.swing.JLabel();
-        num7 = new javax.swing.JLabel();
-        num8 = new javax.swing.JLabel();
-        num9 = new javax.swing.JLabel();
-        num10 = new javax.swing.JLabel();
+        leaderboardPlayer1 = new aquaguard.LeaderboardPlayer();
+        leaderboardPlayer2 = new aquaguard.LeaderboardPlayer();
+        leaderboardPlayer3 = new aquaguard.LeaderboardPlayer();
+        leaderboardPlayer4 = new aquaguard.LeaderboardPlayer();
+        leaderboardPlayer5 = new aquaguard.LeaderboardPlayer();
+        leaderboardPlayer6 = new aquaguard.LeaderboardPlayer();
+        leaderboardPlayer7 = new aquaguard.LeaderboardPlayer();
+        leaderboardPlayer8 = new aquaguard.LeaderboardPlayer();
+        leaderboardPlayer9 = new aquaguard.LeaderboardPlayer();
+        leaderboardPlayer10 = new aquaguard.LeaderboardPlayer();
 
         setMaximumSize(new java.awt.Dimension(400, 600));
         setMinimumSize(new java.awt.Dimension(400, 600));
@@ -66,116 +92,60 @@ public class Leaderboard extends javax.swing.JPanel {
         Title.setText("Leaderboard");
         Title.setOpaque(true);
 
-        num1.setBackground(new java.awt.Color(1, 187, 187));
-        num1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        num1.setForeground(new java.awt.Color(255, 255, 255));
-        num1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        num1.setText("#1");
-        num1.setOpaque(true);
+        leaderboardPlayer2.invertColor();
 
-        num2.setBackground(new java.awt.Color(0, 255, 255));
-        num2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        num2.setForeground(new java.awt.Color(255, 255, 255));
-        num2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        num2.setText("#2");
-        num2.setOpaque(true);
+        leaderboardPlayer4.invertColor();
 
-        num3.setBackground(new java.awt.Color(1, 187, 187));
-        num3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        num3.setForeground(new java.awt.Color(255, 255, 255));
-        num3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        num3.setText("#3");
-        num3.setOpaque(true);
+        leaderboardPlayer6.invertColor();
 
-        num4.setBackground(new java.awt.Color(0, 255, 255));
-        num4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        num4.setForeground(new java.awt.Color(255, 255, 255));
-        num4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        num4.setText("#4");
-        num4.setOpaque(true);
+        leaderboardPlayer8.invertColor();
 
-        num5.setBackground(new java.awt.Color(1, 187, 187));
-        num5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        num5.setForeground(new java.awt.Color(255, 255, 255));
-        num5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        num5.setText("#5");
-        num5.setOpaque(true);
-
-        num6.setBackground(new java.awt.Color(0, 255, 255));
-        num6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        num6.setForeground(new java.awt.Color(255, 255, 255));
-        num6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        num6.setText("#6");
-        num6.setOpaque(true);
-
-        num7.setBackground(new java.awt.Color(1, 187, 187));
-        num7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        num7.setForeground(new java.awt.Color(255, 255, 255));
-        num7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        num7.setText("#7");
-        num7.setOpaque(true);
-
-        num8.setBackground(new java.awt.Color(0, 255, 255));
-        num8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        num8.setForeground(new java.awt.Color(255, 255, 255));
-        num8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        num8.setText("#8");
-        num8.setOpaque(true);
-
-        num9.setBackground(new java.awt.Color(1, 187, 187));
-        num9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        num9.setForeground(new java.awt.Color(255, 255, 255));
-        num9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        num9.setText("#9");
-        num9.setOpaque(true);
-
-        num10.setBackground(new java.awt.Color(0, 255, 255));
-        num10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        num10.setForeground(new java.awt.Color(255, 255, 255));
-        num10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        num10.setText("#10");
-        num10.setOpaque(true);
+        leaderboardPlayer10.invertColor();
 
         javax.swing.GroupLayout RanksLayout = new javax.swing.GroupLayout(Ranks);
         Ranks.setLayout(RanksLayout);
         RanksLayout.setHorizontalGroup(
             RanksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Title, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
-            .addComponent(num1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(num3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(num4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(num2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(num5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(num6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(num7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(num8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(num9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(num10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Title, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RanksLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(RanksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(leaderboardPlayer1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(leaderboardPlayer2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(leaderboardPlayer3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(leaderboardPlayer4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(leaderboardPlayer5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(leaderboardPlayer6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(leaderboardPlayer7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(leaderboardPlayer8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(leaderboardPlayer9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(leaderboardPlayer10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         RanksLayout.setVerticalGroup(
             RanksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(RanksLayout.createSequentialGroup()
                 .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(num1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(leaderboardPlayer1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(num2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(leaderboardPlayer2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(num3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(leaderboardPlayer3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(num4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(leaderboardPlayer4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(num5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(leaderboardPlayer5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(num6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(num7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(leaderboardPlayer6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(num8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(leaderboardPlayer7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(num9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(leaderboardPlayer8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(num10, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(leaderboardPlayer9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(leaderboardPlayer10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         Layers.setLayer(Border, javax.swing.JLayeredPane.PALETTE_LAYER);
@@ -214,15 +184,15 @@ public class Leaderboard extends javax.swing.JPanel {
     private javax.swing.JLayeredPane Layers;
     private javax.swing.JPanel Ranks;
     private javax.swing.JLabel Title;
-    private javax.swing.JLabel num1;
-    private javax.swing.JLabel num10;
-    private javax.swing.JLabel num2;
-    private javax.swing.JLabel num3;
-    private javax.swing.JLabel num4;
-    private javax.swing.JLabel num5;
-    private javax.swing.JLabel num6;
-    private javax.swing.JLabel num7;
-    private javax.swing.JLabel num8;
-    private javax.swing.JLabel num9;
+    private aquaguard.LeaderboardPlayer leaderboardPlayer1;
+    private aquaguard.LeaderboardPlayer leaderboardPlayer10;
+    private aquaguard.LeaderboardPlayer leaderboardPlayer2;
+    private aquaguard.LeaderboardPlayer leaderboardPlayer3;
+    private aquaguard.LeaderboardPlayer leaderboardPlayer4;
+    private aquaguard.LeaderboardPlayer leaderboardPlayer5;
+    private aquaguard.LeaderboardPlayer leaderboardPlayer6;
+    private aquaguard.LeaderboardPlayer leaderboardPlayer7;
+    private aquaguard.LeaderboardPlayer leaderboardPlayer8;
+    private aquaguard.LeaderboardPlayer leaderboardPlayer9;
     // End of variables declaration//GEN-END:variables
 }
