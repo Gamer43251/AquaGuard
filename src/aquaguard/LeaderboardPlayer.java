@@ -6,7 +6,7 @@ package aquaguard;
 
 /**
  *
- * @author Dreel
+ * @author Jordan Dreelan x23150076
  */
 public class LeaderboardPlayer extends javax.swing.JPanel {
     private User u;

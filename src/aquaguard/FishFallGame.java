@@ -24,7 +24,7 @@ import javax.swing.Timer;
 
 /**
  *
- * @author Dreel
+ * @author Jordan Dreelan x23150076
  */
 public class FishFallGame extends javax.swing.JPanel {
     private FishFallSection parentSection;

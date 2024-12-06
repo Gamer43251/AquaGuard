@@ -24,7 +24,7 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author Dreel
+ * @author Jordan Dreelan x23150076
  */
 public class AquaGuardApp extends javax.swing.JFrame {
     private int mouseX, mouseY;

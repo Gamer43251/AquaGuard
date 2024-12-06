@@ -7,6 +7,10 @@ package aquaguard;
 import java.util.ArrayList;
 import java.util.Comparator;
 
+/**
+ *
+ * @author Jordan Dreelan x23150076
+ */
 public class Leaderboard extends javax.swing.JPanel {
     private User[] topPlayers = new User[10];
 
@@ -30,16 +34,36 @@ public class Leaderboard extends javax.swing.JPanel {
         getTopPlayers();
 
         // Display top players in the leaderboard
-        leaderboardPlayer1.displayUser(1, topPlayers[0]);
-        leaderboardPlayer2.displayUser(2, topPlayers[1]);
-        leaderboardPlayer3.displayUser(3, topPlayers[2]);
-        leaderboardPlayer4.displayUser(4, topPlayers[3]);
-        leaderboardPlayer5.displayUser(5, topPlayers[4]);
-        leaderboardPlayer6.displayUser(6, topPlayers[5]);
-        leaderboardPlayer7.displayUser(7, topPlayers[6]);
-        leaderboardPlayer8.displayUser(8, topPlayers[7]);
-        leaderboardPlayer9.displayUser(9, topPlayers[8]);
-        leaderboardPlayer10.displayUser(10, topPlayers[9]);
+        if(topPlayers[0] != null){
+            leaderboardPlayer1.displayUser(1, topPlayers[0]);
+        }
+        if(topPlayers[1] != null){
+            leaderboardPlayer2.displayUser(2, topPlayers[1]);
+        }
+        if(topPlayers[2] != null){
+            leaderboardPlayer3.displayUser(3, topPlayers[2]);
+        }
+        if(topPlayers[3] != null){
+            leaderboardPlayer4.displayUser(4, topPlayers[3]);
+        }
+        if(topPlayers[4] != null){
+            leaderboardPlayer5.displayUser(5, topPlayers[4]);
+        }
+        if(topPlayers[5] != null){
+            leaderboardPlayer6.displayUser(6, topPlayers[5]);
+        }
+        if(topPlayers[6] != null){
+            leaderboardPlayer7.displayUser(7, topPlayers[6]);
+        }
+        if(topPlayers[7] != null){
+            leaderboardPlayer8.displayUser(8, topPlayers[7]);
+        }
+        if(topPlayers[8] != null){
+            leaderboardPlayer9.displayUser(9, topPlayers[8]);
+        }
+        if(topPlayers[9] != null){
+            leaderboardPlayer10.displayUser(10, topPlayers[9]);
+        }
     }
     
 

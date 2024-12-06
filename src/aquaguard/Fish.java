@@ -10,7 +10,7 @@ import javax.swing.ImageIcon;
 
 /**
  *
- * @author Dreel
+ * @author Jordan Dreelan x23150076
  */
 public class Fish extends Droppable {
     

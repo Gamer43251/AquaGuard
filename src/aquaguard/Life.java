@@ -8,7 +8,7 @@ import java.awt.Image;
 
 /**
  *
- * @author Dreel
+ * @author Jordan Dreelan x23150076
  */
 public class Life extends Droppable {
     private int x,y;

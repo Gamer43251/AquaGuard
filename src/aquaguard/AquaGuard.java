@@ -19,10 +19,11 @@ import java.util.ArrayList;
  * @author Jordan Dreelan x23150076
  */
 public class AquaGuard {
-    private static AquaGuardApp Display = new AquaGuardApp(); // Initialize immediately
-    private static Path documentsPath = Paths.get("C:/AquaGuard");
-    private static Path userFile = Paths.get(documentsPath + "/Users.txt");
+    private static AquaGuardApp Display = new AquaGuardApp(); // Generate instance of App
+    private static Path documentsPath = Paths.get("C:/AquaGuard"); // get path for AquaGuard folder on the users C: drive
+    private static Path userFile = Paths.get(documentsPath + "/Users.DAT"); // get path for users.txt file
 
+    
     public static void main(String[] args) throws FileNotFoundException {
         setupFolder();
         loadUsers();
@@ -30,12 +31,13 @@ public class AquaGuard {
         Display.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
     }
 
+    //method to return instance of AquaGuardApp instantiated within this class
     public static AquaGuardApp getDisplay() {
         return Display;
     }
     
+    //method to generate folder on the C: drive called AquaGuard
     public static void setupFolder(){
-        System.out.println("Huh?");
         try {
             if (!Files.exists(documentsPath)) {
                 System.out.println("Directory");
@@ -49,6 +51,7 @@ public class AquaGuard {
         }
     }
     
+    // method to create files for storing Users
     public static void createFiles(){
         
         try{
@@ -61,6 +64,7 @@ public class AquaGuard {
         }
     }
     
+    //method to save users login credentials to Users.txt file
     public static void saveUser(User u){
         System.out.println("Saving?");
         try(BufferedWriter br = new BufferedWriter( new FileWriter(userFile.toString(), true))){
@@ -72,6 +76,7 @@ public class AquaGuard {
         }
     }
     
+    // method to load users to array list at system launch from Users.txt file
     public static void loadUsers() throws FileNotFoundException{
         try(BufferedReader br = new BufferedReader(new FileReader(userFile.toString()))){
            String line;
@@ -93,6 +98,7 @@ public class AquaGuard {
             
     }
     
+    // method to update the users high score in Users.txt
     public static void updateHighscore(User u, int newScore){
         System.out.println("Test");
         ArrayList<String> lines = new ArrayList<String>();
