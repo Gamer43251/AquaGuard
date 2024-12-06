@@ -9,8 +9,8 @@ package aquaguard;
  * @author Dreel
  */
 public class LeaderboardPlayer extends javax.swing.JPanel {
-    User u;
-    int ranking;
+    private User u;
+    private int ranking;
     /**
      * Creates new form LeaderboardPlayer
      */

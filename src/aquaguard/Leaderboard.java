@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 public class Leaderboard extends javax.swing.JPanel {
-    User[] topPlayers = new User[10];
+    private User[] topPlayers = new User[10];
 
     public Leaderboard() {
         initComponents();

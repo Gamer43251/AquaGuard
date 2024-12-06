@@ -8,12 +8,12 @@ package aquaguard;
  *
  * @author Dreel
  */
-public class inputField extends javax.swing.JPanel {
+public class InputField extends javax.swing.JPanel {
 
     /**
      * Creates new form inputField
      */
-    public inputField() {
+    public InputField() {
         initComponents();
     }
     

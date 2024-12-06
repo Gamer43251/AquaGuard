@@ -326,10 +326,10 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jLabel1" max="32767" attributes="0"/>
-                                      <Component id="jLabel2" max="32767" attributes="0"/>
+                                      <Component id="passwordDisplay" max="32767" attributes="0"/>
+                                      <Component id="usernameDisplay" max="32767" attributes="0"/>
                                   </Group>
-                                  <Component id="jLabel3" alignment="0" min="-2" pref="215" max="-2" attributes="0"/>
+                                  <Component id="credentialsDisplay" alignment="0" min="-2" pref="215" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -351,23 +351,23 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="createAccountBTN" min="-2" pref="100" max="-2" attributes="0"/>
                       <EmptySpace pref="78" max="32767" attributes="0"/>
-                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                      <Component id="credentialsDisplay" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      <Component id="usernameDisplay" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <Component id="passwordDisplay" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="aquaguard.inputField" name="usernameInputField">
+            <Component class="aquaguard.InputField" name="usernameInputField">
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="usernameInputField.setTag(&quot;Username&quot;);"/>
               </AuxValues>
             </Component>
-            <Component class="aquaguard.inputField" name="passwordInputField">
+            <Component class="aquaguard.InputField" name="passwordInputField">
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="passwordInputField.setTag(&quot;Password&quot;);"/>
               </AuxValues>
@@ -403,7 +403,7 @@
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel1">
+            <Component class="javax.swing.JLabel" name="passwordDisplay">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="24" style="0"/>
@@ -411,7 +411,7 @@
                 <Property name="text" type="java.lang.String" value="Password : Password"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel2">
+            <Component class="javax.swing.JLabel" name="usernameDisplay">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="24" style="0"/>
@@ -419,7 +419,7 @@
                 <Property name="text" type="java.lang.String" value="Username : Admin"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel3">
+            <Component class="javax.swing.JLabel" name="credentialsDisplay">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="24" style="0"/>
@@ -486,12 +486,12 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="aquaguard.inputField" name="signupUsernameInputField">
+            <Component class="aquaguard.InputField" name="signupUsernameInputField">
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="signupUsernameInputField.setTag(&quot;Username&quot;);"/>
               </AuxValues>
             </Component>
-            <Component class="aquaguard.inputField" name="signupPasswordInputField">
+            <Component class="aquaguard.InputField" name="signupPasswordInputField">
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="signupPasswordInputField.setTag(&quot;Password&quot;);"/>
               </AuxValues>
@@ -527,7 +527,7 @@
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
             </Component>
-            <Component class="aquaguard.inputField" name="confirmPasswordInputField">
+            <Component class="aquaguard.InputField" name="confirmPasswordInputField">
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="confirmPasswordInputField.setTag(&quot;Confirm Password&quot;);"/>
               </AuxValues>
@@ -561,9 +561,9 @@
                       <EmptySpace min="-2" pref="192" max="-2" attributes="0"/>
                       <Component id="shoppingBTN" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="FishFallBTN" min="-2" max="-2" attributes="0"/>
+                      <Component id="fishFallBTN" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="AdoptionBTN" min="-2" max="-2" attributes="0"/>
+                      <Component id="adoptionBTN" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="192" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -575,8 +575,8 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="shoppingBTN" min="-2" max="-2" attributes="0"/>
-                          <Component id="FishFallBTN" min="-2" max="-2" attributes="0"/>
-                          <Component id="AdoptionBTN" min="-2" max="-2" attributes="0"/>
+                          <Component id="fishFallBTN" min="-2" max="-2" attributes="0"/>
+                          <Component id="adoptionBTN" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="44" max="32767" attributes="0"/>
                   </Group>
@@ -601,24 +601,24 @@
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="shoppingBTNMouseClicked"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="FishFallBTN">
+            <Component class="javax.swing.JLabel" name="fishFallBTN">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Images/buttons/Fish Fall.png"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="FishFallBTNMouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="fishFallBTNMouseClicked"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="AdoptionBTN">
+            <Component class="javax.swing.JLabel" name="adoptionBTN">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Images/buttons/Adoption.png"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="AdoptionBTNMouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="adoptionBTNMouseClicked"/>
               </Events>
             </Component>
           </SubComponents>

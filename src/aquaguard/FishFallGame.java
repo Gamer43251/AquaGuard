@@ -249,11 +249,6 @@ public class FishFallGame extends javax.swing.JPanel {
         }
     }
     
-    public void initDroppables(){
-        drops.clear();
-        Waste dr1 = new Waste();
-        drops.add(dr1);
-    }
     
     public void sortDroppables(){
         if(state == 1){
@@ -271,15 +266,6 @@ public class FishFallGame extends javax.swing.JPanel {
                 drops.add(dr);
             }
         }
-        
-        
-        /*if(score >= 10 && drops.size() < 2){
-            Fish dr2 = new Fish();
-            drops.add(dr2);
-        }else if(score >= 20 && drops.size() < 4){
-            Waste dr3 = new Waste();
-            drops.add(dr3);
-        }*/
     }
     
     public void startGame(){
@@ -297,7 +283,6 @@ public class FishFallGame extends javax.swing.JPanel {
         lives = 5;
         state = 1;
         repaint();
-        initDroppables();
             timer = new Timer(dropSpeed, new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -335,10 +320,6 @@ public class FishFallGame extends javax.swing.JPanel {
         state = 1;
     }
                 
-        
-   
-   
-    
     public void move(){
         if (direction == 'L' && pl.getX() > 0){
             pl.setX(pl.getX() - tileSize);
@@ -389,8 +370,6 @@ public class FishFallGame extends javax.swing.JPanel {
         //drops.addAll(newDrops);
     }
 
-
-    
     public void checkState(){
         if(lives == 0){
             state = 2;
@@ -401,7 +380,6 @@ public class FishFallGame extends javax.swing.JPanel {
             score = 0;
         }
     }
-    
     
     public void increaseScore(int score) {
         // Use the parent reference to update scoreLabel

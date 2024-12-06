@@ -11,7 +11,7 @@ import javax.swing.SwingUtilities;
  * @author Dreel
  */
 public class FishFallSection extends javax.swing.JPanel {
-    User Curr;
+    private User Curr;
     /**
      * Creates new form FishFallSection
      */
