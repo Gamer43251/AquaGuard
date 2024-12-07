@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package aquaguard;
+package Sections.Fishfall;
 
+import aquaguard.AquaGuardApp;
 import java.util.ArrayList;
 import java.util.Comparator;
 
@@ -80,16 +81,16 @@ public class Leaderboard extends javax.swing.JPanel {
         Border = new javax.swing.JPanel();
         Ranks = new javax.swing.JPanel();
         Title = new javax.swing.JLabel();
-        leaderboardPlayer1 = new aquaguard.LeaderboardPlayer();
-        leaderboardPlayer2 = new aquaguard.LeaderboardPlayer();
-        leaderboardPlayer3 = new aquaguard.LeaderboardPlayer();
-        leaderboardPlayer4 = new aquaguard.LeaderboardPlayer();
-        leaderboardPlayer5 = new aquaguard.LeaderboardPlayer();
-        leaderboardPlayer6 = new aquaguard.LeaderboardPlayer();
-        leaderboardPlayer7 = new aquaguard.LeaderboardPlayer();
-        leaderboardPlayer8 = new aquaguard.LeaderboardPlayer();
-        leaderboardPlayer9 = new aquaguard.LeaderboardPlayer();
-        leaderboardPlayer10 = new aquaguard.LeaderboardPlayer();
+        leaderboardPlayer1 = new Sections.Fishfall.LeaderboardPlayer();
+        leaderboardPlayer2 = new Sections.Fishfall.LeaderboardPlayer();
+        leaderboardPlayer3 = new Sections.Fishfall.LeaderboardPlayer();
+        leaderboardPlayer4 = new Sections.Fishfall.LeaderboardPlayer();
+        leaderboardPlayer5 = new Sections.Fishfall.LeaderboardPlayer();
+        leaderboardPlayer6 = new Sections.Fishfall.LeaderboardPlayer();
+        leaderboardPlayer7 = new Sections.Fishfall.LeaderboardPlayer();
+        leaderboardPlayer8 = new Sections.Fishfall.LeaderboardPlayer();
+        leaderboardPlayer9 = new Sections.Fishfall.LeaderboardPlayer();
+        leaderboardPlayer10 = new Sections.Fishfall.LeaderboardPlayer();
 
         setMaximumSize(new java.awt.Dimension(400, 600));
         setMinimumSize(new java.awt.Dimension(400, 600));
@@ -208,15 +209,15 @@ public class Leaderboard extends javax.swing.JPanel {
     private javax.swing.JLayeredPane Layers;
     private javax.swing.JPanel Ranks;
     private javax.swing.JLabel Title;
-    private aquaguard.LeaderboardPlayer leaderboardPlayer1;
-    private aquaguard.LeaderboardPlayer leaderboardPlayer10;
-    private aquaguard.LeaderboardPlayer leaderboardPlayer2;
-    private aquaguard.LeaderboardPlayer leaderboardPlayer3;
-    private aquaguard.LeaderboardPlayer leaderboardPlayer4;
-    private aquaguard.LeaderboardPlayer leaderboardPlayer5;
-    private aquaguard.LeaderboardPlayer leaderboardPlayer6;
-    private aquaguard.LeaderboardPlayer leaderboardPlayer7;
-    private aquaguard.LeaderboardPlayer leaderboardPlayer8;
-    private aquaguard.LeaderboardPlayer leaderboardPlayer9;
+    private Sections.Fishfall.LeaderboardPlayer leaderboardPlayer1;
+    private Sections.Fishfall.LeaderboardPlayer leaderboardPlayer10;
+    private Sections.Fishfall.LeaderboardPlayer leaderboardPlayer2;
+    private Sections.Fishfall.LeaderboardPlayer leaderboardPlayer3;
+    private Sections.Fishfall.LeaderboardPlayer leaderboardPlayer4;
+    private Sections.Fishfall.LeaderboardPlayer leaderboardPlayer5;
+    private Sections.Fishfall.LeaderboardPlayer leaderboardPlayer6;
+    private Sections.Fishfall.LeaderboardPlayer leaderboardPlayer7;
+    private Sections.Fishfall.LeaderboardPlayer leaderboardPlayer8;
+    private Sections.Fishfall.LeaderboardPlayer leaderboardPlayer9;
     // End of variables declaration//GEN-END:variables
 }

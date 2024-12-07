@@ -155,37 +155,37 @@
                 <Property name="opaque" type="boolean" value="true"/>
               </Properties>
             </Component>
-            <Component class="aquaguard.LeaderboardPlayer" name="leaderboardPlayer1">
+            <Component class="Sections.Fishfall.LeaderboardPlayer" name="leaderboardPlayer1">
             </Component>
-            <Component class="aquaguard.LeaderboardPlayer" name="leaderboardPlayer2">
+            <Component class="Sections.Fishfall.LeaderboardPlayer" name="leaderboardPlayer2">
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="leaderboardPlayer2.invertColor();"/>
               </AuxValues>
             </Component>
-            <Component class="aquaguard.LeaderboardPlayer" name="leaderboardPlayer3">
+            <Component class="Sections.Fishfall.LeaderboardPlayer" name="leaderboardPlayer3">
             </Component>
-            <Component class="aquaguard.LeaderboardPlayer" name="leaderboardPlayer4">
+            <Component class="Sections.Fishfall.LeaderboardPlayer" name="leaderboardPlayer4">
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="leaderboardPlayer4.invertColor();"/>
               </AuxValues>
             </Component>
-            <Component class="aquaguard.LeaderboardPlayer" name="leaderboardPlayer5">
+            <Component class="Sections.Fishfall.LeaderboardPlayer" name="leaderboardPlayer5">
             </Component>
-            <Component class="aquaguard.LeaderboardPlayer" name="leaderboardPlayer6">
+            <Component class="Sections.Fishfall.LeaderboardPlayer" name="leaderboardPlayer6">
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="leaderboardPlayer6.invertColor();"/>
               </AuxValues>
             </Component>
-            <Component class="aquaguard.LeaderboardPlayer" name="leaderboardPlayer7">
+            <Component class="Sections.Fishfall.LeaderboardPlayer" name="leaderboardPlayer7">
             </Component>
-            <Component class="aquaguard.LeaderboardPlayer" name="leaderboardPlayer8">
+            <Component class="Sections.Fishfall.LeaderboardPlayer" name="leaderboardPlayer8">
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="leaderboardPlayer8.invertColor();"/>
               </AuxValues>
             </Component>
-            <Component class="aquaguard.LeaderboardPlayer" name="leaderboardPlayer9">
+            <Component class="Sections.Fishfall.LeaderboardPlayer" name="leaderboardPlayer9">
             </Component>
-            <Component class="aquaguard.LeaderboardPlayer" name="leaderboardPlayer10">
+            <Component class="Sections.Fishfall.LeaderboardPlayer" name="leaderboardPlayer10">
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="leaderboardPlayer10.invertColor();"/>
               </AuxValues>

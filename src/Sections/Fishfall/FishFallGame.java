@@ -2,10 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package aquaguard;
+package Sections.Fishfall;
 
 import aquaguard.AquaGuard;
-import aquaguard.User;
+import aquaguard.AquaGuard;
+import aquaguard.AquaGuardApp;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;

@@ -1,6 +1,8 @@
 package aquaguard;
 
+import Sections.Fishfall.User;
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.geom.RoundRectangle2D;
@@ -16,6 +18,7 @@ import javax.sound.sampled.FloatControl;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JFrame;
+import javax.swing.border.MatteBorder;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -142,7 +145,9 @@ public class AquaGuardApp extends javax.swing.JFrame {
             nameLabel.setText("Home");
             homeBTN.setVisible(true);
             logoutLabel.setVisible(true);
-           
+            settingsBTN.setVisible(true);
+            settingsPage1.setUser(currentUser);
+            settingsPage1.initUser();
         }
     }
     
@@ -185,10 +190,11 @@ public class AquaGuardApp extends javax.swing.JFrame {
         homeBTN = new javax.swing.JLabel();
         nameLabel = new javax.swing.JLabel();
         logoutLabel = new javax.swing.JLabel();
+        settingsBTN = new javax.swing.JLabel();
         cards = new javax.swing.JPanel();
         loginCard = new javax.swing.JPanel();
-        usernameInputField = new aquaguard.InputField();
-        passwordInputField = new aquaguard.InputField();
+        usernameInputField = new Sections.Main.InputField();
+        passwordInputField = new Sections.Main.InputField();
         loginBTN = new javax.swing.JLabel();
         createAccountBTN = new javax.swing.JLabel();
         loginErrorLabel = new javax.swing.JLabel();
@@ -196,18 +202,19 @@ public class AquaGuardApp extends javax.swing.JFrame {
         usernameDisplay = new javax.swing.JLabel();
         credentialsDisplay = new javax.swing.JLabel();
         signupCard = new javax.swing.JPanel();
-        signupUsernameInputField = new aquaguard.InputField();
-        signupPasswordInputField = new aquaguard.InputField();
+        signupUsernameInputField = new Sections.Main.InputField();
+        signupPasswordInputField = new Sections.Main.InputField();
         SignupBTN = new javax.swing.JLabel();
         signupLoginBTN = new javax.swing.JLabel();
         signupErrorLabel = new javax.swing.JLabel();
-        confirmPasswordInputField = new aquaguard.InputField();
+        confirmPasswordInputField = new Sections.Main.InputField();
         homeCard = new javax.swing.JPanel();
         descriptionText = new javax.swing.JLabel();
         shoppingBTN = new javax.swing.JLabel();
         fishFallBTN = new javax.swing.JLabel();
         adoptionBTN = new javax.swing.JLabel();
-        fishFallSection1 = new aquaguard.FishFallSection();
+        fishFallSection1 = new Sections.Fishfall.FishFallSection();
+        settingsPage1 = new Sections.Main.SettingsPage();
         shop = new javax.swing.JPanel();
         itembg1JP = new javax.swing.JPanel();
         item1LBL = new javax.swing.JLabel();
@@ -373,7 +380,7 @@ public class AquaGuardApp extends javax.swing.JFrame {
         );
 
         topBar.setBackground(new java.awt.Color(0, 255, 255));
-        topBar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(1, 187, 187), 5));
+        topBar.setBorder(new MatteBorder(-5, 0, 5, 0, new Color(46, 116, 132)));
         topBar.setMaximumSize(new java.awt.Dimension(1500, 100));
         topBar.setMinimumSize(new java.awt.Dimension(1500, 100));
         topBar.setPreferredSize(new java.awt.Dimension(1500, 100));
@@ -401,6 +408,17 @@ public class AquaGuardApp extends javax.swing.JFrame {
             }
         });
 
+        settingsBTN.setVisible(false);
+        settingsBTN.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        settingsBTN.setForeground(new java.awt.Color(255, 255, 255));
+        settingsBTN.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        settingsBTN.setText("Settings");
+        settingsBTN.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                settingsBTNMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout topBarLayout = new javax.swing.GroupLayout(topBar);
         topBar.setLayout(topBarLayout);
         topBarLayout.setHorizontalGroup(
@@ -409,16 +427,20 @@ public class AquaGuardApp extends javax.swing.JFrame {
                 .addComponent(homeBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(logoutLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 685, Short.MAX_VALUE)
+                .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(logoutLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(settingsBTN, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         topBarLayout.setVerticalGroup(
             topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(homeBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(homeBTN, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
             .addComponent(nameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topBarLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(settingsBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(logoutLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -636,6 +658,7 @@ public class AquaGuardApp extends javax.swing.JFrame {
 
         cards.add(homeCard, "home");
         cards.add(fishFallSection1, "fishFall");
+        cards.add(settingsPage1, "settings");
 
         shop.setOpaque(false);
 
@@ -1460,6 +1483,7 @@ public class AquaGuardApp extends javax.swing.JFrame {
         nameLabel.setText("Login");
         homeBTN.setVisible(false);
         logoutLabel.setVisible(false);
+        settingsBTN.setVisible(false);
         clearCredentials();
     }//GEN-LAST:event_logoutLabelMouseClicked
 
@@ -1486,10 +1510,16 @@ public class AquaGuardApp extends javax.swing.JFrame {
 
     private void buy1BTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buy1BTNMouseClicked
         // TODO add your handling code here:
-         cl.show(cards,"adoption");
+        cl.show(cards,"adoption");
         nameLabel.setText("Adoption");
         bubblePop();
     }//GEN-LAST:event_buy1BTNMouseClicked
+
+    private void settingsBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingsBTNMouseClicked
+        cl.show(cards,"settings");
+        nameLabel.setText("Settings");
+        bubblePop();
+    }//GEN-LAST:event_settingsBTNMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1558,7 +1588,7 @@ public class AquaGuardApp extends javax.swing.JFrame {
     private javax.swing.JLabel checkoutBTN;
     private javax.swing.JButton clearBTN;
     private javax.swing.JButton clearBTN1;
-    private aquaguard.InputField confirmPasswordInputField;
+    private Sections.Main.InputField confirmPasswordInputField;
     private javax.swing.JLabel createAccountBTN;
     private javax.swing.JLabel credentialsDisplay;
     private javax.swing.JLabel descriptionText;
@@ -1570,7 +1600,7 @@ public class AquaGuardApp extends javax.swing.JFrame {
     private javax.swing.JButton exitBTN1;
     private javax.swing.JButton exitBTN2;
     private javax.swing.JLabel fishFallBTN;
-    public aquaguard.FishFallSection fishFallSection1;
+    public Sections.Fishfall.FishFallSection fishFallSection1;
     private javax.swing.JLabel frequencyLBL;
     private javax.swing.JTextField frequencyTF;
     private javax.swing.JLabel homeBTN;
@@ -1608,7 +1638,7 @@ public class AquaGuardApp extends javax.swing.JFrame {
     private javax.swing.JTextField nameTF;
     private javax.swing.JTextField nameTF1;
     private javax.swing.JLabel passwordDisplay;
-    private aquaguard.InputField passwordInputField;
+    private Sections.Main.InputField passwordInputField;
     private javax.swing.JLabel price1LBL;
     private javax.swing.JLabel price2LBL;
     private javax.swing.JLabel price3LBL;
@@ -1621,6 +1651,8 @@ public class AquaGuardApp extends javax.swing.JFrame {
     private javax.swing.JLabel remove4BTN;
     private javax.swing.JLabel remove5BTN;
     private javax.swing.JLabel remove6BTN;
+    private javax.swing.JLabel settingsBTN;
+    private Sections.Main.SettingsPage settingsPage1;
     private javax.swing.JLabel sexLBL;
     private javax.swing.JTextField sexTF;
     private javax.swing.JPanel shop;
@@ -1628,8 +1660,8 @@ public class AquaGuardApp extends javax.swing.JFrame {
     private javax.swing.JPanel signupCard;
     private javax.swing.JLabel signupErrorLabel;
     private javax.swing.JLabel signupLoginBTN;
-    private aquaguard.InputField signupPasswordInputField;
-    private aquaguard.InputField signupUsernameInputField;
+    private Sections.Main.InputField signupPasswordInputField;
+    private Sections.Main.InputField signupUsernameInputField;
     private javax.swing.JLabel stock1LBL;
     private javax.swing.JLabel stock2LBL;
     private javax.swing.JLabel stock3LBL;
@@ -1645,7 +1677,7 @@ public class AquaGuardApp extends javax.swing.JFrame {
     private javax.swing.JButton updateBTN;
     private javax.swing.JButton updateBTN1;
     private javax.swing.JLabel usernameDisplay;
-    private aquaguard.InputField usernameInputField;
+    private Sections.Main.InputField usernameInputField;
     // End of variables declaration//GEN-END:variables
 
 }

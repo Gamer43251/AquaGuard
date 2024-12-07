@@ -68,9 +68,9 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="aquaguard.FishFallGame" name="Game">
+    <Container class="Sections.Fishfall.FishFallGame" name="Game">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new aquaguard.FishFallGame(this)"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Sections.Fishfall.FishFallGame(this)"/>
       </AuxValues>
 
       <Layout>
@@ -176,7 +176,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="aquaguard.Leaderboard" name="leaderboard1">
+    <Component class="Sections.Fishfall.Leaderboard" name="leaderboard1">
     </Component>
     <Component class="javax.swing.JLabel" name="instructions">
       <Properties>

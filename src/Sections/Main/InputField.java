@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package aquaguard;
+package Sections.Main;
 
 /**
  *
@@ -25,8 +25,18 @@ public class InputField extends javax.swing.JPanel {
         return inputField.getText();
     }
     
+    public void setText(String str){
+        inputField.setText(str);
+    }
+    
     public void clearText(){
         inputField.setText("");
+    }
+    
+    @Override
+    public void disable(){
+        inputField.setEditable(false);
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/loginInputDisabled.png")));
     }
 
     /**
