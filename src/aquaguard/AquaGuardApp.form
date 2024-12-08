@@ -203,10 +203,11 @@
                   <Component id="homeBTN" min="-2" pref="90" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="nameLabel" min="-2" pref="600" max="-2" attributes="0"/>
-                  <EmptySpace pref="688" max="32767" attributes="0"/>
-                  <Component id="settingsBTN" min="-2" pref="40" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="logoutLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="logoutLabel" alignment="1" min="-2" pref="101" max="-2" attributes="0"/>
+                      <Component id="settingsBTN" alignment="1" min="-2" pref="101" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -703,9 +704,15 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="basketJP" alignment="1" max="32767" attributes="0"/>
                           <Component id="billingPanel" alignment="1" max="32767" attributes="0"/>
-                          <Component id="checkoutBTN" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="1000" max="-2" attributes="0"/>
+                          <Component id="checkoutBTN1" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -713,31 +720,27 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="basketJP" max="32767" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="itembg3JP" alignment="0" pref="366" max="32767" attributes="0"/>
-                                  <Component id="itembg2JP" alignment="0" pref="366" max="32767" attributes="0"/>
-                                  <Component id="itembg1JP" alignment="0" pref="366" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="32767" attributes="0"/>
-                          </Group>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="itembg3JP" alignment="0" pref="367" max="32767" attributes="0"/>
+                          <Component id="itembg2JP" alignment="0" pref="367" max="32767" attributes="0"/>
+                          <Component id="itembg1JP" alignment="0" pref="367" max="32767" attributes="0"/>
+                          <Component id="basketJP" max="32767" attributes="0"/>
                       </Group>
+                      <EmptySpace pref="26" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="billingPanel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="checkoutBTN" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="billingPanel" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="itembg5JP" alignment="0" pref="370" max="32767" attributes="0"/>
                           <Component id="itembg4JP" alignment="0" pref="370" max="32767" attributes="0"/>
                           <Component id="itembg6JP" pref="370" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="714" max="-2" attributes="0"/>
+                          <Component id="checkoutBTN1" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -828,7 +831,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="stock1LBL">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Stock : 10"/>
+                    <Property name="text" type="java.lang.String" value="Stock : 25"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="buy1BTN">
@@ -873,6 +876,9 @@
                     </Property>
                     <Property name="opaque" type="boolean" value="true"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="remove1BTNMouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -955,7 +961,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="price2LBL">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Price: &#x20ac;20.99"/>
+                    <Property name="text" type="java.lang.String" value="Price: &#x20ac;15.99"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="image2LBL">
@@ -967,7 +973,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="stock2LBL">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Stock : 10"/>
+                    <Property name="text" type="java.lang.String" value="Stock : 15"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="buy2BTN">
@@ -989,6 +995,9 @@
                     </Property>
                     <Property name="opaque" type="boolean" value="true"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buy2BTNMouseClicked"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="remove2BTN">
                   <Properties>
@@ -1009,6 +1018,9 @@
                     </Property>
                     <Property name="opaque" type="boolean" value="true"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="remove2BTNMouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -1053,7 +1065,7 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="12" max="32767" attributes="0"/>
+                          <EmptySpace pref="13" max="32767" attributes="0"/>
                           <Component id="image3LBL" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="item3LBL" min="-2" max="-2" attributes="0"/>
@@ -1085,7 +1097,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="price3LBL">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Price: &#x20ac;20.99"/>
+                    <Property name="text" type="java.lang.String" value="Price: &#x20ac;18.50"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="image3LBL">
@@ -1097,7 +1109,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="stock3LBL">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Stock : 10"/>
+                    <Property name="text" type="java.lang.String" value="Stock : 12"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="buy3BTN">
@@ -1119,6 +1131,9 @@
                     </Property>
                     <Property name="opaque" type="boolean" value="true"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buy3BTNMouseClicked"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="remove3BTN">
                   <Properties>
@@ -1139,6 +1154,9 @@
                     </Property>
                     <Property name="opaque" type="boolean" value="true"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="remove3BTNMouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -1220,7 +1238,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="price4LBL">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Price: &#x20ac;20.99"/>
+                    <Property name="text" type="java.lang.String" value="Price: &#x20ac;10.55"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="image4LBL">
@@ -1232,7 +1250,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="stock4LBL">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Stock : 10"/>
+                    <Property name="text" type="java.lang.String" value="Stock : 12"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="buy4BTN">
@@ -1254,6 +1272,9 @@
                     </Property>
                     <Property name="opaque" type="boolean" value="true"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buy4BTNMouseClicked"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="remove4BTN">
                   <Properties>
@@ -1274,6 +1295,9 @@
                     </Property>
                     <Property name="opaque" type="boolean" value="true"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="remove4BTNMouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -1355,7 +1379,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="price5LBL">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Price: &#x20ac;20.99"/>
+                    <Property name="text" type="java.lang.String" value="Price: &#x20ac;10.20"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="image5LBL">
@@ -1367,7 +1391,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="stock5LBL">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Stock : 10"/>
+                    <Property name="text" type="java.lang.String" value="Stock : 15"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="buy5BTN">
@@ -1389,6 +1413,9 @@
                     </Property>
                     <Property name="opaque" type="boolean" value="true"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buy5BTNMouseClicked"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="remove5BTN">
                   <Properties>
@@ -1409,6 +1436,9 @@
                     </Property>
                     <Property name="opaque" type="boolean" value="true"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="remove5BTNMouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -1429,28 +1459,37 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="169" max="-2" attributes="0"/>
+                          <Component id="basketLBL" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="169" max="-2" attributes="0"/>
-                                  <Component id="basketLBL" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                  <Component id="totalLBL" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          <Component id="totalPriceLBL" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="clearBasketBTN" min="-2" pref="107" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="jScrollPane2" min="-2" pref="394" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                           <Component id="basketLBL" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="274" max="32767" attributes="0"/>
-                          <Component id="totalLBL" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jScrollPane2" max="32767" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="clearBasketBTN" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="totalPriceLBL" alignment="1" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -1468,7 +1507,7 @@
                     <Property name="text" type="java.lang.String" value="Basket"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="totalLBL">
+                <Component class="javax.swing.JLabel" name="totalPriceLBL">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="18" style="1"/>
@@ -1478,6 +1517,63 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Total:"/>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
+                </Component>
+                <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+                  <AuxValues>
+                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                  </AuxValues>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JTextArea" name="basketItemsTA">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="8a" green="56" red="21" type="rgb"/>
+                        </Property>
+                        <Property name="columns" type="int" value="20"/>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="18" style="1"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="rows" type="int" value="5"/>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Component class="javax.swing.JLabel" name="clearBasketBTN">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="bb" green="bb" red="1" type="rgb"/>
+                    </Property>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="14" style="1"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="Clear"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                        <LineBorder thickness="3">
+                          <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
+                        </LineBorder>
+                      </Border>
+                    </Property>
+                    <Property name="opaque" type="boolean" value="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="clearBasketBTNMouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -1509,9 +1605,9 @@
                           </Group>
                           <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="nameTF" alignment="0" max="32767" attributes="0"/>
-                              <Component id="emailTF" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jScrollPane1" pref="278" max="32767" attributes="0"/>
+                              <Component id="customerNameTF" alignment="0" max="32767" attributes="0"/>
+                              <Component id="customerEmailTF" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jScrollPane1" pref="303" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                       </Group>
@@ -1530,11 +1626,11 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="nameLBL" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="nameTF" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="customerNameTF" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="emailTF" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="customerEmailTF" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="emailLBL" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -1600,9 +1696,15 @@
                     <Property name="text" type="java.lang.String" value="Billing Information"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="nameTF">
+                <Component class="javax.swing.JTextField" name="customerNameTF">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JTextField" name="emailTF">
+                <Component class="javax.swing.JTextField" name="customerEmailTF">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane1">
                   <AuxValues>
@@ -1611,11 +1713,14 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTextArea" name="addressTA">
+                    <Component class="javax.swing.JTextArea" name="customerAddressTA">
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -1699,7 +1804,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="price6LBL">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Price: &#x20ac;20.99"/>
+                    <Property name="text" type="java.lang.String" value="Price: &#x20ac;25.99"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="image6LBL">
@@ -1711,7 +1816,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="stock6LBL">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Stock : 10"/>
+                    <Property name="text" type="java.lang.String" value="Stock : 13"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="buy6BTN">
@@ -1733,6 +1838,9 @@
                     </Property>
                     <Property name="opaque" type="boolean" value="true"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buy6BTNMouseClicked"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="remove6BTN">
                   <Properties>
@@ -1753,10 +1861,13 @@
                     </Property>
                     <Property name="opaque" type="boolean" value="true"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="remove6BTNMouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JLabel" name="checkoutBTN">
+            <Component class="javax.swing.JLabel" name="checkoutBTN1">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="bb" green="bb" red="1" type="rgb"/>
@@ -1778,6 +1889,9 @@
                 </Property>
                 <Property name="opaque" type="boolean" value="true"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="checkoutBTN1MouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
