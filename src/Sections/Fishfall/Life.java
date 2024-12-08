@@ -15,12 +15,14 @@ public class Life extends Droppable {
     private int x,y;
     private Image image;
     
+    //life constructor
     public Life() {
         x = random.nextInt(8) * 75;
         y = -75;
         this.image = super.loadImage("Images/Fishfall/Game/Bubble.png");
     }
     
+    //method to return the image of the life
     public Image getImage(){
         return this.image;
     }

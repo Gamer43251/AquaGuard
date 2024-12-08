@@ -24,7 +24,7 @@ public class AquaGuard {
     private static Path documentsPath = Paths.get("C:/AquaGuard"); // get path for AquaGuard folder on the users C: drive
     private static Path userFile = Paths.get(documentsPath + "/Users.DAT"); // get path for users.txt file
 
-    
+    //main method 
     public static void main(String[] args) throws FileNotFoundException {
         setupFolder();
         loadUsers();
@@ -99,6 +99,7 @@ public class AquaGuard {
             
     }
     
+    //method to remove user from Users.dat
     public static void removeUser(String user, String pass){
         ArrayList<String> lines = new ArrayList<String>();
         try(BufferedReader br = new BufferedReader(new FileReader(userFile.toString()))){
@@ -164,7 +165,7 @@ public class AquaGuard {
         }
     }
     
-    // method to update the users Pin in Users.dat
+    // method to update the users Password in Users.dat
     public static void updatePass(User u, String newPass){
         ArrayList<String> lines = new ArrayList<String>();
         try(BufferedReader br = new BufferedReader(new FileReader(userFile.toString()))){

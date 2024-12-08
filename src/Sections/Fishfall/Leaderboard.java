@@ -15,10 +15,12 @@ import java.util.Comparator;
 public class Leaderboard extends javax.swing.JPanel {
     private User[] topPlayers = new User[10];
 
+    //leaderboard constructor
     public Leaderboard() {
         initComponents();
     }
-
+    
+    //method to getTopPlayers from Array of users and store them in TopPlayers array
     public void getTopPlayers() {
         ArrayList<User> users = AquaGuardApp.getUsers();
         
@@ -30,7 +32,8 @@ public class Leaderboard extends javax.swing.JPanel {
             topPlayers[i] = users.get(i);
         }
     }
-
+    
+    //method to display Players to the leaderboard from the topPlayers array
     public void displayPlayers() {
         getTopPlayers();
 

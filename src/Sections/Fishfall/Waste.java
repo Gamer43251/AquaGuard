@@ -19,12 +19,14 @@ public class Waste extends Droppable {
     private Image image;
     private ArrayList<Image> icons = new ArrayList<Image>();
 
+    //initialise images for waste objects
     private Image crispWrapper = super.loadImage("Images/Fishfall/Game/Waste/Crisp Wrapper.png");
     private Image plasticBag = super.loadImage("Images/Fishfall/Game/Waste/Plastic Bag.png");
     private Image sodaCup = super.loadImage("Images/Fishfall/Game/Waste/Soda Cup.png");
     private Image straw = super.loadImage("Images/Fishfall/Game/Waste/Straw.png");
     private Image waterBottle = super.loadImage("Images/Fishfall/Game/Waste/Water Bottle.png");
 
+    //waste constructor
     public Waste() {
         x = random.nextInt(8) * 75;
         y = -75;
@@ -38,7 +40,7 @@ public class Waste extends Droppable {
         this.image = icons.get(r);
     }
 
-    
+    //method to return waste Image for drawing
     public Image getImage(){
         return this.image;
     }

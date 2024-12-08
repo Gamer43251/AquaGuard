@@ -14,34 +14,38 @@ import javax.swing.ImageIcon;
  * @author Jordan Dreelan x23150076
  */
 public class Droppable {
-    private int x,y;
-    protected Random random = new Random();
-    private Image image;
+    private int x,y; //Used to track the x & y position of the droppable
+    protected Random random = new Random(); // used for randomising the droppables x position
+    private Image image; // image displayed for the droppable
     
     
+    //constructor for droppable
     public Droppable(){
         x = random.nextInt(8) * 75;
         y = -70;
     }
     
+    // Method to lower down droppables by 10px at a time
     public void lower() {
         y += 10;  // Move down by 10 pixels
     }
 
-    
+    // returns droppables x Position
     public int getX(){
         return this.x;
     }
     
+    // returns droppables Y position
     public int getY(){
         return this.y;
     }
     
+    // returns droppables image for being displayed
     public Image getImage(){
         return this.image;
     }
     
-    // Helper method to load image
+    // method to load droppables image used in child classes
     public Image loadImage(String path) {
         URL url = getClass().getClassLoader().getResource(path);
         if (url == null) {

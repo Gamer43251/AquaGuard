@@ -44,6 +44,8 @@ public class AquaGuardApp extends javax.swing.JFrame {
     /**
      * Creates new form AquaGuardApp
      */
+    
+    //AquaGuardApp constructor
     public AquaGuardApp() {
         //Users.add(Admin);
         initComponents();
@@ -54,18 +56,22 @@ public class AquaGuardApp extends javax.swing.JFrame {
         
     }
     
+    //method to get array of Users
     public static ArrayList<User> getUsers(){
         return Users;
     }
     
+    //method to add User to array of users
     public static void addUser(User u){
         Users.add(u);
     }
     
+    //method to set the current User using the app
     public void setCurrentUser(User user){
         this.currentUser = user;
     }
     
+    //method to get the current User using the app
     public static User getCurrentUser(){
         return currentUser;
     }
@@ -114,6 +120,7 @@ public class AquaGuardApp extends javax.swing.JFrame {
         clip.start();
     }
     
+    //method for signing up and creating new account
     public void Signup(){
         if(verifySignupCredentials()){
             User u = new User(signupUsernameInputField.getText(),signupPasswordInputField.getText());
@@ -125,6 +132,7 @@ public class AquaGuardApp extends javax.swing.JFrame {
         }
     }
     
+    //method to verify credentials for new account
     public boolean verifySignupCredentials(){
         if(signupUsernameInputField.getText().isEmpty()){
             signupErrorLabel.setText("Please Enter A Username");
@@ -144,6 +152,7 @@ public class AquaGuardApp extends javax.swing.JFrame {
         return true;
     }
     
+    //method for logging in
     public void login(){
         if(verifyLoginCredentials()){
             cl.show(cards,"home");
@@ -156,6 +165,7 @@ public class AquaGuardApp extends javax.swing.JFrame {
         }
     }
     
+    //method to verify credentials when logging in
     public boolean verifyLoginCredentials(){
         for(User u : Users){
             if(u.checkUsername(usernameInputField.getText()) && u.checkPassword(passwordInputField.getText())){
@@ -167,6 +177,7 @@ public class AquaGuardApp extends javax.swing.JFrame {
         return false;
     }
     
+    //method to clear signup and login InputField
     public void clearCredentials(){
         usernameInputField.clearText();
         passwordInputField.clearText();
@@ -176,6 +187,7 @@ public class AquaGuardApp extends javax.swing.JFrame {
         loginErrorLabel.setText("");
     }
     
+    //method to logout
     public void logout(){
         cl.show(cards,"login");
         nameLabel.setText("Login");
@@ -419,9 +431,6 @@ public class AquaGuardApp extends javax.swing.JFrame {
         logoutLabel.setForeground(new java.awt.Color(255, 255, 255));
         logoutLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         logoutLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logoutBTN.png"))); // NOI18N
-        logoutLabel.setMaximumSize(new java.awt.Dimension(40, 40));
-        logoutLabel.setMinimumSize(new java.awt.Dimension(40, 40));
-        logoutLabel.setPreferredSize(new java.awt.Dimension(40, 40));
         logoutLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 logoutLabelMouseClicked(evt);
@@ -447,10 +456,10 @@ public class AquaGuardApp extends javax.swing.JFrame {
                 .addComponent(homeBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 688, Short.MAX_VALUE)
-                .addComponent(settingsBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(logoutLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(logoutLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(settingsBTN, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         topBarLayout.setVerticalGroup(
@@ -459,9 +468,9 @@ public class AquaGuardApp extends javax.swing.JFrame {
             .addComponent(nameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topBarLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(logoutLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(settingsBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(topBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(settingsBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(logoutLabel))
                 .addContainerGap())
         );
 

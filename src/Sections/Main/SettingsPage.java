@@ -19,20 +19,25 @@ import javax.swing.border.MatteBorder;
 public class SettingsPage extends javax.swing.JPanel {
     private CardLayout cl;
     private User currentUser;
+    
+    //constructor for Settings page
     public SettingsPage() {
         initComponents();
         cl = (CardLayout)(cards.getLayout());
     }
     
+    //method to set currentUser for settings
     public void setUser(User u){
         this.currentUser = u;
     }
     
+    //method to display Users information in account tab
     public void initUser(){
         accountNameField.setText(currentUser.getUsername().toString());
         accountHighScoreField.setText(String.valueOf(currentUser.getHighScore()));
     }
-
+    
+    //method to set the active tab by resetting all pg labels to white and setting the clicked one to grey
     public void setActive(JLabel label, String card){
         //Reset Labels to White
         accountPgLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -44,12 +49,14 @@ public class SettingsPage extends javax.swing.JPanel {
         cl.show(cards, card);
     }
     
+    //method for changing the password
     public void changePassword(){
         if(verifyNewPassword()){
             AquaGuard.updatePass(currentUser, newPasswordField.getText());
         }
     }
     
+    //method to verify credentials for new password
     public boolean verifyNewPassword(){
         if(currentUser.getPassword().equals(currentPasswordField.getText()) && newPasswordField.getText().equals(confirmPasswordField.getText())){
             newPasswordErrorLabel.setForeground(Color.GREEN);
@@ -63,6 +70,7 @@ public class SettingsPage extends javax.swing.JPanel {
         
     }
     
+    //method to deleteAccount by validating credentials then calling method 
     public void deleteAccount(){
         if(!currentUser.getUsername().equals(deleteAccountUsernameField.getText())){
             deleteAccountErrorLabel.setText("Incorrect Username");

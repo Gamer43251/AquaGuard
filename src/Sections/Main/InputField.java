@@ -13,26 +13,33 @@ public class InputField extends javax.swing.JPanel {
     /**
      * Creates new form inputField
      */
+    
+    //constructor for InputField
     public InputField() {
         initComponents();
     }
     
+    //method to set the tag of the InputField
     public void setTag(String tag){
         tagLabel.setText(tag);
     }
     
+    //method to getText from InputField
     public String getText(){
         return inputField.getText();
     }
     
+    //method to set text of InputField
     public void setText(String str){
         inputField.setText(str);
     }
     
+    //method to clear InputField
     public void clearText(){
         inputField.setText("");
     }
     
+    //method to disable editing of InputField and change Background 
     @Override
     public void disable(){
         inputField.setEditable(false);

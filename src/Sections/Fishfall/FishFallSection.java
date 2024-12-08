@@ -16,25 +16,25 @@ public class FishFallSection extends javax.swing.JPanel {
     /**
      * Creates new form FishFallSection
      */
+    //constructor for FishFallSection
     public FishFallSection() {
         initComponents();
         
     }
     
+    //method to set the player of the FishFallGame within the section
     public void setPlayer(){
         Game.setPlayer();
     }
     
+    //method to setFocus to the game so that Keys pressed are tracked for it also sets the games User
     public void setFocus(){
         Game.requestFocus();
         Curr = AquaGuardApp.getCurrentUser();
         displayHighScore();
     }
     
-    public void resetGame(){
-        Game = new FishFallGame();
-        System.out.println("Test");
-    }    
+    //method to increase the label
     public void increaseScore(int score){
         if (scoreLabel == null) {
             System.out.println("scoreLabel is null!");
@@ -49,16 +49,19 @@ public class FishFallSection extends javax.swing.JPanel {
 
     }
     
+    //method tp update whats displayed on the ScoreLabel
     public void updateScoreLabel(int score) {
         scoreLabel.setText("Score: " + score);
         scoreLabel.revalidate();
         scoreLabel.repaint();
     }
     
+    //method to display HighScore
     public void displayHighScore(){
         highscoreLabel.setText("Highscore: " + Curr.getHighScore());
     }
     
+    //method to display Leaderboard
     public void displayLeaderBoard(){
         leaderboard1.displayPlayers();
     }

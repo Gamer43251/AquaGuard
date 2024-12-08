@@ -28,6 +28,7 @@ import javax.swing.Timer;
  * @author Jordan Dreelan x23150076
  */
 public class FishFallGame extends javax.swing.JPanel {
+    // variable Initialisation
     private FishFallSection parentSection;
     private AquaGuardApp Display = AquaGuard.getDisplay();
     private int screenWidth = 600;
@@ -53,6 +54,7 @@ public class FishFallGame extends javax.swing.JPanel {
     /**
      * Creates new form FishFallGame
      */
+    //default constructor
     public FishFallGame() {
         this.pl = AquaGuardApp.getCurrentUser();
         initComponents();
@@ -60,6 +62,7 @@ public class FishFallGame extends javax.swing.JPanel {
         addKeyListener(new MyKeyAdapter());
     }
     
+    //Fish fall game constructor with FishFallSection passed as paramater for displaying details
     public FishFallGame(FishFallSection parent) {
         state = 0;
         
@@ -69,19 +72,24 @@ public class FishFallGame extends javax.swing.JPanel {
         addKeyListener(new MyKeyAdapter());
     }
     
+    //method to the the current user of the game 
     public void setPlayer(){
         this.pl = AquaGuardApp.getCurrentUser();
     }
     
+    // method to get the games Tilesize
     public int getTileSize(){
         return this.tileSize;
     }
+    
     @Override
+    // method to display all graphics called from repaint();
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         draw(g);
     }
     
+    // method that draws everything when called
     public void draw(Graphics g){
         switch (state){
             case 0:
@@ -250,7 +258,7 @@ public class FishFallGame extends javax.swing.JPanel {
         }
     }
     
-    
+    //method that handles the droppables in the drops array using a random integer to decide which is added
     public void sortDroppables(){
         if(state == 1){
             Random rand = new Random();
@@ -268,8 +276,9 @@ public class FishFallGame extends javax.swing.JPanel {
             }
         }
     }
-    
+    // method to start the game
     public void startGame(){
+        //resets timers
         if(timer != null){
             timer.stop();
             timer = null;
@@ -278,12 +287,13 @@ public class FishFallGame extends javax.swing.JPanel {
             dropTime.stop();
             dropTime = null;
         }
-        
+        //resets variables
         score = 0;
         increaseScore(score);
         lives = 5;
         state = 1;
         repaint();
+            //timer object for game loop handles game state and checks for collisions
             timer = new Timer(dropSpeed, new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -299,7 +309,7 @@ public class FishFallGame extends javax.swing.JPanel {
             });
             timer.start();
         
-        
+        // timer objects for handling adding new droppables to the game
         dropTime = new Timer(1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -311,16 +321,18 @@ public class FishFallGame extends javax.swing.JPanel {
         
     }
     
+    //method to handle pausing the game
     public void pauseGame(){
         timer.stop();
         state = 3;
     }
-    
+    // method to handle resuming the game
     public void resumeGame(){
         timer.start();
         state = 1;
     }
-                
+    
+    // method to handle the player moving
     public void move(){
         if (direction == 'L' && pl.getX() > 0){
             pl.setX(pl.getX() - tileSize);
@@ -330,6 +342,7 @@ public class FishFallGame extends javax.swing.JPanel {
         }
     }
     
+    //method for tracking collisions of droppables with the player
     public void checkCollisions() {
         // A separate list to track new items to be added
         ArrayList<Droppable> newDrops = new ArrayList<>();
@@ -363,14 +376,13 @@ public class FishFallGame extends javax.swing.JPanel {
                     AquaGuardApp.bubblePop();
                 }
                 iterator.remove(); // Safe removal
-                //newDrops.add(dr instanceof Waste ? new Waste() : new Fish());
             }
         }
 
         // Add all new items after iteration is complete
-        //drops.addAll(newDrops);
     }
 
+    //method to check the games state for handling game over
     public void checkState(){
         if(lives == 0){
             state = 2;
@@ -382,6 +394,7 @@ public class FishFallGame extends javax.swing.JPanel {
         }
     }
     
+    //method to increase the score on the ScoreLabel in FishFallSection
     public void increaseScore(int score) {
         // Use the parent reference to update scoreLabel
         SwingUtilities.invokeLater(() -> {
@@ -393,6 +406,7 @@ public class FishFallGame extends javax.swing.JPanel {
         });
     }
     
+    //method to handle the players high score at game over to update the players highscore
     public void handleHighScore(){
         System.out.println("Score: " + score + " Highscore: " + pl.getHighScore());
         if(score > pl.getHighScore()){
@@ -402,7 +416,7 @@ public class FishFallGame extends javax.swing.JPanel {
         }
     }
     
-    
+    //MyKeyAdapter class to handle input from the player and track their keys pressed to handle game state and movement
     public class MyKeyAdapter extends KeyAdapter {
         @Override
         public void keyPressed(KeyEvent e) {

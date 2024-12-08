@@ -14,15 +14,19 @@ public class LeaderboardPlayer extends javax.swing.JPanel {
     /**
      * Creates new form LeaderboardPlayer
      */
+    
+    //constructor for LeaderboardPlayer
     public LeaderboardPlayer() {
         initComponents();
     }
     
+    //method to invert the color of the background used so every 2nd can be a different color for nicer look
     public void invertColor(){
         usernameLabel.setBackground(new java.awt.Color(0,255,255));
         scoreLabel.setBackground(new java.awt.Color(0,255,255));
     }
     
+    //method to display the users stats
     public void displayUser(int rank, User u){
         this.ranking = rank;
         this.u = u;
@@ -31,6 +35,7 @@ public class LeaderboardPlayer extends javax.swing.JPanel {
         scoreLabel.setText("" + u.getHighScore());
     }
     
+    //method to check if there is a user attatched to the LeaderboardPlayer
     public boolean checkUser(User u){
         if(this.u == u && this.u != null){
             return true;
