@@ -204,10 +204,9 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="nameLabel" min="-2" pref="600" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="logoutLabel" alignment="1" min="-2" pref="101" max="-2" attributes="0"/>
-                      <Component id="settingsBTN" alignment="1" min="-2" pref="101" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="settingsBTN" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="logoutLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
