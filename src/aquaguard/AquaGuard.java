@@ -99,6 +99,39 @@ public class AquaGuard {
             
     }
     
+    public static void removeUser(String user, String pass){
+        ArrayList<String> lines = new ArrayList<String>();
+        try(BufferedReader br = new BufferedReader(new FileReader(userFile.toString()))){
+            String line;
+            while((line = br.readLine()) != null){
+               String[] parts = line.split("\\|");
+               if(parts.length == 3){
+                   String username = parts[0];
+                   String password = parts[1];
+                   
+                   if(!(username.equals(user) && password.equals(pass))){
+                       lines.add(line);
+                   }
+               }
+               
+            }
+        }catch(IOException e){
+             e.printStackTrace();
+        }
+        
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(userFile.toString()))) {
+            for (String updatedLine : lines) {
+                writer.write(updatedLine);
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("User removed successfully.");
+        
+    }
+    
     // method to update the users high score in Users.txt
     public static void updateHighscore(User u, int newScore){
         System.out.println("Test");
@@ -110,6 +143,37 @@ public class AquaGuard {
                    String[] parts = line.split("\\|");
                    if(parts.length == 3){
                        parts[2] = String.valueOf(newScore);
+                       line = String.join("|", parts);
+                   }
+               }
+               lines.add(line);
+               
+        }
+        }catch(IOException e){
+            System.out.println("Not Saving");
+            e.printStackTrace();
+        }
+        
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(userFile.toString()))) {
+            for (String updatedLine : lines) {
+                writer.write(updatedLine);
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    // method to update the users Pin in Users.dat
+    public static void updatePass(User u, String newPass){
+        ArrayList<String> lines = new ArrayList<String>();
+        try(BufferedReader br = new BufferedReader(new FileReader(userFile.toString()))){
+           String line;
+           while((line = br.readLine()) != null){
+               if(line.equals(u.getUsername() + "|" + u.getPassword() + "|" + u.getHighScore())){
+                   String[] parts = line.split("\\|");
+                   if(parts.length == 3){
+                       parts[1] = newPass;
                        line = String.join("|", parts);
                    }
                }

@@ -5,8 +5,11 @@
 package Sections.Main;
 
 import Sections.Fishfall.User;
+import aquaguard.AquaGuard;
+import aquaguard.AquaGuardApp;
 import java.awt.CardLayout;
 import java.awt.Color;
+import javax.swing.JLabel;
 import javax.swing.border.MatteBorder;
 
 /**
@@ -18,6 +21,7 @@ public class SettingsPage extends javax.swing.JPanel {
     private User currentUser;
     public SettingsPage() {
         initComponents();
+        cl = (CardLayout)(cards.getLayout());
     }
     
     public void setUser(User u){
@@ -27,6 +31,48 @@ public class SettingsPage extends javax.swing.JPanel {
     public void initUser(){
         accountNameField.setText(currentUser.getUsername().toString());
         accountHighScoreField.setText(String.valueOf(currentUser.getHighScore()));
+    }
+
+    public void setActive(JLabel label, String card){
+        //Reset Labels to White
+        accountPgLabel.setForeground(new java.awt.Color(255, 255, 255));
+        changePasswordPgLabel.setForeground(new java.awt.Color(255, 255, 255));
+        deleteAccountPgLabel.setForeground(new java.awt.Color(255, 255, 255));
+        
+        
+        label.setForeground(new java.awt.Color(113, 127, 130));
+        cl.show(cards, card);
+    }
+    
+    public void changePassword(){
+        if(verifyNewPassword()){
+            AquaGuard.updatePass(currentUser, newPasswordField.getText());
+        }
+    }
+    
+    public boolean verifyNewPassword(){
+        if(currentUser.getPassword().equals(currentPasswordField.getText()) && newPasswordField.getText().equals(confirmPasswordField.getText())){
+            newPasswordErrorLabel.setForeground(Color.GREEN);
+            newPasswordErrorLabel.setText("Password Change Succesful");
+           return true;    
+        }else{
+            newPasswordErrorLabel.setForeground(Color.RED);
+            newPasswordErrorLabel.setText("Invalid Credentials");
+            return false;
+        }
+        
+    }
+    
+    public void deleteAccount(){
+        if(!currentUser.getUsername().equals(deleteAccountUsernameField.getText())){
+            deleteAccountErrorLabel.setText("Incorrect Username");
+        }else if(!currentUser.getPassword().equals(deleteAccountPasswordField.getText())){
+            deleteAccountErrorLabel.setText("Incorrect Password");
+        }else{
+            AquaGuard.removeUser(deleteAccountUsernameField.getText(), deleteAccountPasswordField.getText());
+            AquaGuard.getDisplay().logout();
+            
+        }
     }
     
     /**
@@ -38,22 +84,33 @@ public class SettingsPage extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Cards = new javax.swing.JPanel();
+        cards = new javax.swing.JPanel();
         accountCard = new javax.swing.JPanel();
         accountNameField = new Sections.Main.InputField();
         accountHighScoreField = new Sections.Main.InputField();
+        changePasswordCard = new javax.swing.JPanel();
+        currentPasswordField = new Sections.Main.InputField();
+        newPasswordField = new Sections.Main.InputField();
+        confirmPasswordField = new Sections.Main.InputField();
+        newPasswordErrorLabel = new javax.swing.JLabel();
+        confirmNewPasswordBTN = new javax.swing.JLabel();
+        deleteAccountCard = new javax.swing.JPanel();
+        deleteAccountUsernameField = new Sections.Main.InputField();
+        deleteAccountErrorLabel = new javax.swing.JLabel();
+        deleteAccountConfirmButton = new javax.swing.JLabel();
+        deleteAccountPasswordField = new Sections.Main.InputField();
         sideBar = new javax.swing.JPanel();
         accountPgLabel = new javax.swing.JLabel();
-        accountPgLabel1 = new javax.swing.JLabel();
-        accountPgLabel2 = new javax.swing.JLabel();
+        changePasswordPgLabel = new javax.swing.JLabel();
+        deleteAccountPgLabel = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(1500, 800));
         setMinimumSize(new java.awt.Dimension(1500, 800));
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(1500, 800));
 
-        Cards.setOpaque(false);
-        Cards.setLayout(new java.awt.CardLayout());
+        cards.setOpaque(false);
+        cards.setLayout(new java.awt.CardLayout());
 
         accountCard.setOpaque(false);
 
@@ -84,7 +141,104 @@ public class SettingsPage extends javax.swing.JPanel {
                 .addContainerGap(564, Short.MAX_VALUE))
         );
 
-        Cards.add(accountCard, "card2");
+        cards.add(accountCard, "account");
+
+        changePasswordCard.setOpaque(false);
+
+        currentPasswordField.setTag("Current Password");
+
+        newPasswordField.setTag("New Password");
+
+        confirmPasswordField.setTag("Confirm Password");
+
+        newPasswordErrorLabel.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        newPasswordErrorLabel.setForeground(new java.awt.Color(255, 0, 0));
+        newPasswordErrorLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        confirmNewPasswordBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ConfirmButton.png"))); // NOI18N
+        confirmNewPasswordBTN.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                confirmNewPasswordBTNMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout changePasswordCardLayout = new javax.swing.GroupLayout(changePasswordCard);
+        changePasswordCard.setLayout(changePasswordCardLayout);
+        changePasswordCardLayout.setHorizontalGroup(
+            changePasswordCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, changePasswordCardLayout.createSequentialGroup()
+                .addContainerGap(25, Short.MAX_VALUE)
+                .addGroup(changePasswordCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(confirmNewPasswordBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 1150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(newPasswordErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 1150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(currentPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(newPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(confirmPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25))
+        );
+        changePasswordCardLayout.setVerticalGroup(
+            changePasswordCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(changePasswordCardLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(newPasswordErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(currentPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addComponent(newPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addComponent(confirmPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addComponent(confirmNewPasswordBTN)
+                .addContainerGap(180, Short.MAX_VALUE))
+        );
+
+        cards.add(changePasswordCard, "changePassword");
+
+        deleteAccountCard.setOpaque(false);
+
+        deleteAccountUsernameField.setTag("Username");
+
+        deleteAccountErrorLabel.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        deleteAccountErrorLabel.setForeground(new java.awt.Color(255, 0, 0));
+        deleteAccountErrorLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        deleteAccountConfirmButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ConfirmButton.png"))); // NOI18N
+        deleteAccountConfirmButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                deleteAccountConfirmButtonMouseClicked(evt);
+            }
+        });
+
+        deleteAccountPasswordField.setTag("Password");
+
+        javax.swing.GroupLayout deleteAccountCardLayout = new javax.swing.GroupLayout(deleteAccountCard);
+        deleteAccountCard.setLayout(deleteAccountCardLayout);
+        deleteAccountCardLayout.setHorizontalGroup(
+            deleteAccountCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(deleteAccountCardLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(deleteAccountCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(deleteAccountErrorLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(deleteAccountUsernameField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(deleteAccountConfirmButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(deleteAccountPasswordField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
+        deleteAccountCardLayout.setVerticalGroup(
+            deleteAccountCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(deleteAccountCardLayout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(deleteAccountErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(deleteAccountUsernameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addComponent(deleteAccountPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addComponent(deleteAccountConfirmButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(316, Short.MAX_VALUE))
+        );
+
+        cards.add(deleteAccountCard, "deleteAccount");
 
         sideBar.setBorder(new MatteBorder(0, 0, 0, 5, new Color(46, 116, 132)));
         sideBar.setBackground(new java.awt.Color(0, 255, 255));
@@ -93,31 +247,50 @@ public class SettingsPage extends javax.swing.JPanel {
         sideBar.setPreferredSize(new java.awt.Dimension(300, 800));
 
         accountPgLabel.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-        accountPgLabel.setForeground(new java.awt.Color(255, 255, 255));
+        accountPgLabel.setForeground(new java.awt.Color(113, 127, 130));
         accountPgLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         accountPgLabel.setText("Account ");
+        accountPgLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                accountPgLabelMouseClicked(evt);
+            }
+        });
 
-        accountPgLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-        accountPgLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        accountPgLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        accountPgLabel1.setText("Change Pin");
+        changePasswordPgLabel.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        changePasswordPgLabel.setForeground(new java.awt.Color(255, 255, 255));
+        changePasswordPgLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        changePasswordPgLabel.setText("Change Pass");
+        changePasswordPgLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changePasswordPgLabelMouseClicked(evt);
+            }
+        });
 
-        accountPgLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        accountPgLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        accountPgLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        accountPgLabel2.setText("Delete Account");
+        deleteAccountPgLabel.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        deleteAccountPgLabel.setForeground(new java.awt.Color(255, 255, 255));
+        deleteAccountPgLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        deleteAccountPgLabel.setText("Delete Account");
+        deleteAccountPgLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                deleteAccountPgLabelMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout sideBarLayout = new javax.swing.GroupLayout(sideBar);
         sideBar.setLayout(sideBarLayout);
         sideBarLayout.setHorizontalGroup(
             sideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sideBarLayout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
-                .addGroup(sideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(accountPgLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(accountPgLabel1)
-                    .addComponent(accountPgLabel2))
-                .addGap(21, 21, 21))
+            .addGroup(sideBarLayout.createSequentialGroup()
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addGroup(sideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sideBarLayout.createSequentialGroup()
+                        .addGroup(sideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(accountPgLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(deleteAccountPgLabel))
+                        .addGap(21, 21, 21))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sideBarLayout.createSequentialGroup()
+                        .addComponent(changePasswordPgLabel)
+                        .addContainerGap())))
         );
         sideBarLayout.setVerticalGroup(
             sideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,9 +298,9 @@ public class SettingsPage extends javax.swing.JPanel {
                 .addGap(20, 20, 20)
                 .addComponent(accountPgLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(accountPgLabel1)
+                .addComponent(changePasswordPgLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(accountPgLabel2)
+                .addComponent(deleteAccountPgLabel)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -138,24 +311,55 @@ public class SettingsPage extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(sideBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(Cards, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(cards, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Cards, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(cards, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(sideBar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void accountPgLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accountPgLabelMouseClicked
+        setActive(accountPgLabel, "account");
+    }//GEN-LAST:event_accountPgLabelMouseClicked
+
+    private void changePasswordPgLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changePasswordPgLabelMouseClicked
+        setActive(changePasswordPgLabel, "changePassword");
+    }//GEN-LAST:event_changePasswordPgLabelMouseClicked
+
+    private void deleteAccountPgLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteAccountPgLabelMouseClicked
+        setActive(deleteAccountPgLabel, "deleteAccount");
+    }//GEN-LAST:event_deleteAccountPgLabelMouseClicked
+
+    private void confirmNewPasswordBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmNewPasswordBTNMouseClicked
+        changePassword();
+    }//GEN-LAST:event_confirmNewPasswordBTNMouseClicked
+
+    private void deleteAccountConfirmButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteAccountConfirmButtonMouseClicked
+        deleteAccount();
+    }//GEN-LAST:event_deleteAccountConfirmButtonMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel Cards;
     private javax.swing.JPanel accountCard;
     private Sections.Main.InputField accountHighScoreField;
     private Sections.Main.InputField accountNameField;
     private javax.swing.JLabel accountPgLabel;
-    private javax.swing.JLabel accountPgLabel1;
-    private javax.swing.JLabel accountPgLabel2;
+    private javax.swing.JPanel cards;
+    private javax.swing.JPanel changePasswordCard;
+    private javax.swing.JLabel changePasswordPgLabel;
+    private javax.swing.JLabel confirmNewPasswordBTN;
+    private Sections.Main.InputField confirmPasswordField;
+    private Sections.Main.InputField currentPasswordField;
+    private javax.swing.JPanel deleteAccountCard;
+    private javax.swing.JLabel deleteAccountConfirmButton;
+    private javax.swing.JLabel deleteAccountErrorLabel;
+    private Sections.Main.InputField deleteAccountPasswordField;
+    private javax.swing.JLabel deleteAccountPgLabel;
+    private Sections.Main.InputField deleteAccountUsernameField;
+    private javax.swing.JLabel newPasswordErrorLabel;
+    private Sections.Main.InputField newPasswordField;
     private javax.swing.JPanel sideBar;
     // End of variables declaration//GEN-END:variables
 }
